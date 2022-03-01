@@ -1,0 +1,11 @@
+Removed Pin From Net: NetName=GND Pin=JP3-1
+Removed Pin From Net: NetName=DEBUG_TX Pin=JP3-2
+Removed Member From Class: ClassName=Sheet2 Member=JP3
+Added Component: Designator=H1(PAD2-2.54)
+Add component (AddParameter): Name = "BOM名称"; Value = "引线焊盘"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=H1-1
+Added Pin To Net: NetName=DEBUG_TX Pin=H1-2
+Added Member To Class: ClassName=Sheet2 Member=Component H1 PAD2
+Added Room: Name=Sheet2

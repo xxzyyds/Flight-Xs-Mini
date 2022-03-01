@@ -1,0 +1,24 @@
+Added Component: Designator=R23(0402_R)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "供应商链接"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.szlcsc.com/product/details_26487.html"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Notepad"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier"; Value = "LC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SuppliersPartNumber"; Value = "C25744"; VariantName = "[No Variations]"
+Added Component: Designator=SW4(SW-SMD_4P-L5.1-W5.1-P3.70-LS6.5-TL-2)
+Add component (AddParameter): Name = "BOM名称"; Value = "3x6轻触开关"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=C17-1
+Added Pin To Net: NetName=GND Pin=C18-1
+Added Pin To Net: NetName=GND Pin=IC2-9
+Added Pin To Net: NetName=GND Pin=IC2-11
+Added Pin To Net: NetName=NetR23_1 Pin=R23-1
+Added Pin To Net: NetName=3V3 Pin=R23-2
+Added Pin To Net: NetName=GND Pin=SW4-1
+Added Pin To Net: NetName=GND Pin=SW4-2
+Added Pin To Net: NetName=NetR23_1 Pin=SW4-3
+Added Pin To Net: NetName=NetR23_1 Pin=SW4-4
+Added Member To Class: ClassName=Sheet2 Member=Component R23 10KΩ
+Added Member To Class: ClassName=Sheet2 Member=Component SW4 3x6x5
+Added Room: Name=Sheet2

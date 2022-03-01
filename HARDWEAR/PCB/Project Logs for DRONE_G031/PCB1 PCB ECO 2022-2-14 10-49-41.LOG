@@ -1,0 +1,10 @@
+Removed Pin From Net: NetName=NetR23_1 Pin=SW4-2
+Removed Pin From Net: NetName=KEY Pin=SW5-2
+Removed Pin From Net: NetName=GND Pin=SW6-2
+Change Component Footprint: Designator=SW4 Old Footprint=TSW SMD-3*6*2.5 New Footprint=SW-SMD_4P-L5.1-W5.1-P3.70-LS6.5-TL-2
+Change Component Footprint: Designator=SW5 Old Footprint=TSW SMD-3*6*2.5 New Footprint=SW-SMD_4P-L5.1-W5.1-P3.70-LS6.5-TL-2
+Change Component Footprint: Designator=SW6 Old Footprint=TSW SMD-3*6*2.5 New Footprint=SW-SMD_4P-L5.1-W5.1-P3.70-LS6.5-TL-2
+Added Pin To Net: NetName=NetR23_1 Pin=SW4-3
+Added Pin To Net: NetName=KEY Pin=SW5-3
+Added Pin To Net: NetName=GND Pin=SW6-3
+Added Room: Name=Sheet2
