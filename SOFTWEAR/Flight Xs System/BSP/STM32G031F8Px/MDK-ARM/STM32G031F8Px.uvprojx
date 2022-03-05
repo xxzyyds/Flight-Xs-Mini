@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32G031xx</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;  ../Drivers/STM32G0xx_HAL_Driver/Inc;  ../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy;  ../Drivers/CMSIS/Device/ST/STM32G0xx/Include;  ../Drivers/CMSIS/Include;  ../bsp_stm32g031f8px</IncludePath>
+              <IncludePath>../Core/Inc;../Drivers/STM32G0xx_HAL_Driver/Inc;../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32G0xx/Include;../Drivers/CMSIS/Include;../bsp_stm32g031f8px;../../../SystemCore/Config;../../../SystemCore/Control;../../../SystemCore/Hardware;../../../SystemCore/Math</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -623,6 +623,161 @@
               <FileName>system_stm32g0xx.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Core/Src/system_stm32g0xx.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Config 参数</GroupName>
+          <Files>
+            <File>
+              <FileName>fmuConfig.h</FileName>
+              <FileType>9</FileType>
+              <FilePath>..\..\..\SystemCore\Config\fmuConfig.h</FilePath>
+            </File>
+            <File>
+              <FileName>pidConfig.h</FileName>
+              <FileType>9</FileType>
+              <FilePath>..\..\..\SystemCore\Config\pidConfig.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Control 姿态控制</GroupName>
+          <Files>
+            <File>
+              <FileName>FollowLine.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\SystemCore\Control\FollowLine.c</FilePath>
+            </File>
+            <File>
+              <FileName>height_control.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\SystemCore\Control\height_control.c</FilePath>
+            </File>
+            <File>
+              <FileName>Init.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\SystemCore\Control\Init.c</FilePath>
+            </File>
+            <File>
+              <FileName>kernel.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\SystemCore\Control\kernel.c</FilePath>
+            </File>
+            <File>
+              <FileName>pos_ctrl.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\SystemCore\Control\pos_ctrl.c</FilePath>
+            </File>
+            <File>
+              <FileName>program_ctrl.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\SystemCore\Control\program_ctrl.c</FilePath>
+            </File>
+            <File>
+              <FileName>remote.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\SystemCore\Control\remote.c</FilePath>
+            </File>
+            <File>
+              <FileName>SDK.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\SystemCore\Control\SDK.c</FilePath>
+            </File>
+            <File>
+              <FileName>speed_estimator.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\SystemCore\Control\speed_estimator.c</FilePath>
+            </File>
+            <File>
+              <FileName>Mymain.c</FileName>
+              <FileType>9</FileType>
+              <FilePath>..\..\..\SystemCore\Mymain.c</FilePath>
+            </File>
+            <File>
+              <FileName>control.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\SystemCore\Control\control.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Hardwear 硬件设备</GroupName>
+          <Files>
+            <File>
+              <FileName>battery.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\SystemCore\Hardware\battery.c</FilePath>
+            </File>
+            <File>
+              <FileName>hardware.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\SystemCore\Hardware\hardware.c</FilePath>
+            </File>
+            <File>
+              <FileName>LED.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\SystemCore\Hardware\LED.c</FilePath>
+            </File>
+            <File>
+              <FileName>motor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\SystemCore\Hardware\motor.c</FilePath>
+            </File>
+            <File>
+              <FileName>mpu6050.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\SystemCore\Hardware\mpu6050.c</FilePath>
+            </File>
+            <File>
+              <FileName>power.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\SystemCore\Hardware\power.c</FilePath>
+            </File>
+            <File>
+              <FileName>SPL06.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\SystemCore\Hardware\SPL06.c</FilePath>
+            </File>
+            <File>
+              <FileName>timer_drv.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\SystemCore\Hardware\timer_drv.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Math 数学相关</GroupName>
+          <Files>
+            <File>
+              <FileName>filter.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\SystemCore\Math\filter.c</FilePath>
+            </File>
+            <File>
+              <FileName>imu.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\SystemCore\Math\imu.c</FilePath>
+            </File>
+            <File>
+              <FileName>kalman.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\SystemCore\Math\kalman.c</FilePath>
+            </File>
+            <File>
+              <FileName>myMath.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\SystemCore\Math\myMath.c</FilePath>
+            </File>
+            <File>
+              <FileName>pid.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\SystemCore\Math\pid.c</FilePath>
+            </File>
+            <File>
+              <FileName>queue.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\SystemCore\Math\queue.c</FilePath>
             </File>
           </Files>
         </Group>
