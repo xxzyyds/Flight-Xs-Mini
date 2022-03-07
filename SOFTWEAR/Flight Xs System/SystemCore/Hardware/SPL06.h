@@ -19,6 +19,7 @@
 #define SPL06_H
 //外部文件引用
 #include "main.h"
+#include "stdbool.h"
 
 //宏定义区
 #define HW_ADR_L                    0x76//SDO LOW

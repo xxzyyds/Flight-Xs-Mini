@@ -3,6 +3,13 @@
 
 #include <stdint.h>
 #include <usart.h>
+#include "main.h"
+#include "adc.h"
+#include "dma.h"
+#include "i2c.h"
+#include "tim.h"
+#include "usart.h"
+#include "gpio.h"
 
 typedef struct{
 	uint8_t head;
@@ -15,14 +22,10 @@ typedef struct{
 	uint8_t tail;
 }BT_RX_DATA_t;
 
-//私有接口区
-uint8_t IIC_Write(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint16_t MemAddress, uint16_t MemAddSize, uint8_t *pData, uint16_t Size, uint32_t Timeout);
-uint8_t IIC_Read(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint16_t MemAddress, uint16_t MemAddSize, uint8_t *pData, uint16_t Size, uint32_t Timeout);
-uint8_t UART_Write(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
-
 
 //外部调用区
-void Update_Motor(uint8_t Motorx,uint8_t Duty);    //设置电机Motorx的占空比为Duty%
+void BSP_Init();
+void Update_Motor(uint8_t Duty1,uint8_t Duty2,uint8_t Duty3,uint8_t Duty4);    //设置电机Motorx的占空比为Dutyx‰
 uint8_t BT_UART_TX(char* msg);
 uint8_t BT_UART_RX(BT_RX_DATA_t* data);
 uint8_t DEBUG_UART_TX(char* msg);
@@ -37,5 +40,16 @@ void STATUS_LED_ON();
 void STATUS_LED_OFF();
 uint8_t GET_BAT_ADC();
 uint8_t GET_KEY_STATUS();
+
+
+
+
+
+//私有接口区
+uint8_t IIC_Write(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint16_t MemAddress, uint16_t MemAddSize, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+uint8_t IIC_Read(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint16_t MemAddress, uint16_t MemAddSize, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+uint8_t UART_Write(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+void SystemClock_Config(void);
+
 
 #endif

@@ -3,13 +3,13 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Tool Versions:</h2>
-IDE-Version: ÂµVision V5.35.0.0
+IDE-Version: ¦ÌVision V5.35.0.0
 Copyright (C) 2021 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: , , LIC=ZB4EI-TG0G3-011P1-C7Y0H-7TG5Z-RF3WC
+License Information: xue xingzheng, JLU, LIC=CRMKE-5R9W0-VH587-EWU5U-RR77N-3MXAP
  
 Tool Versions:
-Toolchain:       MDK-ARM Plus  Version: 5.35.0.2
-Toolchain Path:  E:\EXE\MDK\ARM\ARMCC\Bin
+Toolchain:       MDK-ARM Professional  Version: 5.35.0.2
+Toolchain Path:  C:\Program Files (x86)\Keil_MDK\ARM\ARMCC\Bin
 C Compiler:      Armcc.exe V5.06 update 7 (build 960)
 Assembler:       Armasm.exe V5.06 update 7 (build 960)
 Linker/Locator:  ArmLink.exe V5.06 update 7 (build 960)
@@ -17,17 +17,224 @@ Library Manager: ArmAr.exe V5.06 update 7 (build 960)
 Hex Converter:   FromElf.exe V5.06 update 7 (build 960)
 CPU DLL:         SARMCM3.DLL V5.35.0.2
 Dialog DLL:      DARMCM1.DLL V1.19.4.0
-Target DLL:      Segger\JL2CM3.dll V2.99.40.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.9.0
 Dialog DLL:      TARMCM1.DLL V1.14.4.0
  
 <h2>Project:</h2>
-D:\OneDrive - mails.jlu.edu.cn\Document\Creat\Magic\C\Drone\Flight-Xs-Mini\SOFTWEAR\Flight Xs System\BSP\STM32G031F8Px\MDK-ARM\STM32G031F8Px.uvprojx
-Project File Date:  03/06/2022
+C:\Users\xxzyyds\Documents\GitHub\SOFTWEAR\Flight Xs System\BSP\STM32G031F8Px\MDK-ARM\STM32G031F8Px.uvprojx
+Project File Date:  03/07/2022
 
 <h2>Output:</h2>
-*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'E:\EXE\MDK\ARM\ARMCC\Bin'
+*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Program Files (x86)\Keil_MDK\ARM\ARMCC\Bin'
 Build target 'STM32G031F8Px'
-FCARM - Output Name not specified, please check 'Options for Target - Utilities'
+compiling hardware.c...
+..\..\..\SystemCore\Control\include.h(24): error:  #5: cannot open source input file "driverlib.h": No such file or directory
+  #include "driverlib.h"
+..\..\..\SystemCore\Hardware\hardware.c: 0 warnings, 1 error
+compiling power.c...
+..\..\..\SystemCore\Control\include.h(24): error:  #5: cannot open source input file "driverlib.h": No such file or directory
+  #include "driverlib.h"
+..\..\..\SystemCore\Hardware\power.c: 0 warnings, 1 error
+compiling kernel.c...
+..\..\..\SystemCore\Control\include.h(24): error:  #5: cannot open source input file "driverlib.h": No such file or directory
+  #include "driverlib.h"
+..\..\..\SystemCore\Control\kernel.c: 0 warnings, 1 error
+compiling mpu6050.c...
+..\..\..\SystemCore\Control\include.h(24): error:  #5: cannot open source input file "driverlib.h": No such file or directory
+  #include "driverlib.h"
+..\..\..\SystemCore\Hardware\mpu6050.c: 0 warnings, 1 error
+compiling timer_drv.c...
+..\..\..\SystemCore\Control\include.h(24): error:  #5: cannot open source input file "driverlib.h": No such file or directory
+  #include "driverlib.h"
+..\..\..\SystemCore\Hardware\timer_drv.c: 0 warnings, 1 error
+compiling SDK.c...
+..\..\..\SystemCore\Control\FollowLine.h(7): error:  #5: cannot open source input file "gcs.h": No such file or directory
+  #include "gcs.h"
+..\..\..\SystemCore\Control\SDK.c: 0 warnings, 1 error
+compiling control.c...
+..\..\..\SystemCore\Control\include.h(24): error:  #5: cannot open source input file "driverlib.h": No such file or directory
+  #include "driverlib.h"
+..\..\..\SystemCore\Control\control.c: 0 warnings, 1 error
+compiling FollowLine.c...
+..\..\..\SystemCore\Control\FollowLine.h(7): error:  #5: cannot open source input file "gcs.h": No such file or directory
+  #include "gcs.h"
+..\..\..\SystemCore\Control\FollowLine.c: 0 warnings, 1 error
+compiling queue.c...
+..\..\..\SystemCore\Math\queue.c(88): error:  #5: cannot open source input file "Hardware_uart.h": No such file or directory
+  #include "Hardware_uart.h"
+..\..\..\SystemCore\Math\queue.c: 0 warnings, 1 error
+compiling Init.c...
+..\..\..\SystemCore\Control\include.h(24): error:  #5: cannot open source input file "driverlib.h": No such file or directory
+  #include "driverlib.h"
+..\..\..\SystemCore\Control\Init.c: 0 warnings, 1 error
+compiling height_control.c...
+..\..\..\SystemCore\Control\include.h(24): error:  #5: cannot open source input file "driverlib.h": No such file or directory
+  #include "driverlib.h"
+..\..\..\SystemCore\Control\height_control.c: 0 warnings, 1 error
+compiling SPL06.c...
+..\..\..\SystemCore\Hardware\SPL06.c(32): error:  #5: cannot open source input file "HARDWARE_i2c.h": No such file or directory
+  #include "HARDWARE_i2c.h"
+..\..\..\SystemCore\Hardware\SPL06.c: 0 warnings, 1 error
+compiling battery.c...
+..\..\..\SystemCore\Hardware\battery.h(9): error:  #20: identifier "bool" is undefined
+      bool BatteryConnected;
+..\..\..\SystemCore\Hardware\battery.c(19): error:  #20: identifier "true" is undefined
+          g_BatteryInfo.BatteryConnected = true;
+..\..\..\SystemCore\Hardware\battery.c(23): error:  #20: identifier "false" is undefined
+          g_BatteryInfo.BatteryConnected = false;
+..\..\..\SystemCore\Hardware\battery.c: 0 warnings, 3 errors
+compiling LED.c...
+..\..\..\SystemCore\Hardware\LED.c(68): error:  #20: identifier "LED_STATUS_OFF" is undefined
+      LED_STATUS_OFF;
+..\..\..\SystemCore\Hardware\LED.c(69): error:  #20: identifier "LED_POWER_OFF" is undefined
+      LED_POWER_OFF;
+..\..\..\SystemCore\Hardware\LED.c(73): error:  #20: identifier "P1DIR" is undefined
+      P1DIR |= GPIO_PIN0;
+..\..\..\SystemCore\Hardware\LED.c(73): error:  #20: identifier "GPIO_PIN0" is undefined
+      P1DIR |= GPIO_PIN0;
+..\..\..\SystemCore\Hardware\LED.c(76): error:  #20: identifier "P2DIR" is undefined
+      P2DIR |= GPIO_PIN0;
+..\..\..\SystemCore\Hardware\LED.c(77): error:  #20: identifier "GPIO_PIN1" is undefined
+      P2DIR |= GPIO_PIN1;
+..\..\..\SystemCore\Hardware\LED.c(78): error:  #20: identifier "GPIO_PIN2" is undefined
+      P2DIR |= GPIO_PIN2;
+..\..\..\SystemCore\Hardware\LED.c(85): error:  #20: identifier "P3DIR" is undefined
+      P3DIR |= GPIO_PIN5;
+..\..\..\SystemCore\Hardware\LED.c(85): error:  #20: identifier "GPIO_PIN5" is undefined
+      P3DIR |= GPIO_PIN5;
+..\..\..\SystemCore\Hardware\LED.c(86): error:  #20: identifier "P5DIR" is undefined
+      P5DIR |= GPIO_PIN0;
+..\..\..\SystemCore\Hardware\LED.c(89): error:  #20: identifier "P3OUT" is undefined
+      P3OUT |= GPIO_PIN5;
+..\..\..\SystemCore\Hardware\LED.c(90): error:  #20: identifier "P5OUT" is undefined
+      P5OUT |= GPIO_PIN0;
+..\..\..\SystemCore\Hardware\LED.c(95): error:  #20: identifier "P6DIR" is undefined
+  		P6DIR |= GPIO_PIN2;
+..\..\..\SystemCore\Hardware\LED.c(96): error:  #20: identifier "P6OUT" is undefined
+  		P6OUT |= GPIO_PIN2;    //¸ßµçÆ½ 
+..\..\..\SystemCore\Hardware\LED.c(101): error:  #20: identifier "P1OUT" is undefined
+      P1OUT &= ~GPIO_PIN0;
+..\..\..\SystemCore\Hardware\LED.c(102): error:  #20: identifier "P2OUT" is undefined
+      P2OUT &= ~GPIO_PIN0;
+..\..\..\SystemCore\Hardware\LED.c(140): error:  #20: identifier "LED_STATUS_TOGGLE" is undefined
+                  LED_STATUS_TOGGLE;
+..\..\..\SystemCore\Hardware\LED.c(144): error:  #20: identifier "LED_STATUS_TOGGLE" is undefined
+              LED_STATUS_TOGGLE;
+..\..\..\SystemCore\Hardware\LED.c(147): error:  #20: identifier "LED_STATUS_ON" is undefined
+              LED_STATUS_ON;
+..\..\..\SystemCore\Hardware\LED.c(150): error:  #20: identifier "LED_STATUS_OFF" is undefined
+              LED_STATUS_OFF;
+..\..\..\SystemCore\Hardware\LED.c(160): error:  #20: identifier "LED_POWER_ON" is undefined
+              LED_POWER_ON;
+..\..\..\SystemCore\Hardware\LED.c(165): error:  #20: identifier "LED_POWER_TOGGLE" is undefined
+                  LED_POWER_TOGGLE;
+..\..\..\SystemCore\Hardware\LED.c(169): error:  #20: identifier "LED_POWER_OFF" is undefined
+              LED_POWER_OFF;
+..\..\..\SystemCore\Hardware\LED.c(172): error:  #20: identifier "LED_POWER_TOGGLE" is undefined
+              LED_POWER_TOGGLE;
+..\..\..\SystemCore\Hardware\LED.c(182): error:  #20: identifier "P5OUT" is undefined
+              LED_RGB_B_ON;
+..\..\..\SystemCore\Hardware\LED.c(182): error:  #20: identifier "GPIO_PIN2" is undefined
+              LED_RGB_B_ON;
+..\..\..\SystemCore\Hardware\LED.c(187): warning:  #223-D: function "GPIO_toggleOutputOnPin" declared implicitly
+                  LED_RGB_B_TOGGLE;
+..\..\..\SystemCore\Hardware\LED.c(187): error:  #20: identifier "GPIO_PORT_P5" is undefined
+                  LED_RGB_B_TOGGLE;
+..\..\..\SystemCore\Hardware\LED.c(194): warning:  #223-D: function "GPIO_toggleOutputOnPin" declared implicitly
+              LED_RGB_B_TOGGLE;
+..\..\..\SystemCore\Hardware\LED.c(194): error:  #20: identifier "GPIO_PORT_P5" is undefined
+              LED_RGB_B_TOGGLE;
+..\..\..\SystemCore\Hardware\LED.c(203): error:  #20: identifier "P3OUT" is undefined
+              LED_RGB_R_ON;
+..\..\..\SystemCore\Hardware\LED.c(203): error:  #20: identifier "GPIO_PIN5" is undefined
+              LED_RGB_R_ON;
+..\..\..\SystemCore\Hardware\LED.c: 2 warnings, 30 errors
+compiling program_ctrl.c...
+..\..\..\SystemCore\Control\program_ctrl.c(5): error:  #5: cannot open source input file "gcs.h": No such file or directory
+  #include "gcs.h"
+..\..\..\SystemCore\Control\program_ctrl.c: 0 warnings, 1 error
+compiling motor.c...
+..\..\..\SystemCore\Hardware\motor.c(32): error:  #5: cannot open source input file "eeprom.h": No such file or directory
+  #include "eeprom.h"
+..\..\..\SystemCore\Hardware\motor.c: 0 warnings, 1 error
+compiling imu.c...
+..\..\..\SystemCore\Control\include.h(24): error:  #5: cannot open source input file "driverlib.h": No such file or directory
+  #include "driverlib.h"
+..\..\..\SystemCore\Math\imu.c: 0 warnings, 1 error
+compiling remote.c...
+..\..\..\SystemCore\Control\remote.c(33): error:  #5: cannot open source input file "gcs.h": No such file or directory
+  #include "gcs.h"
+..\..\..\SystemCore\Control\remote.c: 0 warnings, 1 error
+compiling speed_estimator.c...
+..\..\..\SystemCore\Control\speed_estimator.c(30): error:  #5: cannot open source input file "gcs.h": No such file or directory
+  #include "gcs.h"
+..\..\..\SystemCore\Control\speed_estimator.c: 0 warnings, 1 error
+compiling pos_ctrl.c...
+..\..\..\SystemCore\Control\pos_ctrl.c(3): error:  #5: cannot open source input file "Ano_OF.h": No such file or directory
+  #include "Ano_OF.h"
+..\..\..\SystemCore\Control\pos_ctrl.c: 0 warnings, 1 error
+compiling bsp_stm32g031f8px.c...
+..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(32): warning:  #1295-D: Deprecated declaration BSP_Init - give arg types
+  void BSP_Init();
+..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(37): warning:  #1295-D: Deprecated declaration MPU6050_IIC_Write - give arg types
+  uint8_t MPU6050_IIC_Write();
+..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(38): warning:  #1295-D: Deprecated declaration MPU6050_IIC_Read - give arg types
+  uint8_t MPU6050_IIC_Read();
+..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(39): warning:  #1295-D: Deprecated declaration SPL06_IIC_Write - give arg types
+  uint8_t SPL06_IIC_Write();
+..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(40): warning:  #1295-D: Deprecated declaration SPL06_IIC_Read - give arg types
+  uint8_t SPL06_IIC_Read();
+..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(42): warning:  #1295-D: Deprecated declaration DEBUG_LED_ON - give arg types
+  void DEBUG_LED_ON();
+..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(43): warning:  #1295-D: Deprecated declaration DEBUG_LED_OFF - give arg types
+  void DEBUG_LED_OFF();
+..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(44): warning:  #1295-D: Deprecated declaration STATUS_LED_ON - give arg types
+  void STATUS_LED_ON();
+..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(45): warning:  #1295-D: Deprecated declaration STATUS_LED_OFF - give arg types
+  void STATUS_LED_OFF();
+..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(46): warning:  #1295-D: Deprecated declaration GET_BAT_ADC - give arg types
+  uint8_t GET_BAT_ADC();
+..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(47): warning:  #1295-D: Deprecated declaration GET_KEY_STATUS - give arg types
+  uint8_t GET_KEY_STATUS();
+..\bsp_stm32g031f8px\bsp_stm32g031f8px.c(60): warning:  #1295-D: Deprecated declaration MPU6050_IIC_Write - give arg types
+  uint8_t MPU6050_IIC_Write();
+..\bsp_stm32g031f8px\bsp_stm32g031f8px.c(61): warning:  #1295-D: Deprecated declaration MPU6050_IIC_Read - give arg types
+  uint8_t MPU6050_IIC_Read();
+..\bsp_stm32g031f8px\bsp_stm32g031f8px.c(62): warning:  #1295-D: Deprecated declaration SPL06_IIC_Write - give arg types
+  uint8_t SPL06_IIC_Write();
+..\bsp_stm32g031f8px\bsp_stm32g031f8px.c(63): warning:  #1295-D: Deprecated declaration SPL06_IIC_Read - give arg types
+  uint8_t SPL06_IIC_Read();
+..\bsp_stm32g031f8px\bsp_stm32g031f8px.c(87): warning:  #940-D: missing return statement at end of non-void function "GET_BAT_ADC" 
+  }
+..\bsp_stm32g031f8px\bsp_stm32g031f8px.c(92): warning:  #940-D: missing return statement at end of non-void function "GET_KEY_STATUS" 
+  }
+..\bsp_stm32g031f8px\bsp_stm32g031f8px.c(147): warning:  #1-D: last line of file ends without a newline
+  }
+..\bsp_stm32g031f8px\bsp_stm32g031f8px.c: 18 warnings, 0 errors
+"STM32G031F8Px\STM32G031F8Px.axf" - 51 Error(s), 20 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.8.0.pack
+                ARM.CMSIS.5.8.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.5.0
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32G0xx_DFP.1.4.0.pack
+                Keil.STM32G0xx_DFP.1.4.0
+                STMicroelectronics STM32G0 Series Device Support
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\_STM32G031F8Px
+  C:\Users\xxzyyds\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include
+  C:\Users\xxzyyds\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.4.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.5.0
+      Include file:  CMSIS\Core\Include\tz_context.h
 Target not created.
 Build Time Elapsed:  00:00:01
 </pre>

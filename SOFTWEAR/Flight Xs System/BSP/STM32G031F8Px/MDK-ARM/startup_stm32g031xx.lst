@@ -368,13 +368,13 @@ ARM Macro Assembler    Page 6
               00000200 
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M0+ --apcs=inter
-work --depend=.\stm32g031f8px\startup_stm32g031xx.d -o.\stm32g031f8px\startup_s
-tm32g031xx.o -I.\RTE\_STM32G031F8Px -IC:\Users\xxzyyds\AppData\Local\Arm\Packs\
-ARM\CMSIS\5.8.0\CMSIS\Core\Include -IC:\Users\xxzyyds\AppData\Local\Arm\Packs\K
-eil\STM32G0xx_DFP\1.4.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include --predefine="
-__UVISION_VERSION SETA 535" --predefine="_RTE_ SETA 1" --predefine="STM32G031xx
- SETA 1" --predefine="_RTE_ SETA 1" --list=startup_stm32g031xx.lst startup_stm3
-2g031xx.s
+work --depend=stm32g031f8px\startup_stm32g031xx.d -ostm32g031f8px\startup_stm32
+g031xx.o -I.\RTE\_STM32G031F8Px -IC:\Users\xxzyyds\AppData\Local\Arm\Packs\ARM\
+CMSIS\5.8.0\CMSIS\Core\Include -IC:\Users\xxzyyds\AppData\Local\Arm\Packs\Keil\
+STM32G0xx_DFP\1.4.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include --predefine="__UV
+ISION_VERSION SETA 535" --predefine="_RTE_ SETA 1" --predefine="STM32G031xx SET
+A 1" --predefine="_RTE_ SETA 1" --list=startup_stm32g031xx.lst startup_stm32g03
+1xx.s
 
 
 
