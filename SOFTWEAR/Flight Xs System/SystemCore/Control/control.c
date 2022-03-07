@@ -1,21 +1,3 @@
-/**
-  ******************************************************************************
-  * Copyright (c) 2018,北京中科浩电科技有限公司
-  * All rights reserved.
-  * 文件名称：control.c
-  * 摘    要：
-  *
-  * 当前版本：V1.0
-  * 作    者：北京中科浩电科技有限公司研发部 
-  * 完成日期：    
-  * 修改说明：
-  * 
-  * 
-  * 历史版本：
-  *
-  *
-  *******************************************************************************/
-
 /*==============================================================================
                          ##### How to use this driver #####
 ==============================================================================
@@ -24,40 +6,26 @@
 2.MotorControl函数3ms调用一次
 
 */
+
+
 //外部文件引用
 #include "include.h" 
-#include "control.h"
-#include "pid.h"
-#include "math.h"
-#include "fmuConfig.h"
-#include "led.h"
-#include "remote.h"
-#include "spl06.h"
-#include "imu.h"
-#include "myMath.h"
-#include "gcs.h"
-#include "speed_estimator.h"
-#include "remote.h"
+#include "StatusConfig.h"
+#include "pidConfig.h"
 
-//宏定义区
-#define EMERGENT    0
+
+//定义
+int16_t motor[4];
+
 #define MOTOR1      motor[0] 
 #define MOTOR2      motor[1] 
 #define MOTOR3      motor[2] 
 #define MOTOR4      motor[3]
+
+
 #define ClearMotor  memset(motor, 0, sizeof(int16_t) * 4)
 
-//Extern引用
 
-
-
-//私有函数区
-
-
-
-//私有变量区
-int16_t motor[4];
-FMUflg_t g_FMUflg;      //系统标志位，包含解锁标志位等
 
 /******************************************************************************
   * 函数名称：FlightPidControl
@@ -66,39 +34,39 @@ FMUflg_t g_FMUflg;      //系统标志位，包含解锁标志位等
   * 输    出：void
   * 返    回：void 
   * 备    注：null  
-  *
-  *
 ******************************************************************************/
-extern uint8_t fc_state_take_off;
-float PIDGroup_desired_yaw_pos_tmp,fb_gyro_lpf[3];
+
 void FlightPidControl(float dt)
 {
-    volatile static uint8_t status = WAITING_1;
+    volatile static uint8_t status = WAITING;
 
     //状态更新switch
     switch(status)
     {
         //等待状态
-        case WAITING_1:
-            if(g_FMUflg.unlock)
+        case WAITING:
+            if(FlightStatus.unlock)
             {
-                status = READY_11;    
+                status = READY;    
             }
-            break;
+            break
+							;
         //准备状态
-        case READY_11:
-            ResetPID();                             //批量复位PID数据，防止上次遗留的数据影响本次控制
+        case READY:
+						// 批量复位PID数据，防止上次遗留的数据影响本次控制
+            ResetPID();                             
             IMU_Reset();
             g_Attitude.yaw = 0;
             PIDGroup_desired_yaw_pos_tmp = g_Attitude.yaw;
             PIDGroup[emPID_Yaw_Pos].measured = 0;
-            status = PROCESS_31;
+            status = PROCESS;
             break;
+				
         //正式进入控制
-        case PROCESS_31:                
-			fb_gyro_lpf[0] += 0.5f *(g_MPUManager.gyroX * Gyro_G - fb_gyro_lpf[0]); //内环测量值 角度/秒
-			fb_gyro_lpf[1] += 0.5f *(g_MPUManager.gyroY * Gyro_G - fb_gyro_lpf[1]); //内环测量值 角度/秒
-			fb_gyro_lpf[2] += 0.5f *(g_MPUManager.gyroZ * Gyro_G - fb_gyro_lpf[2]); //内环测量值 角度/秒
+        case PROCESS:                
+						fb_gyro_lpf[0] += 0.5f *(g_MPUManager.gyroX * Gyro_G - fb_gyro_lpf[0]); //内环测量值 角度/秒
+						fb_gyro_lpf[1] += 0.5f *(g_MPUManager.gyroY * Gyro_G - fb_gyro_lpf[1]); //内环测量值 角度/秒
+						fb_gyro_lpf[2] += 0.5f *(g_MPUManager.gyroZ * Gyro_G - fb_gyro_lpf[2]); //内环测量值 角度/秒
 
             //速度环PID测量值由陀螺仪给出
             PIDGroup[emPID_Roll_Spd].measured = fb_gyro_lpf[0];
@@ -123,23 +91,25 @@ void FlightPidControl(float dt)
 
             ClacCascadePID(&PIDGroup[emPID_Roll_Spd],  &PIDGroup[emPID_Roll_Pos],  dt);      //X轴
             ClacCascadePID(&PIDGroup[emPID_Pitch_Spd], &PIDGroup[emPID_Pitch_Pos], dt);     //Y轴
-//            UpdatePID(&PIDGroup[emPID_Yaw_Spd], dt);
             ClacCascadePID(&PIDGroup[emPID_Yaw_Spd],   &PIDGroup[emPID_Yaw_Pos],   dt);       //Z轴
-
-            break; 
-        case EXIT_255:                  //退出控制
+            break;
+						
+				// 退出控制
+        case EXIT:                  
             ResetPID();
             IMU_Reset();
-            status = WAITING_1;         //返回等待解锁
+						// 返回等待解锁
+            status = WAITING;         
           break;
+				
         default:
-            status = EXIT_255;
+            status = EXIT;
             break;
     }
-    
-    if(g_FMUflg.unlock == EMERGENT)     //紧急制动
+    // 紧急制动
+    if(FlightStatus.unlock == EMERGENT)     
     {
-        status = EXIT_255;
+        status = EXIT;
     }
 }
 
@@ -157,38 +127,34 @@ void FlightPidControl(float dt)
 ******************************************************************************/
 void MotorControl(void)
 {    
-    volatile static uint8_t status = WAITING_1;
+    volatile static uint8_t status = WAITING;
 
     //电机解锁判定
-    if(g_FMUflg.unlock == EMERGENT)
+    if(FlightStatus.unlock == 0)
     {
-        status = EXIT_255;
+        status = EXIT;
     }
     
     //电机状态控制
     switch(status)
     {
         //等待状态1
-        case WAITING_1: 
-            if(g_FMUflg.unlock)
+        case WAITING: 
+            if(FlightStatus.unlock)
             {
-                g_FMUflg.take_off = 0;    
-                g_FMUflg.height_lock = 0; 
+                FlightStatus.take_off = 0;    
+                FlightStatus.height_lock = 0; 
                 status = WAITING_2;
             }
         //等待状态2
-        case WAITING_2:                               //解锁完成后判断使用者是否开始拨动遥杆进行飞行控制
+        case WAITING:
             {
-                if(fc_state_take_off && !g_FMUflg.take_off) //刚解锁时，如果不处于一键起飞并且目标Z速度小于0，认为操作者还不想飞行
+								// todo: 如果  不处于一键起飞并且 目标Z速度 小于0， 怠速 
+								if(FlightStatus.Auto || g_FMUflg.take_off) //刚解锁时，如果，认为操作者还不想飞行
                 {
                     status = PROCESS_31;
                 }
-                else if(g_FMUflg.take_off)
-                {
-                    g_FMUflg.height_lock = 1;
-                    status = PROCESS_31;                            
-                }
-                
+								
                 //怠速电机转速
                 MOTOR1 = 100;
                 MOTOR2 = 100;
@@ -197,17 +163,17 @@ void MotorControl(void)
                 break;
             }
         //主处理
-        case PROCESS_31:
+        case PROCESS:
             {
                 int16_t temp = 0;
                 
-                //添加偏移紧急制动，当姿态角小于某一些值时，制动
+                // 紧急制动，当姿态角小于某一些值时，制动
                 if(g_Attitude.pitch < -MAX_ISFD_ATTITUDE 
                 || g_Attitude.pitch > MAX_ISFD_ATTITUDE
                 || g_Attitude.roll  < -MAX_ISFD_ATTITUDE
                 || g_Attitude.roll  > MAX_ISFD_ATTITUDE)
                 {
-                    g_FMUflg.unlock = 0;
+                    FlightStatus.unlock = 0;
                     status = EXIT_255;
                     ResetAlt();
                     ResetPID();
@@ -215,20 +181,11 @@ void MotorControl(void)
                     ClearMotor;
                     break;
                 }
+								// todo: 将 高度环的输出 给 PWM 当作基础值
                 
-                //不同控制模式时，给出不同电机控制
-                if(g_UAVinfo.UAV_Mode == Stabilize_Mode)
-                {
-                    temp = Remote.thr - 1000;
-                }
-
-                if(g_UAVinfo.UAV_Mode >= Altitude_Hold)
-                {
-                    temp = HeightInfo.Thr;
-                    RCReceiveHandle();
-                }
+								// temp = z_out
                 
-                //将油门值作为基础值给PWM
+								//将油门值作为基础值给PWM
                 MOTOR1 = LIMIT(temp, 0, MOTOR_MAX_INIT_VALUE); 
                 MOTOR2 = LIMIT(temp, 0, MOTOR_MAX_INIT_VALUE); 
                 MOTOR3 = LIMIT(temp, 0, MOTOR_MAX_INIT_VALUE); 
@@ -247,16 +204,13 @@ void MotorControl(void)
                 MOTOR4 = LIMIT(MOTOR4, 100, MOTOR_MAX_VALUE); 
             }
             break;
-        case EXIT_255:
-            status = WAITING_1;    //返回等待解锁
+        case EXIT:
+            status = WAITING;    //返回等待解锁
             ClearMotor;
             break;
         default:
             break;
     }
-    
     //更新电机输出
     UpdateMotor(MOTOR1, MOTOR2, MOTOR3, MOTOR4);
 }
-
-/******************* (C) 版权所有 2018 北京中科浩电科技有限公司 *******************/

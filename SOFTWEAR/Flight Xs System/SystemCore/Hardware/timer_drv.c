@@ -1,5 +1,4 @@
 #include "timer_Drv.h"
-#include "driverlib.h" //#include "core_cm4.h"
 #include "mpu6050.h"
 #include "imu.h"
 #include "power.h"
