@@ -2,8 +2,8 @@
 #include "myMath.h"
 #include "speed_estimator.h"
 #include "height_control.h"
-#include "gcs.h"
-#include "Ano_OF.h"
+#include "fmuConfig.h"
+#include "StatusConfig.h"
 
 //程序移植映射表
 //=====mapping=====
@@ -15,7 +15,6 @@
 #define FC_STATE_FLIGHT_MODE (g_UAVinfo.UAV_Mode >= Altitude_Hold)//当前为定点模式
 //EN
 #define FC_STATE_POS_HOLD_EN (ANO_OF.STATE.of_fus)                //光流有效，使能定点。
-#define AUTO_TAKE_OFF_EN     (g_UAVinfo.UAV_Mode >= Altitude_Hold) //当前为定点模式，使能自动起飞功能
 
 //SET_DATA
 //自动起飞目标高度
@@ -40,7 +39,7 @@
 
 static void FC_Unlock_Fun()
 {
-    g_FMUflg.unlock = 1;
+	FlightStatus.unlock = 1;
 }
 
 StandardControl_t StandardControl;

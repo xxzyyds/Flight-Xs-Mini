@@ -1,14 +1,14 @@
 stm32g031f8px\hardware.o: ..\..\..\SystemCore\Hardware\hardware.c
 stm32g031f8px\hardware.o: ..\..\..\SystemCore\Hardware\hardware.h
-stm32g031f8px\hardware.o: C:\Program Files (x86)\Keil_MDK\ARM\ARMCC\Bin\..\include\stdint.h
-stm32g031f8px\hardware.o: C:\Program Files (x86)\Keil_MDK\ARM\ARMCC\Bin\..\include\stdbool.h
+stm32g031f8px\hardware.o: E:\EXE\MDK\ARM\ARMCC\Bin\..\include\stdint.h
+stm32g031f8px\hardware.o: E:\EXE\MDK\ARM\ARMCC\Bin\..\include\stdbool.h
 stm32g031f8px\hardware.o: ..\..\..\SystemCore\Control\include.h
 stm32g031f8px\hardware.o: ..\..\..\SystemCore\Math\queue.h
-stm32g031f8px\hardware.o: C:\Program Files (x86)\Keil_MDK\ARM\ARMCC\Bin\..\include\string.h
+stm32g031f8px\hardware.o: E:\EXE\MDK\ARM\ARMCC\Bin\..\include\string.h
 stm32g031f8px\hardware.o: ..\..\..\SystemCore\Config\fmuConfig.h
 stm32g031f8px\hardware.o: ..\..\..\SystemCore\Control\include.h
-stm32g031f8px\hardware.o: ..\..\..\SystemCore\Hardware\hardware.h
-stm32g031f8px\hardware.o: ..\..\..\SystemCore\Hardware\motor.h
+stm32g031f8px\hardware.o: ..\..\..\SystemCore\Math\pid.h
+stm32g031f8px\hardware.o: ..\..\..\SystemCore\Control\height_control.h
 stm32g031f8px\hardware.o: ../Core/Inc/main.h
 stm32g031f8px\hardware.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal.h
 stm32g031f8px\hardware.o: ../Core/Inc/stm32g0xx_hal_conf.h
@@ -24,7 +24,7 @@ stm32g031f8px\hardware.o: ../Drivers/CMSIS/Include/mpu_armv7.h
 stm32g031f8px\hardware.o: ../Drivers/CMSIS/Device/ST/STM32G0xx/Include/system_stm32g0xx.h
 stm32g031f8px\hardware.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal.h
 stm32g031f8px\hardware.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
-stm32g031f8px\hardware.o: C:\Program Files (x86)\Keil_MDK\ARM\ARMCC\Bin\..\include\stddef.h
+stm32g031f8px\hardware.o: E:\EXE\MDK\ARM\ARMCC\Bin\..\include\stddef.h
 stm32g031f8px\hardware.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_rcc.h
 stm32g031f8px\hardware.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_rcc_ex.h
 stm32g031f8px\hardware.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_gpio.h
@@ -48,4 +48,14 @@ stm32g031f8px\hardware.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_tim.
 stm32g031f8px\hardware.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_tim_ex.h
 stm32g031f8px\hardware.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_uart.h
 stm32g031f8px\hardware.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_uart_ex.h
-stm32g031f8px\hardware.o: C:\Program Files (x86)\Keil_MDK\ARM\ARMCC\Bin\..\include\math.h
+stm32g031f8px\hardware.o: ..\..\..\SystemCore\Control\remote.h
+stm32g031f8px\hardware.o: ..\..\..\SystemCore\Math\imu.h
+stm32g031f8px\hardware.o: ..\..\..\SystemCore\Config\StatusConfig.h
+stm32g031f8px\hardware.o: ..\..\..\SystemCore\Config\fmuConfig.h
+stm32g031f8px\hardware.o: ..\..\..\SystemCore\Hardware\battery.h
+stm32g031f8px\hardware.o: ..\..\..\SystemCore\Control\control.h
+stm32g031f8px\hardware.o: ..\..\..\SystemCore\Config\StatusConfig.h
+stm32g031f8px\hardware.o: ..\..\..\SystemCore\Hardware\SPL06.h
+stm32g031f8px\hardware.o: ..\..\..\SystemCore\Hardware\hardware.h
+stm32g031f8px\hardware.o: ..\..\..\SystemCore\Hardware\motor.h
+stm32g031f8px\hardware.o: E:\EXE\MDK\ARM\ARMCC\Bin\..\include\math.h

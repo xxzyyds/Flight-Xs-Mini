@@ -28,6 +28,8 @@ imu的驱动直接调用GetAngle,姿态数据存储在g_Attitude中
 #include "myMath.h"
 #include <math.h>
 #include "height_control.h"
+#include "StatusConfig.h"
+#include "fmuConfig.h"
 
 //宏定义区
 
@@ -42,7 +44,7 @@ imu的驱动直接调用GetAngle,姿态数据存储在g_Attitude中
 
 
 //私有变量区
-Attitude_t g_Attitude;    //当前角度姿态值
+f_AL Attitude;    //当前角度姿态值
 float NormAccz;
 
 
@@ -60,7 +62,7 @@ float NormAccz;
 static Quaternion NumQ = {1, 0, 0, 0};
 static float vecxZ,vecyZ,veczZ;
 static float wz_acc_tmp[2];
-void ATT_Update(const MPU6050Manager_t *pMpu,Attitude_t *pAngE, float dt) 
+void ATT_Update(const f_MPU *pMpu, f_AL *pAngE, float dt) 
 {
   volatile struct V{
         float x;
@@ -78,7 +80,7 @@ void ATT_Update(const MPU6050Manager_t *pMpu,Attitude_t *pAngE, float dt)
     Gravity.y = 2 * (NumQ.q0 * NumQ.q1 + NumQ.q2 * NumQ.q3);              
     Gravity.z = 1 - 2 * (NumQ.q1 * NumQ.q1 + NumQ.q2 * NumQ.q2);  
     // 加速度归一化，
-    NormQuat = Q_rsqrt(squa(g_MPUManager.accX)+ squa(g_MPUManager.accY) +squa(g_MPUManager.accZ));
+    NormQuat = Q_rsqrt(squa(MPU6050.accX)+ squa(MPU6050.accY) +squa(MPU6050.accZ));
 
     Acc.x = pMpu->accX * NormQuat; //归一后可化为单位向量下方向分量
     Acc.y = pMpu->accY * NormQuat;  
@@ -125,7 +127,7 @@ void ATT_Update(const MPU6050Manager_t *pMpu,Attitude_t *pAngE, float dt)
     HeightInfo.Z_Acc = wz_acc_tmp[1];
 }
 
-void GetAngle(Attitude_t *pAngE) 
+void GetAngle(f_AL *pAngE) 
 {
     //更新欧拉角
     pAngE->yaw = atan2f((2 * NumQ.q1 *NumQ.q2 + 2 * NumQ.q0 * NumQ.q3),(1 - 2 * (NumQ.q2 * NumQ.q2 + NumQ.q3 * NumQ.q3))) * RtA;

@@ -2,7 +2,6 @@
 #include "program_ctrl.h"
 #include "FollowLine.h"
 #include "myMath.h"
-#include "Ano_OF.h"
 
 //void sdk_target_set(float x_pos,float y_pos,float velocity_x, float velocity);
 //
@@ -11,7 +10,7 @@
 #define MAX_ALT_THR 20
 #define LAND_SPEED -50
 extern float PIDGroup_desired_yaw_pos_tmp;
-extern _ano_of_st ANO_OF;
+
 
 typedef enum
 {
@@ -136,7 +135,7 @@ void sdk_update(float dt)
     switch (sdk_manager.sdk_alt_step)
     {
     case 0:
-        sdk_pid[sdk_alt].measured = ANO_OF.ALT;
+        // sdk_pid[sdk_alt].measured = ANO_OF.ALT;
         UpdatePID(&sdk_pid[sdk_alt], dt);
 
         sdk_manager.sdk_alt_out = sdk_pid[sdk_alt].out;
@@ -249,8 +248,6 @@ void sdk_alititude_set(float distance)
 
 void sdk_velocity_set(float x, float y)
 {
-	P8OUT |= GPIO_PIN5;
-	jgtime=0;
     sdk_manager.sdk_velocity_x = LIMIT(x, -MAX_VELOCITY_X, MAX_VELOCITY_X);
     sdk_manager.sdk_velocity_y = LIMIT(y, -MAX_VELOCITY_Y, MAX_VELOCITY_Y);
 }
@@ -373,16 +370,6 @@ void sdk_round_set(float distance, float angle, uint8_t R_)
 ******************************************************************************/
 void sdk_velocity_reset()
 {
-		if(jiguang)
-		{
-			jgtime++;
-			if(FollowManager.GroundOpenmvFramePtr->cnt1 == 1 && jgtime >=60)
-				P8OUT &= ~GPIO_PIN5;
-		}
-		else
-		{
-			P8OUT |= GPIO_PIN5;
-		}
     sdk_manager.sdk_velocity_y = 0;
     sdk_manager.sdk_velocity_x = 0;
 }
@@ -397,8 +384,6 @@ void sdk_velocity_reset()
 ******************************************************************************/
 void sdk_velociyt_x_set(float x)
 {
-	P8OUT |= GPIO_PIN5;
-	jgtime=0;
     sdk_manager.sdk_velocity_x = LIMIT(x, -MAX_VELOCITY_X, MAX_VELOCITY_X);
     // sdk_manager.sdk_velocity_y = LIMIT(y, -MAX_VELOCITY_Y, MAX_VELOCITY_Y);
 }
@@ -413,8 +398,6 @@ void sdk_velociyt_x_set(float x)
 ******************************************************************************/
 void sdk_velociyt_y_set(float y)
 {
-	P8OUT |= GPIO_PIN5;
-	jgtime=0;
     // sdk_manager.sdk_velocity_x = LIMIT(x, -MAX_VELOCITY_X, MAX_VELOCITY_X);
     sdk_manager.sdk_velocity_y = LIMIT(y, -MAX_VELOCITY_Y, MAX_VELOCITY_Y);
 }
@@ -489,12 +472,9 @@ void sdk_reset_position()
 
 void sdk_update_position()
 {
-    if(ANO_OF.DX2FIX > -100 && ANO_OF.DX2FIX < 100 && 
-       ANO_OF.DY2FIX > -100 && ANO_OF.DY2FIX < 100)
-    {
-        sdk_manager.location_x += ANO_OF.DX2FIX * 0.01f;
-        sdk_manager.location_y += ANO_OF.DY2FIX * 0.01f * -1;
-    }
+	  // todo : update location 
+		// sdk_manager.location_x += ANO_OF.DX2FIX * 0.01f;
+		// sdk_manager.location_y += ANO_OF.DY2FIX * 0.01f * -1;
 }
 
 

@@ -1,30 +1,10 @@
-/**
-  ******************************************************************************
-  * Copyright (c) 2018,北京中科浩电科技有限公司
-  * All rights reserved.
-  * 文件名称：mpu6050.c
-  * 摘    要：
-  *
-  * 当前版本：V1.0
-  * 作    者：北京中科浩电科技有限公司研发部 
-  * 完成日期：
-  * 修改说明：
-  * 
-  *
-  * 历史版本：
-  *
-  *
-  *******************************************************************************/
-
 /*==============================================================================
                          ##### How to use this driver #####
 ==============================================================================
 MPU6050驱动的使用方法如下：
 1.调用MPU6050Init函数，查看当前MPU6050是否初始化成功；
 2.固定周期调用GetMPU6050Data，以获取传感器数据；
-
-PS：传感器数据存放在g_MPUManager中
-
+PS：传感器数据存放在 MPU6050 中
 
 */
 //外部文件引用
@@ -35,8 +15,10 @@ PS：传感器数据存放在g_MPUManager中
 #include "LED.h"
 #include "myMath.h"
 #include "kalman.h"
-#include "HARDWARE_i2c.h"
+#include "bsp_stm32g031f8px.h"
+#include "fmuConfig.h"
 #include "timer_drv.h"
+
 
 
 //宏定义区
@@ -65,19 +47,13 @@ PS：传感器数据存放在g_MPUManager中
 #define MPU6052C_PRODUCT_ID 0x72
 #define MPU6050_ADDRESS     0xD0    //0x68
 
-#define Acc_Read()          I2C_Read_Bytes(MPU6050_ADDRESS, 0x3B, buffer, 6) //读取加速度
-#define Gyro_Read()         I2C_Read_Bytes(MPU6050_ADDRESS, 0x43, &buffer[6], 6)  //  读取角速度
-//Extern引用
-extern uint8_t I2C_Read_Byte(uint8_t Slaveaddr, uint8_t REG_Address);
+#define Acc_Read()          MPU6050_IIC_Read_Bytes(MPU6050_ADDRESS, 0x3B, buffer, 6) //读取加速度
+#define Gyro_Read()         MPU6050_IIC_Read_Bytes(MPU6050_ADDRESS, 0x43, &buffer[6], 6)  //  读取角速度
 
 
-//私有函数区
+// MPU6050 原始数据
+int16_t *pMpu = (int16_t *)&MPU6050;
 
-
-
-//私有变量区
-MPU6050Manager_t g_MPUManager;   //g_MPUManager原始数据
-int16_t *pMpu = (int16_t *)&g_MPUManager;
 /******************************************************************************
   * 函数名称：MPU6050Init
   * 函数描述：g_MPUManager的初始化
@@ -94,31 +70,31 @@ bool MPU6050Init(void) //初始化
 {
     uint8_t check = 0;
 
-    check = I2C_Read_Byte(MPU6050_ADDRESS, 0x75);  //判断g_MPUManager地址
+    check = MPU6050_IIC_Read_Byte(MPU6050_ADDRESS, 0x75);  //判断MPU6050地址
     
     if(check != MPU6050_PRODUCT_ID) //如果地址不正确
     {
-        g_MPUManager.Check = false;
+        MPU6050.Check = false;
         return false;
     }
     else
     {
         Delay_ms(200);
-        I2C_Write_Byte(MPU6050_ADDRESS, PWR_MGMT_1,    0x80);   //复位
+        MPU6050_IIC_Write_Byte(MPU6050_ADDRESS, PWR_MGMT_1,    0x80);   //复位
         Delay_ms(200);
-        I2C_Write_Byte(MPU6050_ADDRESS, SMPLRT_DIV,   0x00);   //陀螺仪采样率，0x00(1000Hz)
+        MPU6050_IIC_Write_Byte(MPU6050_ADDRESS, SMPLRT_DIV,   0x00);   //陀螺仪采样率，0x00(1000Hz)
         Delay_ms(10);
-        I2C_Write_Byte(MPU6050_ADDRESS, PWR_MGMT_1,   0x03);   //设置设备时钟源，陀螺仪Z轴
+        MPU6050_IIC_Write_Byte(MPU6050_ADDRESS, PWR_MGMT_1,   0x03);   //设置设备时钟源，陀螺仪Z轴
         Delay_ms(10);
-        I2C_Write_Byte(MPU6050_ADDRESS, CONFIGL,      0x04);   //低通滤波频率，0x03(42Hz)
+        MPU6050_IIC_Write_Byte(MPU6050_ADDRESS, CONFIGL,      0x04);   //低通滤波频率，0x03(42Hz)
         Delay_ms(10);
-        I2C_Write_Byte(MPU6050_ADDRESS, GYRO_CONFIG,  0x18);   //+-2000deg/s
+        MPU6050_IIC_Write_Byte(MPU6050_ADDRESS, GYRO_CONFIG,  0x18);   //+-2000deg/s
         Delay_ms(10);
-        I2C_Write_Byte(MPU6050_ADDRESS, ACCEL_CONFIG, 0x18);   //+-16
+        MPU6050_IIC_Write_Byte(MPU6050_ADDRESS, ACCEL_CONFIG, 0x18);   //+-16
         Delay_ms(10);
         
         GetMPU6050Offset(); //调用校准数据
-        g_MPUManager.Check = true;
+        MPU6050.Check = true;
         return true;
     }
 }
@@ -133,8 +109,7 @@ bool MPU6050Init(void) //初始化
   *    
   *
 ******************************************************************************/
-#include "timer_drv.h"
-uint32_t test_6050time[3];
+
 void GetMPU6050Data(void) 
 {
     static float mpu_filter[2][6];
@@ -150,7 +125,7 @@ void GetMPU6050Data(void)
     {
         //拼接读取到的原始数据
         mpu_filter_tmp[i] = (((int16_t)buffer[i << 1] << 8) | buffer[(i << 1) + 1])
-                - g_MPUManager.Offset[i];
+                - MPU6050.Offset[i];
 
         //原始数据LPF
         mpu_filter[0][i] += 0.3f *(mpu_filter_tmp[i] - mpu_filter[0][i]);
@@ -180,8 +155,8 @@ void GetMPU6050Offset(void) //校准
     int16_t LastGyro[3] = {0};          /*wait for calm down*/
     int16_t ErrorGyro[3] = {0};         /*set offset initial to zero*/
     
-    memset(g_MPUManager.Offset, 0, 12);
-    g_MPUManager.Offset[2] = 2048;   //根据手册量程设定加速度标定值 
+    memset(MPU6050.Offset, 0, 12);
+    MPU6050.Offset[2] = 2048;   //根据手册量程设定加速度标定值 
 
     //丢弃前300个数据
     for(int i = 0;i < 300;i++)
@@ -199,9 +174,9 @@ void GetMPU6050Offset(void) //校准
         Delay_ms(2);
         GetMPU6050Data();
         
-        if(g_MPUManager.accX < 400 && g_MPUManager.accX > -400 && 
-           g_MPUManager.accY < 400 && g_MPUManager.accY > -400 && 
-           g_MPUManager.accZ < 400 && g_MPUManager.accZ > -400)
+        if(MPU6050.accX < 400 && MPU6050.accX > -400 && 
+           MPU6050.accY < 400 && MPU6050.accY > -400 && 
+           MPU6050.accZ < 400 && MPU6050.accZ > -400)
         {
             if (cnt > 2 * 500 * 2)
             {
@@ -216,9 +191,9 @@ void GetMPU6050Offset(void) //校准
     //判定飞机是否已经稳定
     while(1)
     {
-        if(ABS(g_MPUManager.gyroX) != 0 ||  
-           ABS(g_MPUManager.gyroY) != 0 || 
-           ABS(g_MPUManager.gyroZ) != 0)
+        if(ABS(MPU6050.gyroX) != 0 ||  
+           ABS(MPU6050.gyroY) != 0 || 
+           ABS(MPU6050.gyroZ) != 0)
         {
             for(i = 0; i < 3; i++)
             {
@@ -253,7 +228,7 @@ void GetMPU6050Offset(void) //校准
     for(i = 0; i < 6; i++)
     {
         //右移8位，数据除以256
-        g_MPUManager.Offset[i] = buffer[i] >> 8;
+        MPU6050.Offset[i] = buffer[i] >> 8;
     }
 }
 

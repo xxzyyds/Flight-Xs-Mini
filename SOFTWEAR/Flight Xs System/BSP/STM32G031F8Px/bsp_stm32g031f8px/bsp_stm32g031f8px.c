@@ -55,7 +55,7 @@ uint8_t DEBUG_UART_TX(char* msg)
 {
 	
 }
-
+// MPU6050
 uint8_t MPU6050_IIC_Write_Byte(uint16_t DevAddress, uint16_t MemAddress, uint8_t pData)
 {
 	return HAL_I2C_Mem_Write(&hi2c1,DevAddress,MemAddress,I2C_MEMADD_SIZE_8BIT,&pData,0x01,0xff);
@@ -66,11 +66,13 @@ uint8_t MPU6050_IIC_Read_Byte(uint16_t DevAddress, uint16_t MemAddress)
 	HAL_I2C_Mem_Read(&hi2c1,DevAddress,MemAddress,I2C_MEMADD_SIZE_8BIT,&TMP,0x01,0xff);
 	return TMP;
 }
+
 uint8_t MPU6050_IIC_Read_Bytes(uint16_t DevAddress, uint16_t MemAddress, uint8_t *TMP, uint8_t len)
 {
 	return HAL_I2C_Mem_Read(&hi2c1,DevAddress,MemAddress,I2C_MEMADD_SIZE_8BIT,TMP,len,0xff);
 }
 
+// SPL06
 uint8_t SPL06_IIC_Write_Byte(uint16_t DevAddress, uint16_t MemAddress, uint8_t pData)
 {
 	return HAL_I2C_Mem_Write(&hi2c2,DevAddress,MemAddress,I2C_MEMADD_SIZE_8BIT,&pData,0x01,0xff);

@@ -1,20 +1,4 @@
-/**
-  ******************************************************************************
-  * Copyright (c) 2018,北京中科浩电科技有限公司
-  * All rights reserved.
-  * 文件名称：SPL06.h
-  * 摘    要：
-  *
-  * 当前版本：V1.0
-  * 作    者：北京中科浩电科技有限公司研发部 
-  * 完成日期：
-  * 修改说明：
-  * 
-  *
-  * 历史版本：
-  *
-  *
-  *******************************************************************************/
+
 #ifndef SPL06_H
 #define SPL06_H
 //外部文件引用
@@ -31,43 +15,7 @@
 #define TEMPERATURE_SENSOR          1
 #define OFFSET_COUNT                30
 
-//数据结构声明
-typedef struct
-{    
-    int16_t i16C0;
-    int16_t i16C1;
-    int32_t i32C00;
-    int32_t i32C10;
-    int16_t i16C01;
-    int16_t i16C11;
-    int16_t i16C20;
-    int16_t i16C21;
-    int16_t i16C30;       
-}SPL06Param_t0;
 
-typedef struct
-{    
-    SPL06Param_t0 Param;
-    uint8_t u8Chip_id;
-    int32_t i32RawPressure;
-    int32_t i32RawTemperature;
-    int32_t i32KP;
-    int32_t i32KT;
-    
-    float fGround_Alt;
-    float fALT;                  //height above sea level        
-    float fRelative_Alt;
-    
-    float fTemperature;
-    float fPressure;
-    float fLast_Pressure;
-    
-    float fOffset;
-    bool Check;
-}SPL06Manager_t;
-
-//Extern引用
-extern SPL06Manager_t g_SPL06Manager;
 
 //函数声明
 void ResetAlt(void);
@@ -118,41 +66,9 @@ typedef enum
 	SPL06_CONTINUOUS_P_AND_T_TYPE           = 7,
 }SPL06_MEAS_TYPE;
 
-typedef struct
-{    
-    int16_t c0;
-    int16_t c1;
-    int32_t c00;
-    int32_t c10;
-    int16_t c01;
-    int16_t c11;
-    int16_t c20;
-    int16_t c21;
-    int16_t c30;       
-}SPL06Param_t;
-
-typedef struct
-{
-    Device_t Device;
-    uint8_t ChipId;                  /*产品ID | 版本ID*/
-    SPL06Param_t    SPL06Param;
-    float SPL06Temperature;
-    float SPL06Press;
-    int32_t RawPressure;
-    int32_t RawTemperature;
-    int32_t RawAltitude;            /*原始海拔高度 cm*/
-    int32_t i32RawAltitude;
-    int32_t Kp;
-    int32_t Kt;
-//    xQueueHandle Spl06DeviceQueue;
-}SPL06_t;
-
-extern SPL06_t device_SPL06;
 
 bool SPL06Init(void);
 void SPL06Update(void);
 
 
 #endif
-
-/******************* (C) 版权所有 2018 北京中科浩电科技有限公司 *******************/

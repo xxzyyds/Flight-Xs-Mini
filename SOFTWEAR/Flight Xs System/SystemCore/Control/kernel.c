@@ -4,18 +4,22 @@
 
 // 外部文件引用
 #include "include.h"
-#include "communication.h"
 #include "speed_estimator.h"
 #include "led.h"
 #include "battery.h"
 #include "stdio.h"
-#include "HARDWARE_uart.h"
 #include "timer_drv.h"
 #include "pos_ctrl.h"
 #include "program_ctrl.h"
+#include "mpu6050.h"
+#include "imu.h"
+#include "fmuConfig.h"
+#include "StatusConfig.h"
+#include "control.h"
 #include "FollowLine.h"
-#include "sdk.h"
-
+#include "SDK.h"
+#include "height_control.h"
+#include "bsp_stm32g031f8px.h"
 
 //私有函数区
 void Update(void);
@@ -49,7 +53,7 @@ void KernelPolling()
         
         // 姿态更新 四元数
 				// 更新出 Z轴 的 加速度
-        ATT_Update(&g_MPUManager,&g_Attitude, 0.003f); 
+        ATT_Update(&MPU6050, &FlightAttitude, 0.003f); 
         
         // Z轴数据预估
         WZ_Est_Calcu(0.003f);
@@ -58,8 +62,6 @@ void KernelPolling()
     //333Hz,修改到滴答计时器里面
     if (Cnt % 3 == 0)
     {        
-
-			
         // PID Update
         FlightPidControl(0.003f);
         
@@ -108,8 +110,5 @@ void KernelPolling()
 
     //LED轮训函数
     PollingLED();
-
-    //串口轮训函数
-    PollingUSART();
 		
 }

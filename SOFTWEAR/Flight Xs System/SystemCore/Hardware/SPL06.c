@@ -1,20 +1,4 @@
-/**
-  ******************************************************************************
-  * Copyright (c) 2018,北京中科浩电科技有限公司
-  * All rights reserved.
-  * 文件名称：SPL06.c
-  * 摘    要：本文件用以驱动spl06气压计，获取气压信息，并解算出高度
-  *
-  * 当前版本：V1.0
-  * 作    者：北京中科浩电科技有限公司研发部
-  * 完成日期：    
-  * 修改说明：
-  *
-  *
-  * 历史版本：
-  *
-  *
-  *******************************************************************************/
+
 
 /*==============================================================================
                          ##### How to use this driver #####
@@ -29,11 +13,13 @@ SPL06驱动可按如下方式使用：
 
 //外部文件引用
 #include "SPL06.h"
-#include "HARDWARE_i2c.h"
 #include <math.h>
 #include "include.h"
 #include <stdio.h>
 #include "timer_drv.h"
+#include "fmuConfig.h"
+#include "StatusConfig.h"
+#include "bsp_stm32g031f8px.h"
 
 
 //宏定义区
@@ -51,7 +37,7 @@ SPL06驱动可按如下方式使用：
 //(blow a little towards the flie and watch it drop 5 degrees)
 // it corrupts the ASL estimates.
 #define FIX_TEMP                25     
-#define SPL06_Check             I2C_Read_Byte(HW_ADR, 0x0D)
+#define SPL06_Check             SPL06_IIC_Read_Byte(HW_ADR, 0x0D)
 
 //Extern引用
 
@@ -75,8 +61,7 @@ float bsp_SPL06_Get_Pressure(SPL06_t *spl06);
 
 //私有变量区
 SPL06_t device_SPL06;
-SPL06Manager_t g_SPL06Manager;
-
+	
 /******************************************************************************
   * 函数名称：SPL06_Init
   * 函数描述：SPL06-01 初始化函数
@@ -91,15 +76,15 @@ void SPL06_Init(void)
 {
     if(SPL06_Check == 0x10)
     {
-        g_SPL06Manager.Check = true;
+        f_SPL06.Check = true;
     }else
     {
-        g_SPL06Manager.Check = false;
+        f_SPL06.Check = false;
     }
     
-    g_SPL06Manager.i32RawPressure = 0;
-    g_SPL06Manager.i32RawTemperature = 0;
-    g_SPL06Manager.u8Chip_id = 0x34;
+    f_SPL06.i32RawPressure = 0;
+    f_SPL06.i32RawTemperature = 0;
+    f_SPL06.u8Chip_id = 0x34;
 
     CalcParam();
 
@@ -109,7 +94,7 @@ void SPL06_Init(void)
     Delay_ms(3000);
     
     UpdateSPL06Info();
-    g_SPL06Manager.fGround_Alt = g_SPL06Manager.fALT;
+    f_SPL06.fGround_Alt = f_SPL06.fALT;
 }
 
 /******************************************************************************
@@ -197,26 +182,26 @@ void SetRate(uint8_t u8_Sensor, uint8_t u8_SmplRate, uint8_t u8_OverSmpl)
 
     if(u8_Sensor == 0)
     {
-        g_SPL06Manager.i32KP = i32KPkT;
-        I2C_Write_Byte(HW_ADR, 0x06, u8Reg);
+        f_SPL06.i32KP = i32KPkT;
+        SPL06_IIC_Write_Byte(HW_ADR, 0x06, u8Reg);
         if(u8_OverSmpl > 8)
         {
-            u8Reg = I2C_Read_Byte(HW_ADR, 0x09);
-            I2C_Write_Byte(HW_ADR, 0x09, u8Reg | 0x04);
+            u8Reg = SPL06_IIC_Read_Byte(HW_ADR, 0x09);
+            SPL06_IIC_Write_Byte(HW_ADR, 0x09, u8Reg | 0x04);
         }
     }
     
     if(u8_Sensor == 1)
     {
-        g_SPL06Manager.i32KT = i32KPkT;
+        f_SPL06.i32KT = i32KPkT;
         
         //Using mems temperature
-        I2C_Write_Byte(HW_ADR, 0x07, u8Reg|0x80);  
+        SPL06_IIC_Write_Byte(HW_ADR, 0x07, u8Reg|0x80);  
         
         if(u8_OverSmpl > 8)
         {
-            u8Reg = I2C_Read_Byte(HW_ADR, 0x09);
-            I2C_Write_Byte(HW_ADR, 0x09, u8Reg | 0x08);
+            u8Reg = SPL06_IIC_Read_Byte(HW_ADR, 0x09);
+            SPL06_IIC_Write_Byte(HW_ADR, 0x09, u8Reg | 0x08);
         }
     }
 }
@@ -233,15 +218,15 @@ void SetRate(uint8_t u8_Sensor, uint8_t u8_SmplRate, uint8_t u8_OverSmpl)
 ******************************************************************************/
 void CalcParam(void)
 {
-    g_SPL06Manager.Param.i16C0 = 204;
-    g_SPL06Manager.Param.i16C1 = -261;
-    g_SPL06Manager.Param.i32C00 = 80469;
-    g_SPL06Manager.Param.i32C10 = -54769;
-    g_SPL06Manager.Param.i16C01 = -2803;
-    g_SPL06Manager.Param.i16C11 = 1226;
-    g_SPL06Manager.Param.i16C20 = -10787;
-    g_SPL06Manager.Param.i16C21 = 183;
-    g_SPL06Manager.Param.i16C30 = -1603; 
+    f_SPL06.Param.i16C0 = 204;
+    f_SPL06.Param.i16C1 = -261;
+    f_SPL06.Param.i32C00 = 80469;
+    f_SPL06.Param.i32C10 = -54769;
+    f_SPL06.Param.i16C01 = -2803;
+    f_SPL06.Param.i16C11 = 1226;
+    f_SPL06.Param.i16C20 = -10787;
+    f_SPL06.Param.i16C21 = 183;
+    f_SPL06.Param.i16C30 = -1603; 
 }
 
 /******************************************************************************
@@ -261,7 +246,7 @@ void CalcParam(void)
 
 void SelectMode(uint8_t mode)
 {
-    I2C_Write_Byte(HW_ADR, 0x08, mode + 4);
+    SPL06_IIC_Write_Byte(HW_ADR, 0x08, mode + 4);
 }
 
 /******************************************************************************
@@ -278,17 +263,17 @@ void GetRawTemp(void)
 {
     uint8_t u8Data[3] = {0};
     
-    u8Data[0] = I2C_Read_Byte(HW_ADR, 0x03);
-    u8Data[1] = I2C_Read_Byte(HW_ADR, 0x04);
-    u8Data[2] = I2C_Read_Byte(HW_ADR, 0x05);
+    u8Data[0] = SPL06_IIC_Read_Byte(HW_ADR, 0x03);
+    u8Data[1] = SPL06_IIC_Read_Byte(HW_ADR, 0x04);
+    u8Data[2] = SPL06_IIC_Read_Byte(HW_ADR, 0x05);
 
-    g_SPL06Manager.i32RawTemperature = (int32_t)u8Data[0] << 16 | \
+    f_SPL06.i32RawTemperature = (int32_t)u8Data[0] << 16 | \
                                           (int32_t)u8Data[1] << 8  | \
                                           (int32_t)u8Data[2];
     
-    g_SPL06Manager.i32RawTemperature = (g_SPL06Manager.i32RawTemperature & 0x800000)   ? \
-                                          (0xFF000000 | g_SPL06Manager.i32RawTemperature) : \
-                                          (g_SPL06Manager.i32RawTemperature);
+    f_SPL06.i32RawTemperature = (f_SPL06.i32RawTemperature & 0x800000)   ? \
+                                          (0xFF000000 | f_SPL06.i32RawTemperature) : \
+                                          (f_SPL06.i32RawTemperature);
 }
 
 /******************************************************************************
@@ -305,16 +290,16 @@ void GetRawPressure(void)
 {
     uint8_t u8Data[3] = {0};
     
-    u8Data[0] = I2C_Read_Byte(HW_ADR, 0x00);
-    u8Data[1] = I2C_Read_Byte(HW_ADR, 0x01);
-    u8Data[2] = I2C_Read_Byte(HW_ADR, 0x02);
+    u8Data[0] = SPL06_IIC_Read_Byte(HW_ADR, 0x00);
+    u8Data[1] = SPL06_IIC_Read_Byte(HW_ADR, 0x01);
+    u8Data[2] = SPL06_IIC_Read_Byte(HW_ADR, 0x02);
     
-    g_SPL06Manager.i32RawPressure = (int32_t)u8Data[0] << 16 | \
+    f_SPL06.i32RawPressure = (int32_t)u8Data[0] << 16 | \
                                        (int32_t)u8Data[1] << 8  | \
                                        (int32_t)u8Data[2];
-    g_SPL06Manager.i32RawPressure = (g_SPL06Manager.i32RawPressure & 0x800000)   ? \
-                                       (0xFF000000 | g_SPL06Manager.i32RawPressure) : \
-                                       (g_SPL06Manager.i32RawPressure);
+    f_SPL06.i32RawPressure = (f_SPL06.i32RawPressure & 0x800000)   ? \
+                                       (0xFF000000 | f_SPL06.i32RawPressure) : \
+                                       (f_SPL06.i32RawPressure);
 }
 
 /******************************************************************************
@@ -332,9 +317,9 @@ float GetTemp(void)
     float fTCompensate = 0;
     float fTsc = 0;
 
-    fTsc = g_SPL06Manager.i32RawTemperature / (float)g_SPL06Manager.i32KT;
-    fTCompensate =  g_SPL06Manager.Param.i16C0 * 0.5 + \
-                    g_SPL06Manager.Param.i16C1 * fTsc;
+    fTsc = f_SPL06.i32RawTemperature / (float)f_SPL06.i32KT;
+    fTCompensate =  f_SPL06.Param.i16C0 * 0.5 + \
+                    f_SPL06.Param.i16C1 * fTsc;
     
     return fTCompensate;
 }
@@ -357,17 +342,17 @@ float GetSPL06Press(void)
     float fqua3 = 0;
     float fPCompensate = 0;
 
-    fTsc = g_SPL06Manager.i32RawTemperature / (float)g_SPL06Manager.i32KT;
-    fPsc = g_SPL06Manager.i32RawPressure / (float)g_SPL06Manager.i32KP;
+    fTsc = f_SPL06.i32RawTemperature / (float)f_SPL06.i32KT;
+    fPsc = f_SPL06.i32RawPressure / (float)f_SPL06.i32KP;
     
-    fqua2 = g_SPL06Manager.Param.i32C10 \
-           + fPsc * (g_SPL06Manager.Param.i16C20 \
-           + fPsc* g_SPL06Manager.Param.i16C30);
-    fqua3 = fTsc * fPsc * (g_SPL06Manager.Param.i16C11 \
-           + fPsc * g_SPL06Manager.Param.i16C21);
+    fqua2 = f_SPL06.Param.i32C10 \
+           + fPsc * (f_SPL06.Param.i16C20 \
+           + fPsc* f_SPL06.Param.i16C30);
+    fqua3 = fTsc * fPsc * (f_SPL06.Param.i16C11 \
+           + fPsc * f_SPL06.Param.i16C21);
     
-    fPCompensate = g_SPL06Manager.Param.i32C00 \
-                   + fPsc * fqua2 + fTsc * g_SPL06Manager.Param.i16C01\
+    fPCompensate = f_SPL06.Param.i32C00 \
+                   + fPsc * fqua2 + fTsc * f_SPL06.Param.i16C01\
                    + fqua3;
     
     return fPCompensate;
@@ -405,21 +390,21 @@ void UpdateSPL06Info()
     double p = bsp_SPL06_Get_Pressure(&device_SPL06) / 1000.0f;
 
     //Altitude = (((exp((-(a * R) / g) * log((p / p1)))) * T1) - T1) / a;
-    g_SPL06Manager.fALT = (((pow((p / p1), (-(a * R) / g))) * T1) - T1) / a;
-    g_SPL06Manager.fRelative_Alt = g_SPL06Manager.fALT - g_SPL06Manager.fGround_Alt;
+    f_SPL06.fALT = (((pow((p / p1), (-(a * R) / g))) * T1) - T1) / a;
+    f_SPL06.fRelative_Alt = f_SPL06.fALT - f_SPL06.fGround_Alt;
 }
 
 void ResetAlt()
 {
-    g_SPL06Manager.fGround_Alt = g_SPL06Manager.fALT;
+    f_SPL06.fGround_Alt = f_SPL06.fALT;
 }
 
 #define SPL06I2C    I2C0
 #define HAL_SPL06_I2C_READ(addr, regisaddr,length,data) \
-        I2C_Read_Bytes(addr, regisaddr,data,length)
+        SPL06_IIC_Read_Bytes(addr, regisaddr,data,length)
 
 #define HAL_SPL06_I2C_WRITE(SPL06_SLAVEADDR, regisaddr, data)\
-        I2C_Write_Byte(SPL06_SLAVEADDR, regisaddr, data)
+        SPL06_IIC_Write_Bytes(SPL06_SLAVEADDR, regisaddr, data)
 
 #define SPL06_SLAVEADDR						(0x77)		/*SDO Low: 0x77 / SDO High or NC: 0x77*/
 #ifdef SPL06_SLAVEADDR
@@ -580,7 +565,7 @@ bool SPL06Init(void)
     }
 
     UpdateSPL06Info();
-    g_SPL06Manager.fGround_Alt = g_SPL06Manager.fALT;
+    f_SPL06.fGround_Alt = f_SPL06.fALT;
     return device_SPL06.Device.bEnable;
 }
 
@@ -987,5 +972,3 @@ float bsp_SPL06_Get_Pressure(SPL06_t *spl06)
 }
 
 #endif
-
-/******************* (C) 版权所有 2018 北京中科浩电科技有限公司 *******************/

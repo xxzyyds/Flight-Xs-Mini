@@ -1,17 +1,4 @@
-/**
-  ******************************************************************************
-  * Copyright (c) 2018,北京中科浩电科技有限公司
-  * All rights reserved.
-  * 文件名称：filter.h
-  * 摘    要：
-  *
-  * 修改说明：
-  * 
-  *
-  * 历史版本：
-  *
-  *
-  *******************************************************************************/
+
 #ifndef __Algorithm_filter_H
 #define __Algorithm_filter_H
 //外部文件引用
@@ -38,10 +25,6 @@ typedef struct {
 }MovAverage_t;
 
 
-//Extern引用
-
-
-
 //函数声明
 float LPF_1_Filter_1(Filter_LPF_1 *LPF_1);
 float LPF_1_Filter_2(Filter_LPF_1 *LPF_1 , float dt);
@@ -51,5 +34,3 @@ float IIR_I_Filter(float InData, float *x, float *y,  const float *b, uint8_t nb
 void  Moving_Average(float in , float moavarray[] , uint16_t len , uint16_t fil_cnt[2] , float *out);
 float Moving_Median(uint8_t item , uint8_t width_num , float in);
 #endif /* __Algorithm_filter_H */
-
-/******************* (C) 版权所有 2018 北京中科浩电科技有限公司 *******************/

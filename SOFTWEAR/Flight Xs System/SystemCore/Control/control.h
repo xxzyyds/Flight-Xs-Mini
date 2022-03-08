@@ -109,19 +109,7 @@
 #define EXIT_250 250
 
 
-//数据结构声明
-typedef struct
-{
-    uint8_t unlock:1;
-    uint8_t height_lock:1;
-    uint8_t take_off:1;
-    uint8_t take_down:1;
-}FMUflg_t;
 
-//Extern引用
-extern int16_t motor[4];
-extern FMUflg_t g_FMUflg;             //系统标志位，包含解锁标志位等
-extern PIDInfo_t PIDGroup[emNum_Of_PID_List];
 
 //函数声明
 void FlightPidControl(float FightControlTime);

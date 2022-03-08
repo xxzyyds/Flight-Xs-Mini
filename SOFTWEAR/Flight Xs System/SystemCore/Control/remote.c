@@ -64,8 +64,6 @@ void Remote_init()
     }
     
     Remote.AUX2 = 1000;
-    
-    g_UAVinfo.UAV_Mode = AutoMode;
 }
 
 /******************************************************************************
@@ -316,105 +314,26 @@ extern float PIDGroup_desired_yaw_pos_tmp;
 void RCReceiveHandle()
 {
     const float roll_pitch_ratio = 0.04f;  //遥控控制姿态的量
-
-    if(ANO_OF.STATE.of_fus != 0 && g_UAVinfo.UAV_Mode >= Altitude_Hold)
-    {
-        PIDGroup[emPID_Pitch_Pos].desired = pos_out_trans[0];     //将位置控制输出为飞行角度的期望值  
-        PIDGroup[emPID_Roll_Pos].desired  = pos_out_trans[1];
-    }
-    else
-    {
-        PIDGroup[emPID_Pitch_Pos].desired =-(Remote.pitch - 1500)*roll_pitch_ratio;     //将遥杆值作为飞行角度的期望值  
-        PIDGroup[emPID_Roll_Pos].desired  = (Remote.roll - 1500)*roll_pitch_ratio;            
-    }
-    
-    //此处可以修改为速度控制量
-    if(g_FMUflg.unlock == 1 && Remote.thr > 1300)
-    {
-//        if((Remote.yaw - 1500)*roll_pitch_ratio > 15)
-//        {
-//            PIDGroup[emPID_Yaw_Spd].desired = -10;
-//        }else if((Remote.yaw - 1500)*roll_pitch_ratio < -15)
-//        {
-//            PIDGroup[emPID_Yaw_Spd].desired = 10;
-//        }else
-//        {
-//            PIDGroup[emPID_Yaw_Spd].desired = 0;
-//        }
+		PIDGroup[emPID_Pitch_Pos].desired =-(Remote.pitch - 1500)*roll_pitch_ratio;     //将遥杆值作为飞行角度的期望值  
+		PIDGroup[emPID_Roll_Pos].desired  = (Remote.roll - 1500)*roll_pitch_ratio;
         
-        if(Remote.yaw > 1700 )
-        {    //以下为遥控控制偏航角 +-号代表方向 0.75代表控制偏航角的旋转量                            
-            PIDGroup_desired_yaw_pos_tmp -= 0.1f;
-        }
-        else if(Remote.yaw <1300)
-        {
-            PIDGroup_desired_yaw_pos_tmp += 0.1f;
-        }
-        //
-        if(PIDGroup[emPID_Yaw_Pos].desired>=180)
-        {
-            PIDGroup_desired_yaw_pos_tmp -= 360;
-        }
-        else if(PIDGroup[emPID_Yaw_Pos].desired<-180)
-        {
-            PIDGroup_desired_yaw_pos_tmp += 360;
-        }
-    }
-    
-    if(Remote.AUX1<1200)
-    {
-        g_UAVinfo.UAV_Mode = Stabilize_Mode;
-    }
-    else if(Remote.AUX1<1400)
-    {
-        g_UAVinfo.UAV_Mode = Altitude_Hold;
-    }
-    else if(Remote.AUX1<1600)
-    {
-//        g_UAVinfo.UAV_Mode = AutoLand;
-    }
-    else
-    {
-    
-    }
-    
-    if(g_UAVinfo.UAV_Mode == Altitude_Hold)
-    {
-//        if(Remote.thr > 1800)
-//        {
-//            PIDGroup[emPID_Height_Pos].desired += 1  ;
-//        }else if(Remote.thr < 1200)
-//        {
-//            PIDGroup[emPID_Height_Pos].desired -= 1;
-//        }
-    }
-    
-//    switch(Remote.AUX2)
-//    {
-//        case 2000:
-//            
-//            break;
-//        case 1000:
-//            g_FMUflg.unlock = 0;
-//            break;
-//    }
-
-//一键起飞
-//    if(Remote.AUX6)
-//    {
-//        if(g_UAVinfo.UAV_Mode == Altitude_Hold)
-//        {
-//            g_FMUflg.unlock = 1;
-//        }
-//    }
-
-//内八上锁
-//    if(Remote.thr < 1300 &&Remote.yaw > 1700 && Remote.pitch < 1300 && Remote.roll < 1300)                         //油门遥杆左下角锁定
-//    {
-//        g_FMUflg.unlock = 0;
-//        ResetAlt();
-//    }
-    
+		if(Remote.yaw > 1700 )
+		{    //以下为遥控控制偏航角 +-号代表方向 0.75代表控制偏航角的旋转量                            
+				PIDGroup_desired_yaw_pos_tmp -= 0.1f;
+		}
+		else if(Remote.yaw <1300)
+		{
+				PIDGroup_desired_yaw_pos_tmp += 0.1f;
+		}
+		//
+		if(PIDGroup[emPID_Yaw_Pos].desired>=180)
+		{
+				PIDGroup_desired_yaw_pos_tmp -= 360;
+		}
+		else if(PIDGroup[emPID_Yaw_Pos].desired<-180)
+		{
+				PIDGroup_desired_yaw_pos_tmp += 360;
+		}
     RemoteUnlock();
 }
 
@@ -432,13 +351,4 @@ void UpdateFMUToRemote()
 {
     uint8_t Buff[QUEUE_DATA_MAXLENGTH];
     uint8_t length;
-
-    if(deQueue(&USB_Send_Queue, Buff,&length))
-    {
-#ifdef NRF24L01    
-        NRF_Mannager.Hardware_Mannager->send_buff(Buff);
-#endif
-    }
 }
-
-/******************* (C) 版权所有 2018 北京中科浩电科技有限公司 *******************/

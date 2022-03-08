@@ -4,7 +4,8 @@
 #include "stdint.h"
 #include "stdbool.h"
 #include "pid.h"
-//#include "gcs.h"
+#include "fmuConfig.h"
+#include "StatusConfig.h"
 
 //单位:10ms
 #define MAX_COUNTDOWN 100 * 8
@@ -295,7 +296,7 @@ typedef struct
     OpenMVFrame2_t *FrontOpenmvFramePtr2;
     OpenMVFrame_t *ptrFrame;
     //飞机的状态
-    UAV_info_t *ptrUAVInfo;
+    UAVInfo *ptrUAVInfo;
 
     //动作序列
     FSMList_t ActionList;

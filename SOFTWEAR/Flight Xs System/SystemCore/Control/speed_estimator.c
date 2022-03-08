@@ -1,20 +1,4 @@
-/**
-  ******************************************************************************
-  * Copyright (c) 2018,北京中科浩电科技有限公司
-  * All rights reserved.
-  * 文件名称：speesd_estimator.c
-  * 摘    要：
-  *
-  * 当前版本：V1.0
-  * 作    者：北京中科浩电科技有限公司研发部 
-  * 完成日期：    
-  * 修改说明：
-  * 
-  *
-  * 历史版本：
-  *
-  *
-  *******************************************************************************/
+
 
 /*==============================================================================
                          ##### How to use this driver #####
@@ -28,6 +12,8 @@
 #include "SPL06.h"
 #include "control.h"
 #include "myMath.h"
+#include "fmuConfig.h"
+#include "StatusConfig.h"
 
 int32_t Terrain_following(int32_t alt,float dt);
 
@@ -40,108 +26,6 @@ int32_t Terrain_following(int32_t alt,float dt);
 //私有函数区
 float applyDeadbandf(float value, float deadband);
 
-//私有变量区
-	//float Err = 0.f;            /*位移误差*/
-	//float wBaro = 0.35f;            /*气压校正权重*/
-	//float HeightLPF = 0.f;    /*融合高度，低通*/
-	//float rangeLpf = 0.f;
-	//float accZLpf = 0.f;            /*Z轴加速度低通*/
-
-	///******************************************************************************
-	//  * 函数名称：UpdateAltSpeed
-	//  * 函数描述：Z轴速度估算
-	//  * 输    入：float dt：单位运行时间
-	//  * 输    出：void
-	//  * 返    回：void 
-	//  * 备    注：null  
-	//  *
-	//  *
-	//******************************************************************************/
-	//void UpdateAltSpeed(float dt)
-	//{
-	//    float ewdt = 0;
-	//    float weight = wBaro;
-	//    
-	//    HeightInfo.Alt = HeightInfo.Alt;    
-	//    HeightLPF += (HeightInfo.Alt - HeightLPF) * 0.1f;    
-	//    
-	//    bool isKeyFlightLand = (g_UAVinfo.UAV_Mode == Altitude_Hold);    
-	//    
-	//    float accZRemovalDead = applyDeadbandf(HeightInfo.Z_Acc, 4);/*去除死区的Z轴加速度*/
-	//    accZLpf += (accZRemovalDead - accZLpf) * 0.1f;        /*低通*/
-	//    
-	//    if(isKeyFlightLand == true)
-	//    {
-	//        LIMIT(accZLpf, -1000.f, 1000.f);
-	//    }
-	//    else
-	//    {
-	//        HeightInfo.Z_Acc = accZRemovalDead;
-	//    }
-
-	//    HeightInfo.Z_Acc = accZRemovalDead;
-	//    HeightInfo.Z_Acc -= 0.02f * Err * weight * weight * dt;    /*补偿加速度*/
-	//    
-	//    HeightInfo.Z_Postion += HeightInfo.Z_Speed * dt + HeightInfo.Z_Acc * dt * dt / 2.0f;
-	//    HeightInfo.Z_Speed += HeightInfo.Z_Acc * dt;
-	//    
-	//    Err = HeightInfo.Alt - HeightInfo.Z_Postion;        
-	//    
-	//    ewdt = Err * weight * dt;
-	//    HeightInfo.Z_Postion += ewdt;
-	//    HeightInfo.Z_Speed += weight * ewdt;
-	//    
-	//    if(isKeyFlightLand == true)        
-	//    {
-	//        HeightInfo.Z_Speed = LIMIT(HeightInfo.Z_Speed, -VELOCITY_LIMIT, VELOCITY_LIMIT);    
-	//    }
-	//}
-
-	///******************************************************************************
-	//  * 函数名称：ResetAltSpeed
-	//  * 函数描述：重置速度数据
-	//  * 输    入：void
-	//  * 输    出：void
-	//  * 返    回：void 
-	//  * 备    注：null  
-	//  *
-	//  *
-	//******************************************************************************/
-	//void ResetAltSpeed(void)
-	//{    
-	//    accZLpf = 0.f;
-	//    HeightInfo.Alt  = 0.f;
-	//    HeightLPF = 0.f;
-	//    HeightInfo.Z_Speed = 0.f;
-	//    HeightInfo.Z_Postion = HeightInfo.Alt;
-	//}
-
-	///******************************************************************************
-	//  * 函数名称：applyDeadbandf
-	//  * 函数描述：适应死区范围
-	//  * 输    入：
-	//  * value：数据
-	//  * deadband：死区范围
-	//  * 输    出：void
-	//  * 返    回：void 
-	//  * 备    注：null  
-	//  *
-	//  *
-	//******************************************************************************/
-	//float applyDeadbandf(float value, float deadband)
-	//{
-	//    if (ABS(value) < deadband) {
-	//        value = 0;
-	//    } else if (value > 0) {
-	//        value -= deadband;
-	//    } else if (value < 0) {
-	//        value += deadband;
-	//    }
-	//    return value;
-	//}
-
-//===================ANOTC===================
-#include "Ano_OF.h"
 
 #define FIX_A1 0.8f
 #define FIX_B1 0.5f
@@ -155,8 +39,8 @@ float applyDeadbandf(float value, float deadband);
 float fix_rat[3];
 _wz_fus_sta_enum wz_fus_sta;
 
-int32_t obs_wz_velocity[2];
-int32_t obs_wz_height[2];
+int32_t obs_wz_velocity;
+int32_t obs_wz_height;
 
 int32_t obs_wz_hasl;
 int32_t obs_wz_hasl_gnd;
@@ -173,67 +57,32 @@ float fix_wz_acceleration;
 
 static uint8_t height_init_f = 10;
 
-static int32_t height_old[2];
+static int32_t height_old;
 bool Select_Baro = false;
+
 void WZ_Obs_Calcu(float dT_s)//跟随OBS数据更新周期
 {
-	//height[1]
-	obs_wz_hasl = (int32_t)(g_SPL06Manager.fALT *100);//cm
+	//height
+	obs_wz_hasl = (int32_t)(f_SPL06.fALT *100);//cm
 	
-	//
 	if(height_init_f!=0)
 	{
-		//
 		height_init_f --;
-		//
 		obs_wz_hasl_gnd = obs_wz_hasl;
 	}
 	else
 	{
-		obs_wz_height[0] = obs_wz_hasl - obs_wz_hasl_gnd;
-	}
-	//height[2]
-    {
-        static float alt_tmp = 0;
-        
-        if(ANO_OF.ALT < 300)
-        {
-            obs_wz_height[1] = ANO_OF.ALT;
-            alt_tmp = ANO_OF.ALT;
-        }else
-        {
-            obs_wz_height[1] = alt_tmp;
-        }
-    }
-    
-//    Terrain_following(obs_wz_height[1],dT_s);
-	
-	//velocity
-	obs_wz_velocity[0] = (int32_t)((obs_wz_height[0] - height_old[0])/dT_s);
-	obs_wz_velocity[1] = (int32_t)((obs_wz_height[1] - height_old[1])/dT_s);
-	
-	height_old[0] = obs_wz_height[0];
-	height_old[1] = obs_wz_height[1];
-	
-	//selector
-	if(ANO_OF.STATE.alt != 0 && !Select_Baro)
-	{
-		obs_wz_velocity_ref = obs_wz_velocity[1];
-		//
-		fix_rat[0] = FIX_A2;
-		fix_rat[1] = FIX_B2;
-		fix_rat[2] = FIX_C2;
-	}
-	else
-	{
-		obs_wz_velocity_ref = obs_wz_velocity[0];
-		//
+		obs_wz_height = obs_wz_hasl - obs_wz_hasl_gnd;
+		//velocity
+		obs_wz_velocity = (int32_t)((obs_wz_height - height_old)/dT_s);
+		height_old = obs_wz_height;
+		//selector
+		obs_wz_velocity_ref = obs_wz_velocity;
 		fix_rat[0] = FIX_A1;
 		fix_rat[1] = FIX_B1;
 		fix_rat[2] = FIX_C1;
 	}
 }
-
 
 void WZ_Est_Calcu(float dT_s)//跟随惯性数据更新周期
 {
@@ -321,5 +170,3 @@ int32_t Terrain_following(int32_t alt,float dt)
     
     return alt;
 }
-
-/******************* (C) 版权所有 2018 北京中科浩电科技有限公司 *******************/
