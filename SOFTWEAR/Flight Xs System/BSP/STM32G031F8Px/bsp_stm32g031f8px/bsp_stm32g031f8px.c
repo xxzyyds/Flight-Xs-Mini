@@ -81,6 +81,10 @@ uint8_t SPL06_IIC_Read_Byte(uint16_t DevAddress, uint16_t MemAddress)
 	HAL_I2C_Mem_Read(&hi2c2,DevAddress,MemAddress,I2C_MEMADD_SIZE_8BIT,&TMP,0x01,0xff);
 	return TMP;
 }
+uint8_t SPL06_IIC_Read_Bytes(uint16_t DevAddress, uint16_t MemAddress, uint8_t *TMP, uint8_t len)
+{
+	return HAL_I2C_Mem_Read(&hi2c2,DevAddress,MemAddress,I2C_MEMADD_SIZE_8BIT,TMP,len,0xff);
+}
 
 void DEBUG_LED_ON()
 {
