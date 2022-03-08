@@ -16,6 +16,7 @@
   *
   ******************************************************************************
   */
+#ifndef _MY_MAIN_
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
@@ -172,7 +173,7 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
-
+#endif
 /* USER CODE END 4 */
 
 /**

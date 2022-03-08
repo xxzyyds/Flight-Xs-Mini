@@ -668,6 +668,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\..\SystemCore\Control\speed_estimator.c</FilePath>
             </File>
+            <File>
+              <FileName>Mymain.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\SystemCore\Mymain.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

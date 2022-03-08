@@ -1,3 +1,6 @@
+#define _MY_MAIN_
+
+
 // init --> getInfo by IMU ang receive Msg form controller --> Control the motor --> getInfo
 
 // 硬件资源 + 相关外设初始化
