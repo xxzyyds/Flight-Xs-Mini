@@ -26,246 +26,180 @@ Project File Date:  03/08/2022
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Program Files (x86)\Keil_MDK\ARM\ARMCC\Bin'
-Rebuild target 'STM32G031F8Px'
-assembling startup_stm32g031xx.s...
-compiling stm32g0xx_ll_adc.c...
-compiling stm32g0xx_ll_rcc.c...
-compiling stm32g0xx_ll_dma.c...
-compiling main.c...
-compiling adc.c...
-compiling stm32g0xx_hal_adc_ex.c...
-compiling gpio.c...
-compiling stm32g0xx_it.c...
-compiling usart.c...
-compiling dma.c...
-compiling stm32g0xx_hal_flash.c...
-compiling stm32g0xx_hal_dma_ex.c...
-compiling i2c.c...
-compiling stm32g0xx_hal_msp.c...
-compiling stm32g0xx_hal_pwr.c...
-compiling tim.c...
-compiling stm32g0xx_hal_pwr_ex.c...
-compiling stm32g0xx_hal_flash_ex.c...
-compiling stm32g0xx_hal_exti.c...
-compiling stm32g0xx_hal_dma.c...
-compiling stm32g0xx_hal_gpio.c...
-compiling stm32g0xx_hal_cortex.c...
-compiling stm32g0xx_hal.c...
-compiling stm32g0xx_hal_rcc_ex.c...
-compiling hardware.c...
-..\..\..\SystemCore\Control\include.h(24): error:  #5: cannot open source input file "driverlib.h": No such file or directory
-  #include "driverlib.h"
-..\..\..\SystemCore\Hardware\hardware.c: 0 warnings, 1 error
-compiling mpu6050.c...
-..\..\..\SystemCore\Control\include.h(24): error:  #5: cannot open source input file "driverlib.h": No such file or directory
-  #include "driverlib.h"
-..\..\..\SystemCore\Hardware\mpu6050.c: 0 warnings, 1 error
-compiling power.c...
-..\..\..\SystemCore\Control\include.h(24): error:  #5: cannot open source input file "driverlib.h": No such file or directory
-  #include "driverlib.h"
-..\..\..\SystemCore\Hardware\power.c: 0 warnings, 1 error
-compiling stm32g0xx_hal_rcc.c...
-compiling control.c...
-..\..\..\SystemCore\Control\include.h(24): error:  #5: cannot open source input file "driverlib.h": No such file or directory
-  #include "driverlib.h"
-..\..\..\SystemCore\Control\control.c: 0 warnings, 1 error
-compiling timer_drv.c...
-..\..\..\SystemCore\Control\include.h(24): error:  #5: cannot open source input file "driverlib.h": No such file or directory
-  #include "driverlib.h"
-..\..\..\SystemCore\Hardware\timer_drv.c: 0 warnings, 1 error
-compiling kernel.c...
-..\..\..\SystemCore\Control\include.h(24): error:  #5: cannot open source input file "driverlib.h": No such file or directory
-  #include "driverlib.h"
-..\..\..\SystemCore\Control\kernel.c: 0 warnings, 1 error
-compiling Init.c...
-..\..\..\SystemCore\Control\include.h(24): error:  #5: cannot open source input file "driverlib.h": No such file or directory
-  #include "driverlib.h"
-..\..\..\SystemCore\Control\Init.c: 0 warnings, 1 error
-compiling FollowLine.c...
-..\..\..\SystemCore\Control\FollowLine.h(7): error:  #5: cannot open source input file "gcs.h": No such file or directory
-  #include "gcs.h"
-..\..\..\SystemCore\Control\FollowLine.c: 0 warnings, 1 error
-compiling stm32g0xx_hal_adc.c...
-compiling SDK.c...
-..\..\..\SystemCore\Control\FollowLine.h(7): error:  #5: cannot open source input file "gcs.h": No such file or directory
-  #include "gcs.h"
-..\..\..\SystemCore\Control\SDK.c: 0 warnings, 1 error
-compiling Mymain.c...
-..\..\..\SystemCore\Mymain.c(7): warning:  #223-D: function "Key_Init" declared implicitly
-      Key_Init();
-..\..\..\SystemCore\Mymain.c(18): warning:  #223-D: function "delay_ms" declared implicitly
-      delay_ms(500);
-..\..\..\SystemCore\Mymain.c(21): warning:  #223-D: function "Key_Scan" declared implicitly
-          Key_Scan();
-..\..\..\SystemCore\Mymain.c(23): warning:  #1-D: last line of file ends without a newline
-  }
-..\..\..\SystemCore\Mymain.c: 4 warnings, 0 errors
-compiling kalman.c...
+Build target 'STM32G031F8Px'
 compiling queue.c...
 ..\..\..\SystemCore\Math\queue.c(88): error:  #5: cannot open source input file "Hardware_uart.h": No such file or directory
   #include "Hardware_uart.h"
 ..\..\..\SystemCore\Math\queue.c: 0 warnings, 1 error
-compiling battery.c...
-..\..\..\SystemCore\Hardware\battery.h(9): error:  #20: identifier "bool" is undefined
-      bool BatteryConnected;
-..\..\..\SystemCore\Hardware\battery.c(19): error:  #20: identifier "true" is undefined
-          g_BatteryInfo.BatteryConnected = true;
-..\..\..\SystemCore\Hardware\battery.c(23): error:  #20: identifier "false" is undefined
-          g_BatteryInfo.BatteryConnected = false;
-..\..\..\SystemCore\Hardware\battery.c: 0 warnings, 3 errors
-compiling motor.c...
-..\..\..\SystemCore\Hardware\motor.c(32): error:  #5: cannot open source input file "eeprom.h": No such file or directory
-  #include "eeprom.h"
-..\..\..\SystemCore\Hardware\motor.c: 0 warnings, 1 error
-compiling LED.c...
-..\..\..\SystemCore\Hardware\LED.c(68): error:  #20: identifier "LED_STATUS_OFF" is undefined
-      LED_STATUS_OFF;
-..\..\..\SystemCore\Hardware\LED.c(69): error:  #20: identifier "LED_POWER_OFF" is undefined
-      LED_POWER_OFF;
-..\..\..\SystemCore\Hardware\LED.c(73): error:  #20: identifier "P1DIR" is undefined
-      P1DIR |= GPIO_PIN0;
-..\..\..\SystemCore\Hardware\LED.c(73): error:  #20: identifier "GPIO_PIN0" is undefined
-      P1DIR |= GPIO_PIN0;
-..\..\..\SystemCore\Hardware\LED.c(76): error:  #20: identifier "P2DIR" is undefined
-      P2DIR |= GPIO_PIN0;
-..\..\..\SystemCore\Hardware\LED.c(77): error:  #20: identifier "GPIO_PIN1" is undefined
-      P2DIR |= GPIO_PIN1;
-..\..\..\SystemCore\Hardware\LED.c(78): error:  #20: identifier "GPIO_PIN2" is undefined
-      P2DIR |= GPIO_PIN2;
-..\..\..\SystemCore\Hardware\LED.c(85): error:  #20: identifier "P3DIR" is undefined
-      P3DIR |= GPIO_PIN5;
-..\..\..\SystemCore\Hardware\LED.c(85): error:  #20: identifier "GPIO_PIN5" is undefined
-      P3DIR |= GPIO_PIN5;
-..\..\..\SystemCore\Hardware\LED.c(86): error:  #20: identifier "P5DIR" is undefined
-      P5DIR |= GPIO_PIN0;
-..\..\..\SystemCore\Hardware\LED.c(89): error:  #20: identifier "P3OUT" is undefined
-      P3OUT |= GPIO_PIN5;
-..\..\..\SystemCore\Hardware\LED.c(90): error:  #20: identifier "P5OUT" is undefined
-      P5OUT |= GPIO_PIN0;
-..\..\..\SystemCore\Hardware\LED.c(95): error:  #20: identifier "P6DIR" is undefined
-  		P6DIR |= GPIO_PIN2;
-..\..\..\SystemCore\Hardware\LED.c(96): error:  #20: identifier "P6OUT" is undefined
-  		P6OUT |= GPIO_PIN2;    //高电平 
-..\..\..\SystemCore\Hardware\LED.c(101): error:  #20: identifier "P1OUT" is undefined
-      P1OUT &= ~GPIO_PIN0;
-..\..\..\SystemCore\Hardware\LED.c(102): error:  #20: identifier "P2OUT" is undefined
-      P2OUT &= ~GPIO_PIN0;
-..\..\..\SystemCore\Hardware\LED.c(140): error:  #20: identifier "LED_STATUS_TOGGLE" is undefined
-                  LED_STATUS_TOGGLE;
-..\..\..\SystemCore\Hardware\LED.c(144): error:  #20: identifier "LED_STATUS_TOGGLE" is undefined
-              LED_STATUS_TOGGLE;
-..\..\..\SystemCore\Hardware\LED.c(147): error:  #20: identifier "LED_STATUS_ON" is undefined
-              LED_STATUS_ON;
-..\..\..\SystemCore\Hardware\LED.c(150): error:  #20: identifier "LED_STATUS_OFF" is undefined
-              LED_STATUS_OFF;
-..\..\..\SystemCore\Hardware\LED.c(160): error:  #20: identifier "LED_POWER_ON" is undefined
-              LED_POWER_ON;
-..\..\..\SystemCore\Hardware\LED.c(165): error:  #20: identifier "LED_POWER_TOGGLE" is undefined
-                  LED_POWER_TOGGLE;
-..\..\..\SystemCore\Hardware\LED.c(169): error:  #20: identifier "LED_POWER_OFF" is undefined
-              LED_POWER_OFF;
-..\..\..\SystemCore\Hardware\LED.c(172): error:  #20: identifier "LED_POWER_TOGGLE" is undefined
-              LED_POWER_TOGGLE;
-..\..\..\SystemCore\Hardware\LED.c(182): error:  #20: identifier "P5OUT" is undefined
-              LED_RGB_B_ON;
-..\..\..\SystemCore\Hardware\LED.c(182): error:  #20: identifier "GPIO_PIN2" is undefined
-              LED_RGB_B_ON;
-..\..\..\SystemCore\Hardware\LED.c(187): warning:  #223-D: function "GPIO_toggleOutputOnPin" declared implicitly
-                  LED_RGB_B_TOGGLE;
-..\..\..\SystemCore\Hardware\LED.c(187): error:  #20: identifier "GPIO_PORT_P5" is undefined
-                  LED_RGB_B_TOGGLE;
-..\..\..\SystemCore\Hardware\LED.c(194): warning:  #223-D: function "GPIO_toggleOutputOnPin" declared implicitly
-              LED_RGB_B_TOGGLE;
-..\..\..\SystemCore\Hardware\LED.c(194): error:  #20: identifier "GPIO_PORT_P5" is undefined
-              LED_RGB_B_TOGGLE;
-..\..\..\SystemCore\Hardware\LED.c(203): error:  #20: identifier "P3OUT" is undefined
-              LED_RGB_R_ON;
-..\..\..\SystemCore\Hardware\LED.c(203): error:  #20: identifier "GPIO_PIN5" is undefined
-              LED_RGB_R_ON;
-..\..\..\SystemCore\Hardware\LED.c: 2 warnings, 30 errors
+compiling speed_estimator.c...
+..\..\..\SystemCore\Control\speed_estimator.c(144): error:  #5: cannot open source input file "Ano_OF.h": No such file or directory
+  #include "Ano_OF.h"
+..\..\..\SystemCore\Control\speed_estimator.c: 0 warnings, 1 error
 compiling SPL06.c...
 ..\..\..\SystemCore\Hardware\SPL06.c(32): error:  #5: cannot open source input file "HARDWARE_i2c.h": No such file or directory
   #include "HARDWARE_i2c.h"
 ..\..\..\SystemCore\Hardware\SPL06.c: 0 warnings, 1 error
-compiling stm32g0xx_hal_i2c_ex.c...
 compiling pos_ctrl.c...
 ..\..\..\SystemCore\Control\pos_ctrl.c(3): error:  #5: cannot open source input file "Ano_OF.h": No such file or directory
   #include "Ano_OF.h"
 ..\..\..\SystemCore\Control\pos_ctrl.c: 0 warnings, 1 error
-compiling system_stm32g0xx.c...
-compiling stm32g0xx_hal_uart_ex.c...
-compiling height_control.c...
-..\..\..\SystemCore\Control\include.h(24): error:  #5: cannot open source input file "driverlib.h": No such file or directory
-  #include "driverlib.h"
-..\..\..\SystemCore\Control\height_control.c: 0 warnings, 1 error
+compiling motor.c...
+..\..\..\SystemCore\Hardware\motor.c(32): error:  #5: cannot open source input file "eeprom.h": No such file or directory
+  #include "eeprom.h"
+..\..\..\SystemCore\Hardware\motor.c: 0 warnings, 1 error
 compiling program_ctrl.c...
 ..\..\..\SystemCore\Control\program_ctrl.c(5): error:  #5: cannot open source input file "gcs.h": No such file or directory
   #include "gcs.h"
 ..\..\..\SystemCore\Control\program_ctrl.c: 0 warnings, 1 error
+compiling SDK.c...
+..\..\..\SystemCore\Control\FollowLine.h(298): error:  #20: identifier "UAV_info_t" is undefined
+      UAV_info_t *ptrUAVInfo;
+..\..\..\SystemCore\Control\SDK.c(5): error:  #5: cannot open source input file "Ano_OF.h": No such file or directory
+  #include "Ano_OF.h"
+..\..\..\SystemCore\Control\SDK.c: 0 warnings, 2 errors
+compiling LED.c...
+..\..\..\SystemCore\Control\FollowLine.h(298): error:  #20: identifier "UAV_info_t" is undefined
+      UAV_info_t *ptrUAVInfo;
+..\..\..\SystemCore\Hardware\LED.c(279): error:  #20: identifier "P2OUT" is undefined
+                  P2OUT |= GPIO_PIN1;
+..\..\..\SystemCore\Hardware\LED.c(279): error:  #20: identifier "GPIO_PIN1" is undefined
+                  P2OUT |= GPIO_PIN1;
+..\..\..\SystemCore\Hardware\LED.c(283): error:  #20: identifier "P2OUT" is undefined
+                  P2OUT &= ~GPIO_PIN1;
+..\..\..\SystemCore\Hardware\LED.c(283): error:  #20: identifier "GPIO_PIN1" is undefined
+                  P2OUT &= ~GPIO_PIN1;
+..\..\..\SystemCore\Hardware\LED.c(288): error:  #20: identifier "P2OUT" is undefined
+          P2OUT &= ~GPIO_PIN1;
+..\..\..\SystemCore\Hardware\LED.c(288): error:  #20: identifier "GPIO_PIN1" is undefined
+          P2OUT &= ~GPIO_PIN1;
+..\..\..\SystemCore\Hardware\LED.c: 0 warnings, 7 errors
 compiling remote.c...
 ..\..\..\SystemCore\Control\remote.c(33): error:  #5: cannot open source input file "gcs.h": No such file or directory
   #include "gcs.h"
 ..\..\..\SystemCore\Control\remote.c: 0 warnings, 1 error
-compiling speed_estimator.c...
-..\..\..\SystemCore\Control\speed_estimator.c(30): error:  #5: cannot open source input file "gcs.h": No such file or directory
+compiling hardware.c...
+..\..\..\SystemCore\Hardware\hardware.c(3): error:  #5: cannot open source input file "msp.h": No such file or directory
+  #include "msp.h"
+..\..\..\SystemCore\Hardware\hardware.c: 0 warnings, 1 error
+compiling FollowLine.c...
+..\..\..\SystemCore\Control\FollowLine.h(298): error:  #20: identifier "UAV_info_t" is undefined
+      UAV_info_t *ptrUAVInfo;
+..\..\..\SystemCore\Control\FollowLine.c(9): error:  #20: identifier "HeightInfo_t" is undefined
+  extern HeightInfo_t HeightInfo;
+..\..\..\SystemCore\Control\FollowLine.c(103): warning:  #223-D: function "sdk_takeoff" declared implicitly
+          sdk_takeoff(80);
+..\..\..\SystemCore\Control\FollowLine.c(107): warning:  #223-D: function "sdk_velocity_reset" declared implicitly
+          sdk_velocity_reset();
+..\..\..\SystemCore\Control\FollowLine.c(112): warning:  #223-D: function "sdk_land" declared implicitly
+          sdk_land();
+..\..\..\SystemCore\Control\FollowLine.c(117): error:  #20: identifier "g_UAVinfo" is undefined
+          g_UAVinfo.FMUflg->unlock = 0;
+..\..\..\SystemCore\Control\FollowLine.c(152): error:  #20: identifier "P1IN" is undefined
+      input = P1IN & BIT1;
+..\..\..\SystemCore\Control\FollowLine.c(152): error:  #20: identifier "BIT1" is undefined
+      input = P1IN & BIT1;
+..\..\..\SystemCore\Control\FollowLine.c(172): error:  #118: a void function may not return a value
+      }
+..\..\..\SystemCore\Control\FollowLine.c(172): error:  #29: expected an expression
+      }
+..\..\..\SystemCore\Control\FollowLine.c(172): error:  #65: expected a ";"
+      }
+..\..\..\SystemCore\Control\FollowLine.c: 3 warnings, 8 errors
+compiling height_control.c...
+..\..\..\SystemCore\Control\FollowLine.h(298): error:  #20: identifier "UAV_info_t" is undefined
+      UAV_info_t *ptrUAVInfo;
+..\..\..\SystemCore\Control\height_control.c(42): error:  #5: cannot open source input file "gcs.h": No such file or directory
   #include "gcs.h"
-..\..\..\SystemCore\Control\speed_estimator.c: 0 warnings, 1 error
-compiling imu.c...
-..\..\..\SystemCore\Control\include.h(24): error:  #5: cannot open source input file "driverlib.h": No such file or directory
-  #include "driverlib.h"
-..\..\..\SystemCore\Math\imu.c: 0 warnings, 1 error
-compiling filter.c...
-compiling myMath.c...
-compiling stm32g0xx_hal_tim_ex.c...
-compiling pid.c...
-compiling bsp_stm32g031f8px.c...
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(27): warning:  #1295-D: Deprecated declaration BSP_Init - give arg types
-  void BSP_Init();
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(32): warning:  #1295-D: Deprecated declaration MPU6050_IIC_Write - give arg types
-  uint8_t MPU6050_IIC_Write();
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(33): warning:  #1295-D: Deprecated declaration MPU6050_IIC_Read - give arg types
-  uint8_t MPU6050_IIC_Read();
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(34): warning:  #1295-D: Deprecated declaration SPL06_IIC_Write - give arg types
-  uint8_t SPL06_IIC_Write();
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(35): warning:  #1295-D: Deprecated declaration SPL06_IIC_Read - give arg types
-  uint8_t SPL06_IIC_Read();
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(37): warning:  #1295-D: Deprecated declaration DEBUG_LED_ON - give arg types
-  void DEBUG_LED_ON();
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(38): warning:  #1295-D: Deprecated declaration DEBUG_LED_OFF - give arg types
-  void DEBUG_LED_OFF();
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(39): warning:  #1295-D: Deprecated declaration STATUS_LED_ON - give arg types
-  void STATUS_LED_ON();
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(40): warning:  #1295-D: Deprecated declaration STATUS_LED_OFF - give arg types
-  void STATUS_LED_OFF();
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(41): warning:  #1295-D: Deprecated declaration GET_BAT_ADC - give arg types
-  uint8_t GET_BAT_ADC();
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(42): warning:  #1295-D: Deprecated declaration GET_KEY_STATUS - give arg types
-  uint8_t GET_KEY_STATUS();
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.c(58): warning:  #940-D: missing return statement at end of non-void function "BT_UART_TX" 
-  }
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.c(62): warning:  #940-D: missing return statement at end of non-void function "BT_UART_RX" 
-  }
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.c(66): warning:  #940-D: missing return statement at end of non-void function "DEBUG_UART_TX" 
-  }
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.c(70): warning:  #940-D: missing return statement at end of non-void function "MPU6050_IIC_Write" 
-  }
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.c(74): warning:  #940-D: missing return statement at end of non-void function "MPU6050_IIC_Read" 
-  }
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.c(78): warning:  #940-D: missing return statement at end of non-void function "SPL06_IIC_Write" 
-  }
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.c(82): warning:  #940-D: missing return statement at end of non-void function "SPL06_IIC_Read" 
-  }
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.c(106): warning:  #940-D: missing return statement at end of non-void function "GET_BAT_ADC" 
-  }
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.c(111): warning:  #940-D: missing return statement at end of non-void function "GET_KEY_STATUS" 
-  }
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.c(166): warning:  #1-D: last line of file ends without a newline
-  }
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.c: 21 warnings, 0 errors
-compiling stm32g0xx_hal_uart.c...
-compiling stm32g0xx_hal_i2c.c...
-compiling stm32g0xx_hal_tim.c...
-"STM32G031F8Px\STM32G031F8Px.axf" - 51 Error(s), 27 Warning(s).
+..\..\..\SystemCore\Control\height_control.c: 0 warnings, 2 errors
+compiling Init.c...
+..\..\..\SystemCore\Control\Init.c(28): error:  #5: cannot open source input file "gcs.h": No such file or directory
+  #include "gcs.h"
+..\..\..\SystemCore\Control\Init.c: 0 warnings, 1 error
+compiling control.c...
+..\..\..\SystemCore\Config\StatusConfig.h(11): warning:  #47-D: incompatible redefinition of macro "MOTOR_MAX_VALUE"  (declared at line 61 of "..\..\..\SystemCore\Config\fmuConfig.h")
+  #define MOTOR_MAX_VALUE 200
+..\..\..\SystemCore\Config\StatusConfig.h(18): error:  #107: zero-length bit field must be unnamed
+      uint8_t unlock:0;
+..\..\..\SystemCore\Config\StatusConfig.h(20): error:  #107: zero-length bit field must be unnamed
+  		uint8_t Auto:0;
+..\..\..\SystemCore\Config\StatusConfig.h(22): error:  #107: zero-length bit field must be unnamed
+  		uint8_t height_lock:0;
+..\..\..\SystemCore\Config\StatusConfig.h(25): error:  #107: zero-length bit field must be unnamed
+      uint8_t take_off:0;
+..\..\..\SystemCore\Config\StatusConfig.h(26): error:  #107: zero-length bit field must be unnamed
+      uint8_t take_down:0;
+..\..\..\SystemCore\Config\pidConfig.h(55): warning:  #1-D: last line of file ends without a newline
+  // height pid
+..\..\..\SystemCore\Control\control.c(57): warning:  #223-D: function "ResetPID" declared implicitly
+              ResetPID();                             
+..\..\..\SystemCore\Control\control.c(58): warning:  #223-D: function "IMU_Reset" declared implicitly
+              IMU_Reset();
+..\..\..\SystemCore\Control\control.c(59): error:  #20: identifier "g_Attitude" is undefined
+              g_Attitude.yaw = 0;
+..\..\..\SystemCore\Control\control.c(60): error:  #20: identifier "PIDGroup_desired_yaw_pos_tmp" is undefined
+              PIDGroup_desired_yaw_pos_tmp = g_Attitude.yaw;
+..\..\..\SystemCore\Control\control.c(61): error:  #20: identifier "emPID_Yaw_Pos" is undefined
+              PIDGroup[emPID_Yaw_Pos].measured = 0;
+..\..\..\SystemCore\Control\control.c(67): error:  #20: identifier "fb_gyro_lpf" is undefined
+  						fb_gyro_lpf[0] += 0.5f *(g_MPUManager.gyroX * Gyro_G - fb_gyro_lpf[0]); //内环测量值 角度/秒
+..\..\..\SystemCore\Control\control.c(67): error:  #20: identifier "g_MPUManager" is undefined
+  						fb_gyro_lpf[0] += 0.5f *(g_MPUManager.gyroX * Gyro_G - fb_gyro_lpf[0]); //内环测量值 角度/秒
+..\..\..\SystemCore\Control\control.c(67): error:  #20: identifier "Gyro_G" is undefined
+  						fb_gyro_lpf[0] += 0.5f *(g_MPUManager.gyroX * Gyro_G - fb_gyro_lpf[0]); //内环测量值 角度/秒
+..\..\..\SystemCore\Control\control.c(72): error:  #20: identifier "emPID_Roll_Spd" is undefined
+              PIDGroup[emPID_Roll_Spd].measured = fb_gyro_lpf[0];
+..\..\..\SystemCore\Control\control.c(73): error:  #20: identifier "emPID_Pitch_Spd" is undefined
+              PIDGroup[emPID_Pitch_Spd].measured = fb_gyro_lpf[1];
+..\..\..\SystemCore\Control\control.c(74): error:  #20: identifier "emPID_Yaw_Spd" is undefined
+              PIDGroup[emPID_Yaw_Spd].measured = fb_gyro_lpf[2];
+..\..\..\SystemCore\Control\control.c(77): error:  #20: identifier "emPID_Pitch_Pos" is undefined
+              PIDGroup[emPID_Pitch_Pos].measured = g_Attitude.pitch; //外环测量值 单位：角度
+..\..\..\SystemCore\Control\control.c(78): error:  #20: identifier "emPID_Roll_Pos" is undefined
+              PIDGroup[emPID_Roll_Pos].measured = g_Attitude.roll;
+..\..\..\SystemCore\Control\control.c(92): warning:  #223-D: function "ClacCascadePID" declared implicitly
+              ClacCascadePID(&PIDGroup[emPID_Roll_Spd],  &PIDGroup[emPID_Roll_Pos],  dt);      //X轴
+..\..\..\SystemCore\Control\control.c(110): error:  #20: identifier "EMERGENT" is undefined
+      if(FlightStatus.unlock == EMERGENT)     
+..\..\..\SystemCore\Control\control.c(147): error:  #20: identifier "WAITING_2" is undefined
+                  status = WAITING_2;
+..\..\..\SystemCore\Control\control.c(150): error:  #2706: case label value has already appeared in this switch at line 142
+          case WAITING:
+..\..\..\SystemCore\Control\control.c(153): error:  #20: identifier "g_FMUflg" is undefined
+  								if(FlightStatus.Auto || g_FMUflg.take_off) //刚解锁时，如果，认为操作者还不想飞行
+..\..\..\SystemCore\Control\control.c(155): error:  #20: identifier "PROCESS_31" is undefined
+                      status = PROCESS_31;
+..\..\..\SystemCore\Control\control.c(171): error:  #20: identifier "g_Attitude" is undefined
+                  if(g_Attitude.pitch < -MAX_ISFD_ATTITUDE 
+..\..\..\SystemCore\Control\control.c(177): error:  #20: identifier "EXIT_255" is undefined
+                      status = EXIT_255;
+..\..\..\SystemCore\Control\control.c(178): warning:  #223-D: function "ResetAlt" declared implicitly
+                      ResetAlt();
+..\..\..\SystemCore\Control\control.c(179): warning:  #223-D: function "ResetPID" declared implicitly
+                      ResetPID();
+..\..\..\SystemCore\Control\control.c(180): warning:  #223-D: function "IMU_Reset" declared implicitly
+                      IMU_Reset();
+..\..\..\SystemCore\Control\control.c(189): warning:  #223-D: function "LIMIT" declared implicitly
+                  MOTOR1 = LIMIT(temp, 0, MOTOR_MAX_INIT_VALUE); 
+..\..\..\SystemCore\Control\control.c(195): error:  #20: identifier "emPID_Roll_Spd" is undefined
+                  MOTOR1 += +PIDGroup[emPID_Roll_Spd].out - PIDGroup[emPID_Pitch_Spd].out + PIDGroup[emPID_Yaw_Spd].out;
+..\..\..\SystemCore\Control\control.c(195): error:  #20: identifier "emPID_Pitch_Spd" is undefined
+                  MOTOR1 += +PIDGroup[emPID_Roll_Spd].out - PIDGroup[emPID_Pitch_Spd].out + PIDGroup[emPID_Yaw_Spd].out;
+..\..\..\SystemCore\Control\control.c(195): error:  #20: identifier "emPID_Yaw_Spd" is undefined
+                  MOTOR1 += +PIDGroup[emPID_Roll_Spd].out - PIDGroup[emPID_Pitch_Spd].out + PIDGroup[emPID_Yaw_Spd].out;
+..\..\..\SystemCore\Control\control.c: 9 warnings, 26 errors
+compiling mpu6050.c...
+..\..\..\SystemCore\Hardware\mpu6050.c(38): error:  #5: cannot open source input file "HARDWARE_i2c.h": No such file or directory
+  #include "HARDWARE_i2c.h"
+..\..\..\SystemCore\Hardware\mpu6050.c: 0 warnings, 1 error
+compiling kernel.c...
+..\..\..\SystemCore\Control\kernel.c(7): error:  #5: cannot open source input file "communication.h": No such file or directory
+  #include "communication.h"
+..\..\..\SystemCore\Control\kernel.c: 0 warnings, 1 error
+compiling power.c...
+..\..\..\SystemCore\Hardware\power.c(38): warning:  #177-D: variable "cnt"  was declared but never referenced
+  static int cnt = 0;
+..\..\..\SystemCore\Hardware\power.c: 1 warning, 0 errors
+"STM32G031F8Px\STM32G031F8Px.axf" - 56 Error(s), 13 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -290,7 +224,7 @@ Package Vendor: Keil
    * Component: ARM::CMSIS:CORE:5.5.0
       Include file:  CMSIS\Core\Include\tz_context.h
 Target not created.
-Build Time Elapsed:  00:00:03
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>

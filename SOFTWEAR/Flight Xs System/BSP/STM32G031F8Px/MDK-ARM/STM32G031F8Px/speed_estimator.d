@@ -45,3 +45,4 @@ stm32g031f8px\speed_estimator.o: ..\..\..\SystemCore\Hardware\SPL06.h
 stm32g031f8px\speed_estimator.o: C:\Program Files (x86)\Keil_MDK\ARM\ARMCC\Bin\..\include\stdbool.h
 stm32g031f8px\speed_estimator.o: ..\..\..\SystemCore\Control\control.h
 stm32g031f8px\speed_estimator.o: ..\..\..\SystemCore\Math\pid.h
+stm32g031f8px\speed_estimator.o: ..\..\..\SystemCore\Math\myMath.h

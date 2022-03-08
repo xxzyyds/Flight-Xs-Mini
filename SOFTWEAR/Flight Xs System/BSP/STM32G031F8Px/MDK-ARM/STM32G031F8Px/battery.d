@@ -40,4 +40,5 @@ stm32g031f8px\battery.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_tim.h
 stm32g031f8px\battery.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_tim_ex.h
 stm32g031f8px\battery.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_uart.h
 stm32g031f8px\battery.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_uart_ex.h
+stm32g031f8px\battery.o: C:\Program Files (x86)\Keil_MDK\ARM\ARMCC\Bin\..\include\stdbool.h
 stm32g031f8px\battery.o: ..\..\..\SystemCore\Math\myMath.h

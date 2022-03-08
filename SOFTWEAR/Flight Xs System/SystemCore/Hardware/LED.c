@@ -62,6 +62,7 @@ LedManager_t g_LedManager;
   *    
   *
 ******************************************************************************/
+/*
 void LEDInit(void)        
 {
     //LED灯状态配置
@@ -116,7 +117,7 @@ void LEDInit(void)
     LED_RGB_G_OFF;
     Delay_ms(100);
 }
-
+*/
 /******************************************************************************
   * 函数名称：PollingLED
   * 函数描述：轮询当前是否有LED亮起任务就绪
@@ -129,6 +130,7 @@ void LEDInit(void)
 ******************************************************************************/
 void PollingLED()
 {
+	/*
     g_LedManager.u16FlashTime++;
 
     //根据LED灯管理器状态配置LED灯
@@ -241,6 +243,7 @@ void PollingLED()
     
     //根据LED灯管理器状态配置LED灯    
     LEDEventHandle();
+		*/
 }
 
 #include "FollowLine.h"

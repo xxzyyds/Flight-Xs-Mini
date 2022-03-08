@@ -43,3 +43,13 @@ stm32g031f8px\imu.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_uart_ex.h
 stm32g031f8px\imu.o: ..\..\..\SystemCore\Hardware\mpu6050.h
 stm32g031f8px\imu.o: ..\..\..\SystemCore\Control\include.h
 stm32g031f8px\imu.o: C:\Program Files (x86)\Keil_MDK\ARM\ARMCC\Bin\..\include\stdbool.h
+stm32g031f8px\imu.o: ..\..\..\SystemCore\Math\queue.h
+stm32g031f8px\imu.o: C:\Program Files (x86)\Keil_MDK\ARM\ARMCC\Bin\..\include\string.h
+stm32g031f8px\imu.o: ..\..\..\SystemCore\Config\fmuConfig.h
+stm32g031f8px\imu.o: ..\..\..\SystemCore\Control\include.h
+stm32g031f8px\imu.o: ..\..\..\SystemCore\Hardware\hardware.h
+stm32g031f8px\imu.o: ..\..\..\SystemCore\Hardware\motor.h
+stm32g031f8px\imu.o: C:\Program Files (x86)\Keil_MDK\ARM\ARMCC\Bin\..\include\math.h
+stm32g031f8px\imu.o: ../Core/Inc/i2c.h
+stm32g031f8px\imu.o: ..\..\..\SystemCore\Math\myMath.h
+stm32g031f8px\imu.o: ..\..\..\SystemCore\Control\height_control.h

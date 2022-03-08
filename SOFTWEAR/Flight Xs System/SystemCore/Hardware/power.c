@@ -17,6 +17,7 @@ bool power_update_enable = false;
 pwoer_status_t pwoer_status;
 void power_init(void)
 {
+	/*
     //p4.1为输入,内部拉高
     P4DIR &= ~(1 << BIT1);
     MAP_GPIO_setAsInputPinWithPullUpResistor(GPIO_PORT_P4, GPIO_PIN1);
@@ -31,11 +32,13 @@ void power_init(void)
         while(!IS_POWER_BUTTON_ENABLE);
         power_update_enable = true;
     }
+	*/
 }
 
 static int cnt = 0;
 void power_update(void)
 {
+	/*
     if(!power_update_enable)
         return ;
     
@@ -62,4 +65,5 @@ void power_update(void)
         {
             cnt = 0;
         }
+				*/
 }

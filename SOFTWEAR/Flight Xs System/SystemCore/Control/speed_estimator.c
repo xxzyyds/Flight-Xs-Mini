@@ -27,7 +27,6 @@
 #include "height_control.h"
 #include "SPL06.h"
 #include "control.h"
-#include "gcs.h"
 #include "myMath.h"
 
 int32_t Terrain_following(int32_t alt,float dt);

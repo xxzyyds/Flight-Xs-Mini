@@ -21,7 +21,6 @@
 //第一批被引用的头文件
 #include "stdint.h"
 #include "stdbool.h"
-#include "driverlib.h"
 
 //DataBase
 #include "queue.h"

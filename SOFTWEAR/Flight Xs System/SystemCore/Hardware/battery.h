@@ -2,7 +2,7 @@
 #define _BATTERY_H
 
 #include "main.h"
-
+#include "stdbool.h"
 
 typedef struct
 {

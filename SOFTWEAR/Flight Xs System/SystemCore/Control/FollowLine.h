@@ -4,7 +4,7 @@
 #include "stdint.h"
 #include "stdbool.h"
 #include "pid.h"
-#include "gcs.h"
+//#include "gcs.h"
 
 //µ¥Î»:10ms
 #define MAX_COUNTDOWN 100 * 8

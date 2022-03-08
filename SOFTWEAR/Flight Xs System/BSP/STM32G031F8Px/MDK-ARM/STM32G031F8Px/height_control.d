@@ -47,3 +47,15 @@ stm32g031f8px\height_control.o: ..\..\..\SystemCore\Hardware\SPL06.h
 stm32g031f8px\height_control.o: ..\..\..\SystemCore\Math\imu.h
 stm32g031f8px\height_control.o: ..\..\..\SystemCore\Hardware\mpu6050.h
 stm32g031f8px\height_control.o: ..\..\..\SystemCore\Control\include.h
+stm32g031f8px\height_control.o: ..\..\..\SystemCore\Math\queue.h
+stm32g031f8px\height_control.o: C:\Program Files (x86)\Keil_MDK\ARM\ARMCC\Bin\..\include\string.h
+stm32g031f8px\height_control.o: ..\..\..\SystemCore\Config\fmuConfig.h
+stm32g031f8px\height_control.o: ..\..\..\SystemCore\Control\include.h
+stm32g031f8px\height_control.o: ..\..\..\SystemCore\Hardware\hardware.h
+stm32g031f8px\height_control.o: ..\..\..\SystemCore\Hardware\motor.h
+stm32g031f8px\height_control.o: C:\Program Files (x86)\Keil_MDK\ARM\ARMCC\Bin\..\include\math.h
+stm32g031f8px\height_control.o: ../Core/Inc/i2c.h
+stm32g031f8px\height_control.o: ..\..\..\SystemCore\Math\myMath.h
+stm32g031f8px\height_control.o: ..\..\..\SystemCore\Control\Remote.h
+stm32g031f8px\height_control.o: ..\..\..\SystemCore\Control\sdk.h
+stm32g031f8px\height_control.o: ..\..\..\SystemCore\Control\FollowLine.h

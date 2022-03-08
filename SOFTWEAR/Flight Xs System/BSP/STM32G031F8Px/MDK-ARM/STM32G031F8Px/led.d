@@ -46,3 +46,4 @@ stm32g031f8px\led.o: C:\Program Files (x86)\Keil_MDK\ARM\ARMCC\Bin\..\include\st
 stm32g031f8px\led.o: ..\..\..\SystemCore\Hardware\Hardware.h
 stm32g031f8px\led.o: ..\..\..\SystemCore\Hardware\battery.h
 stm32g031f8px\led.o: ..\..\..\SystemCore\Hardware\timer_drv.h
+stm32g031f8px\led.o: ..\..\..\SystemCore\Control\FollowLine.h
