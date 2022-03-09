@@ -29,434 +29,110 @@ Project File Date:  03/08/2022
 Rebuild target 'STM32G031F8Px'
 assembling startup_stm32g031xx.s...
 compiling adc.c...
-compiling i2c.c...
 compiling stm32g0xx_hal_adc_ex.c...
+compiling i2c.c...
 compiling dma.c...
-compiling main.c...
-compiling stm32g0xx_hal_msp.c...
 compiling stm32g0xx_it.c...
-compiling gpio.c...
 compiling tim.c...
+compiling stm32g0xx_hal_msp.c...
+compiling main.c...
+compiling gpio.c...
 compiling usart.c...
+compiling stm32g0xx_ll_adc.c...
 compiling stm32g0xx_hal_adc.c...
 compiling stm32g0xx_ll_rcc.c...
-compiling stm32g0xx_ll_adc.c...
 compiling stm32g0xx_ll_dma.c...
 compiling stm32g0xx_hal_gpio.c...
-compiling stm32g0xx_hal_pwr.c...
-compiling stm32g0xx_hal_flash.c...
-compiling stm32g0xx_hal_flash_ex.c...
 compiling stm32g0xx_hal_pwr_ex.c...
-compiling stm32g0xx_hal_dma_ex.c...
 compiling stm32g0xx_hal_cortex.c...
-compiling stm32g0xx_hal_rcc_ex.c...
+compiling stm32g0xx_hal_dma_ex.c...
+compiling stm32g0xx_hal_flash_ex.c...
 compiling stm32g0xx_hal.c...
+compiling stm32g0xx_hal_flash.c...
+compiling stm32g0xx_hal_pwr.c...
 compiling stm32g0xx_hal_dma.c...
 compiling stm32g0xx_hal_rcc.c...
-compiling stm32g0xx_hal_i2c_ex.c...
-compiling battery.c...
+compiling stm32g0xx_hal_rcc_ex.c...
 compiling system_stm32g0xx.c...
 compiling LED.c...
-..\..\..\SystemCore\Hardware\LED.c(44): error:  #20: identifier "FMUflg_t" is undefined
-  extern FMUflg_t g_FMUflg;    
 ..\..\..\SystemCore\Math\imu.h(15): error:  #20: identifier "f_MPU" is undefined
   void ATT_Update(const f_MPU *pMpu, f_AL *pAngE, float dt);
-..\..\..\SystemCore\Config\StatusConfig.h(25): error:  #256: invalid redeclaration of type name "f_Status"  (declared at line 25)
-  } f_Status;
-..\..\..\SystemCore\Config\StatusConfig.h(33): error:  #256: invalid redeclaration of type name "Quaternion"  (declared at line 33)
-  } Quaternion;
-..\..\..\SystemCore\Config\StatusConfig.h(41): error:  #256: invalid redeclaration of type name "f_AL"  (declared at line 41)
-  } f_AL;
-..\..\..\SystemCore\Config\StatusConfig.h(44): error:  #147: declaration is incompatible with "f_AL FlightAttitude"  (declared at line 44)
-  extern f_AL FlightAttitude;
-..\..\..\SystemCore\Config\StatusConfig.h(45): error:  #147: declaration is incompatible with "f_Status FlightStatus"  (declared at line 45)
-  extern f_Status FlightStatus;
-..\..\..\SystemCore\Config\fmuConfig.h(162): error:  #20: identifier "FMUflg_t" is undefined
-      FMUflg_t            *FMUflg;
-..\..\..\SystemCore\Config\StatusConfig.h(25): error:  #256: invalid redeclaration of type name "f_Status"  (declared at line 25)
-  } f_Status;
-..\..\..\SystemCore\Config\StatusConfig.h(33): error:  #256: invalid redeclaration of type name "Quaternion"  (declared at line 33)
-  } Quaternion;
-..\..\..\SystemCore\Config\StatusConfig.h(41): error:  #256: invalid redeclaration of type name "f_AL"  (declared at line 41)
-  } f_AL;
-..\..\..\SystemCore\Config\StatusConfig.h(44): error:  #147: declaration is incompatible with "f_AL FlightAttitude"  (declared at line 44)
-  extern f_AL FlightAttitude;
-..\..\..\SystemCore\Config\StatusConfig.h(45): error:  #147: declaration is incompatible with "f_Status FlightStatus"  (declared at line 45)
-  extern f_Status FlightStatus;
-..\..\..\SystemCore\Hardware\LED.c(279): error:  #20: identifier "P2OUT" is undefined
-                  P2OUT |= GPIO_PIN1;
-..\..\..\SystemCore\Hardware\LED.c(279): error:  #20: identifier "GPIO_PIN1" is undefined
-                  P2OUT |= GPIO_PIN1;
-..\..\..\SystemCore\Hardware\LED.c(283): error:  #20: identifier "P2OUT" is undefined
-                  P2OUT &= ~GPIO_PIN1;
-..\..\..\SystemCore\Hardware\LED.c(283): error:  #20: identifier "GPIO_PIN1" is undefined
-                  P2OUT &= ~GPIO_PIN1;
-..\..\..\SystemCore\Hardware\LED.c(288): error:  #20: identifier "P2OUT" is undefined
-          P2OUT &= ~GPIO_PIN1;
-..\..\..\SystemCore\Hardware\LED.c(288): error:  #20: identifier "GPIO_PIN1" is undefined
-          P2OUT &= ~GPIO_PIN1;
-..\..\..\SystemCore\Hardware\LED.c: 0 warnings, 19 errors
+..\..\..\SystemCore\Hardware\LED.c: 0 warnings, 1 error
+compiling stm32g0xx_hal_i2c_ex.c...
 compiling hardware.c...
 ..\..\..\SystemCore\Math\imu.h(15): error:  #20: identifier "f_MPU" is undefined
   void ATT_Update(const f_MPU *pMpu, f_AL *pAngE, float dt);
-..\..\..\SystemCore\Config\StatusConfig.h(25): error:  #256: invalid redeclaration of type name "f_Status"  (declared at line 25)
-  } f_Status;
-..\..\..\SystemCore\Config\StatusConfig.h(33): error:  #256: invalid redeclaration of type name "Quaternion"  (declared at line 33)
-  } Quaternion;
-..\..\..\SystemCore\Config\StatusConfig.h(41): error:  #256: invalid redeclaration of type name "f_AL"  (declared at line 41)
-  } f_AL;
-..\..\..\SystemCore\Config\StatusConfig.h(44): error:  #147: declaration is incompatible with "f_AL FlightAttitude"  (declared at line 44)
-  extern f_AL FlightAttitude;
-..\..\..\SystemCore\Config\StatusConfig.h(45): error:  #147: declaration is incompatible with "f_Status FlightStatus"  (declared at line 45)
-  extern f_Status FlightStatus;
-..\..\..\SystemCore\Config\fmuConfig.h(162): error:  #20: identifier "FMUflg_t" is undefined
-      FMUflg_t            *FMUflg;
-..\..\..\SystemCore\Hardware\hardware.c(3): error:  #5: cannot open source input file "msp.h": No such file or directory
-  #include "msp.h"
-..\..\..\SystemCore\Hardware\hardware.c: 0 warnings, 8 errors
-compiling stm32g0xx_hal_uart_ex.c...
+..\..\..\SystemCore\Hardware\hardware.c(3): error:  #5: cannot open source input file "HARDWARE_i2c.h": No such file or directory
+  #include "HARDWARE_i2c.h"
+..\..\..\SystemCore\Hardware\hardware.c: 0 warnings, 2 errors
 compiling stm32g0xx_hal_exti.c...
+compiling stm32g0xx_hal_uart_ex.c...
+compiling battery.c...
 compiling stm32g0xx_hal_tim_ex.c...
 compiling stm32g0xx_hal_uart.c...
 compiling stm32g0xx_hal_i2c.c...
 compiling stm32g0xx_hal_tim.c...
-compiling pos_ctrl.c...
-..\..\..\SystemCore\Control\pos_ctrl.c(3): error:  #5: cannot open source input file "Ano_OF.h": No such file or directory
-  #include "Ano_OF.h"
-..\..\..\SystemCore\Control\pos_ctrl.c: 0 warnings, 1 error
 compiling motor.c...
 ..\..\..\SystemCore\Hardware\motor.c(32): error:  #5: cannot open source input file "eeprom.h": No such file or directory
   #include "eeprom.h"
 ..\..\..\SystemCore\Hardware\motor.c: 0 warnings, 1 error
-compiling timer_drv.c...
+compiling pos_ctrl.c...
 ..\..\..\SystemCore\Math\imu.h(15): error:  #20: identifier "f_MPU" is undefined
   void ATT_Update(const f_MPU *pMpu, f_AL *pAngE, float dt);
-..\..\..\SystemCore\Config\StatusConfig.h(25): error:  #256: invalid redeclaration of type name "f_Status"  (declared at line 25)
-  } f_Status;
-..\..\..\SystemCore\Config\StatusConfig.h(33): error:  #256: invalid redeclaration of type name "Quaternion"  (declared at line 33)
-  } Quaternion;
-..\..\..\SystemCore\Config\StatusConfig.h(41): error:  #256: invalid redeclaration of type name "f_AL"  (declared at line 41)
-  } f_AL;
-..\..\..\SystemCore\Config\StatusConfig.h(44): error:  #147: declaration is incompatible with "f_AL FlightAttitude"  (declared at line 44)
-  extern f_AL FlightAttitude;
-..\..\..\SystemCore\Config\StatusConfig.h(45): error:  #147: declaration is incompatible with "f_Status FlightStatus"  (declared at line 45)
-  extern f_Status FlightStatus;
-..\..\..\SystemCore\Config\fmuConfig.h(162): error:  #20: identifier "FMUflg_t" is undefined
-      FMUflg_t            *FMUflg;
-..\..\..\SystemCore\Hardware\timer_drv.c(28): error:  #20: identifier "g_MPUManager" is undefined
-          ATT_Update(&g_MPUManager,&g_Attitude, 0.003333); 
-..\..\..\SystemCore\Hardware\timer_drv.c(28): error:  #20: identifier "g_Attitude" is undefined
-          ATT_Update(&g_MPUManager,&g_Attitude, 0.003333); 
-..\..\..\SystemCore\Hardware\timer_drv.c: 0 warnings, 9 errors
-compiling height_control.c...
-..\..\..\SystemCore\Config\fmuConfig.h(162): error:  #20: identifier "FMUflg_t" is undefined
-      FMUflg_t            *FMUflg;
-..\..\..\SystemCore\Config\StatusConfig.h(25): error:  #256: invalid redeclaration of type name "f_Status"  (declared at line 25)
-  } f_Status;
-..\..\..\SystemCore\Config\StatusConfig.h(33): error:  #256: invalid redeclaration of type name "Quaternion"  (declared at line 33)
-  } Quaternion;
-..\..\..\SystemCore\Config\StatusConfig.h(41): error:  #256: invalid redeclaration of type name "f_AL"  (declared at line 41)
-  } f_AL;
-..\..\..\SystemCore\Config\StatusConfig.h(44): error:  #147: declaration is incompatible with "f_AL FlightAttitude"  (declared at line 44)
-  extern f_AL FlightAttitude;
-..\..\..\SystemCore\Config\StatusConfig.h(45): error:  #147: declaration is incompatible with "f_Status FlightStatus"  (declared at line 45)
-  extern f_Status FlightStatus;
-..\..\..\SystemCore\Config\StatusConfig.h(25): error:  #256: invalid redeclaration of type name "f_Status"  (declared at line 25)
-  } f_Status;
-..\..\..\SystemCore\Config\StatusConfig.h(33): error:  #256: invalid redeclaration of type name "Quaternion"  (declared at line 33)
-  } Quaternion;
-..\..\..\SystemCore\Config\StatusConfig.h(41): error:  #256: invalid redeclaration of type name "f_AL"  (declared at line 41)
-  } f_AL;
-..\..\..\SystemCore\Config\StatusConfig.h(44): error:  #147: declaration is incompatible with "f_AL FlightAttitude"  (declared at line 44)
-  extern f_AL FlightAttitude;
-..\..\..\SystemCore\Config\StatusConfig.h(45): error:  #147: declaration is incompatible with "f_Status FlightStatus"  (declared at line 45)
-  extern f_Status FlightStatus;
-..\..\..\SystemCore\Control\height_control.c(42): error:  #5: cannot open source input file "gcs.h": No such file or directory
-  #include "gcs.h"
-..\..\..\SystemCore\Control\height_control.c: 0 warnings, 12 errors
-compiling SPL06.c...
-..\..\..\SystemCore\Math\imu.h(15): error:  #20: identifier "f_MPU" is undefined
-  void ATT_Update(const f_MPU *pMpu, f_AL *pAngE, float dt);
-..\..\..\SystemCore\Config\StatusConfig.h(25): error:  #256: invalid redeclaration of type name "f_Status"  (declared at line 25)
-  } f_Status;
-..\..\..\SystemCore\Config\StatusConfig.h(33): error:  #256: invalid redeclaration of type name "Quaternion"  (declared at line 33)
-  } Quaternion;
-..\..\..\SystemCore\Config\StatusConfig.h(41): error:  #256: invalid redeclaration of type name "f_AL"  (declared at line 41)
-  } f_AL;
-..\..\..\SystemCore\Config\StatusConfig.h(44): error:  #147: declaration is incompatible with "f_AL FlightAttitude"  (declared at line 44)
-  extern f_AL FlightAttitude;
-..\..\..\SystemCore\Config\StatusConfig.h(45): error:  #147: declaration is incompatible with "f_Status FlightStatus"  (declared at line 45)
-  extern f_Status FlightStatus;
-..\..\..\SystemCore\Config\fmuConfig.h(162): error:  #20: identifier "FMUflg_t" is undefined
-      FMUflg_t            *FMUflg;
-..\..\..\SystemCore\Config\StatusConfig.h(25): error:  #256: invalid redeclaration of type name "f_Status"  (declared at line 25)
-  } f_Status;
-..\..\..\SystemCore\Config\StatusConfig.h(33): error:  #256: invalid redeclaration of type name "Quaternion"  (declared at line 33)
-  } Quaternion;
-..\..\..\SystemCore\Config\StatusConfig.h(41): error:  #256: invalid redeclaration of type name "f_AL"  (declared at line 41)
-  } f_AL;
-..\..\..\SystemCore\Config\StatusConfig.h(44): error:  #147: declaration is incompatible with "f_AL FlightAttitude"  (declared at line 44)
-  extern f_AL FlightAttitude;
-..\..\..\SystemCore\Config\StatusConfig.h(45): error:  #147: declaration is incompatible with "f_Status FlightStatus"  (declared at line 45)
-  extern f_Status FlightStatus;
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(27): warning:  #1295-D: Deprecated declaration BSP_Init - give arg types
-  void BSP_Init();
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(39): warning:  #1295-D: Deprecated declaration DEBUG_LED_ON - give arg types
-  void DEBUG_LED_ON();
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(40): warning:  #1295-D: Deprecated declaration DEBUG_LED_OFF - give arg types
-  void DEBUG_LED_OFF();
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(41): warning:  #1295-D: Deprecated declaration STATUS_LED_ON - give arg types
-  void STATUS_LED_ON();
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(42): warning:  #1295-D: Deprecated declaration STATUS_LED_OFF - give arg types
-  void STATUS_LED_OFF();
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(43): warning:  #1295-D: Deprecated declaration GET_BAT_ADC - give arg types
-  uint8_t GET_BAT_ADC();
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(44): warning:  #1295-D: Deprecated declaration GET_KEY_STATUS - give arg types
-  uint8_t GET_KEY_STATUS();
-..\..\..\SystemCore\Hardware\SPL06.c(221): error:  #136: struct "<unnamed>"  has no field "i16C0"
-      f_SPL06.Param.i16C0 = 204;
-..\..\..\SystemCore\Hardware\SPL06.c(222): error:  #136: struct "<unnamed>"  has no field "i16C1"
-      f_SPL06.Param.i16C1 = -261;
-..\..\..\SystemCore\Hardware\SPL06.c(223): error:  #136: struct "<unnamed>"  has no field "i32C00"
-      f_SPL06.Param.i32C00 = 80469;
-..\..\..\SystemCore\Hardware\SPL06.c(224): error:  #136: struct "<unnamed>"  has no field "i32C10"
-      f_SPL06.Param.i32C10 = -54769;
-..\..\..\SystemCore\Hardware\SPL06.c(225): error:  #136: struct "<unnamed>"  has no field "i16C01"
-      f_SPL06.Param.i16C01 = -2803;
-..\..\..\SystemCore\Hardware\SPL06.c(226): error:  #136: struct "<unnamed>"  has no field "i16C11"
-      f_SPL06.Param.i16C11 = 1226;
-..\..\..\SystemCore\Hardware\SPL06.c(227): error:  #136: struct "<unnamed>"  has no field "i16C20"
-      f_SPL06.Param.i16C20 = -10787;
-..\..\..\SystemCore\Hardware\SPL06.c(228): error:  #136: struct "<unnamed>"  has no field "i16C21"
-      f_SPL06.Param.i16C21 = 183;
-..\..\..\SystemCore\Hardware\SPL06.c(229): error:  #136: struct "<unnamed>"  has no field "i16C30"
-      f_SPL06.Param.i16C30 = -1603; 
-..\..\..\SystemCore\Hardware\SPL06.c(321): error:  #136: struct "<unnamed>"  has no field "i16C0"
-      fTCompensate =  f_SPL06.Param.i16C0 * 0.5 + \
-..\..\..\SystemCore\Hardware\SPL06.c(322): error:  #136: struct "<unnamed>"  has no field "i16C1"
-                      f_SPL06.Param.i16C1 * fTsc;
-..\..\..\SystemCore\Hardware\SPL06.c(348): error:  #136: struct "<unnamed>"  has no field "i32C10"
-      fqua2 = f_SPL06.Param.i32C10 \
-..\..\..\SystemCore\Hardware\SPL06.c(349): error:  #136: struct "<unnamed>"  has no field "i16C20"
-             + fPsc * (f_SPL06.Param.i16C20 \
-..\..\..\SystemCore\Hardware\SPL06.c(350): error:  #136: struct "<unnamed>"  has no field "i16C30"
-             + fPsc* f_SPL06.Param.i16C30);
-..\..\..\SystemCore\Hardware\SPL06.c(351): error:  #136: struct "<unnamed>"  has no field "i16C11"
-      fqua3 = fTsc * fPsc * (f_SPL06.Param.i16C11 \
-..\..\..\SystemCore\Hardware\SPL06.c(352): error:  #136: struct "<unnamed>"  has no field "i16C21"
-             + fPsc * f_SPL06.Param.i16C21);
-..\..\..\SystemCore\Hardware\SPL06.c(354): error:  #136: struct "<unnamed>"  has no field "i32C00"
-      fPCompensate = f_SPL06.Param.i32C00 \
-..\..\..\SystemCore\Hardware\SPL06.c(355): error:  #136: struct "<unnamed>"  has no field "i16C01"
-                     + fPsc * fqua2 + fTsc * f_SPL06.Param.i16C01\
-..\..\..\SystemCore\Hardware\SPL06.c: 7 warnings, 30 errors
-compiling FollowLine.c...
-..\..\..\SystemCore\Math\imu.h(15): error:  #20: identifier "f_MPU" is undefined
-  void ATT_Update(const f_MPU *pMpu, f_AL *pAngE, float dt);
-..\..\..\SystemCore\Config\StatusConfig.h(25): error:  #256: invalid redeclaration of type name "f_Status"  (declared at line 25)
-  } f_Status;
-..\..\..\SystemCore\Config\StatusConfig.h(33): error:  #256: invalid redeclaration of type name "Quaternion"  (declared at line 33)
-  } Quaternion;
-..\..\..\SystemCore\Config\StatusConfig.h(41): error:  #256: invalid redeclaration of type name "f_AL"  (declared at line 41)
-  } f_AL;
-..\..\..\SystemCore\Config\StatusConfig.h(44): error:  #147: declaration is incompatible with "f_AL FlightAttitude"  (declared at line 44)
-  extern f_AL FlightAttitude;
-..\..\..\SystemCore\Config\StatusConfig.h(45): error:  #147: declaration is incompatible with "f_Status FlightStatus"  (declared at line 45)
-  extern f_Status FlightStatus;
-..\..\..\SystemCore\Config\fmuConfig.h(162): error:  #20: identifier "FMUflg_t" is undefined
-      FMUflg_t            *FMUflg;
-..\..\..\SystemCore\Config\StatusConfig.h(25): error:  #256: invalid redeclaration of type name "f_Status"  (declared at line 25)
-  } f_Status;
-..\..\..\SystemCore\Config\StatusConfig.h(33): error:  #256: invalid redeclaration of type name "Quaternion"  (declared at line 33)
-  } Quaternion;
-..\..\..\SystemCore\Config\StatusConfig.h(41): error:  #256: invalid redeclaration of type name "f_AL"  (declared at line 41)
-  } f_AL;
-..\..\..\SystemCore\Config\StatusConfig.h(44): error:  #147: declaration is incompatible with "f_AL FlightAttitude"  (declared at line 44)
-  extern f_AL FlightAttitude;
-..\..\..\SystemCore\Config\StatusConfig.h(45): error:  #147: declaration is incompatible with "f_Status FlightStatus"  (declared at line 45)
-  extern f_Status FlightStatus;
-..\..\..\SystemCore\Control\FollowLine.c(103): warning:  #223-D: function "sdk_takeoff" declared implicitly
-          sdk_takeoff(80);
-..\..\..\SystemCore\Control\FollowLine.c(107): warning:  #223-D: function "sdk_velocity_reset" declared implicitly
-          sdk_velocity_reset();
-..\..\..\SystemCore\Control\FollowLine.c(112): warning:  #223-D: function "sdk_land" declared implicitly
-          sdk_land();
-..\..\..\SystemCore\Control\FollowLine.c(117): error:  #20: identifier "g_UAVinfo" is undefined
-          g_UAVinfo.FMUflg->unlock = 0;
-..\..\..\SystemCore\Control\FollowLine.c(152): error:  #20: identifier "P1IN" is undefined
-      input = P1IN & BIT1;
-..\..\..\SystemCore\Control\FollowLine.c(152): error:  #20: identifier "BIT1" is undefined
-      input = P1IN & BIT1;
-..\..\..\SystemCore\Control\FollowLine.c(172): error:  #118: a void function may not return a value
-      }
-..\..\..\SystemCore\Control\FollowLine.c(172): error:  #29: expected an expression
-      }
-..\..\..\SystemCore\Control\FollowLine.c(172): error:  #65: expected a ";"
-      }
-..\..\..\SystemCore\Control\FollowLine.c: 3 warnings, 18 errors
-compiling Init.c...
-..\..\..\SystemCore\Math\imu.h(15): error:  #20: identifier "f_MPU" is undefined
-  void ATT_Update(const f_MPU *pMpu, f_AL *pAngE, float dt);
-..\..\..\SystemCore\Config\StatusConfig.h(25): error:  #256: invalid redeclaration of type name "f_Status"  (declared at line 25)
-  } f_Status;
-..\..\..\SystemCore\Config\StatusConfig.h(33): error:  #256: invalid redeclaration of type name "Quaternion"  (declared at line 33)
-  } Quaternion;
-..\..\..\SystemCore\Config\StatusConfig.h(41): error:  #256: invalid redeclaration of type name "f_AL"  (declared at line 41)
-  } f_AL;
-..\..\..\SystemCore\Config\StatusConfig.h(44): error:  #147: declaration is incompatible with "f_AL FlightAttitude"  (declared at line 44)
-  extern f_AL FlightAttitude;
-..\..\..\SystemCore\Config\StatusConfig.h(45): error:  #147: declaration is incompatible with "f_Status FlightStatus"  (declared at line 45)
-  extern f_Status FlightStatus;
-..\..\..\SystemCore\Config\fmuConfig.h(162): error:  #20: identifier "FMUflg_t" is undefined
-      FMUflg_t            *FMUflg;
-..\..\..\SystemCore\Control\Init.c(28): error:  #5: cannot open source input file "gcs.h": No such file or directory
-  #include "gcs.h"
-..\..\..\SystemCore\Control\Init.c: 0 warnings, 8 errors
-compiling control.c...
-..\..\..\SystemCore\Math\imu.h(15): error:  #20: identifier "f_MPU" is undefined
-  void ATT_Update(const f_MPU *pMpu, f_AL *pAngE, float dt);
-..\..\..\SystemCore\Config\StatusConfig.h(25): error:  #256: invalid redeclaration of type name "f_Status"  (declared at line 25)
-  } f_Status;
-..\..\..\SystemCore\Config\StatusConfig.h(33): error:  #256: invalid redeclaration of type name "Quaternion"  (declared at line 33)
-  } Quaternion;
-..\..\..\SystemCore\Config\StatusConfig.h(41): error:  #256: invalid redeclaration of type name "f_AL"  (declared at line 41)
-  } f_AL;
-..\..\..\SystemCore\Config\StatusConfig.h(44): error:  #147: declaration is incompatible with "f_AL FlightAttitude"  (declared at line 44)
-  extern f_AL FlightAttitude;
-..\..\..\SystemCore\Config\StatusConfig.h(45): error:  #147: declaration is incompatible with "f_Status FlightStatus"  (declared at line 45)
-  extern f_Status FlightStatus;
-..\..\..\SystemCore\Config\fmuConfig.h(162): error:  #20: identifier "FMUflg_t" is undefined
-      FMUflg_t            *FMUflg;
-..\..\..\SystemCore\Config\StatusConfig.h(25): error:  #256: invalid redeclaration of type name "f_Status"  (declared at line 25)
-  } f_Status;
-..\..\..\SystemCore\Config\StatusConfig.h(33): error:  #256: invalid redeclaration of type name "Quaternion"  (declared at line 33)
-  } Quaternion;
-..\..\..\SystemCore\Config\StatusConfig.h(41): error:  #256: invalid redeclaration of type name "f_AL"  (declared at line 41)
-  } f_AL;
-..\..\..\SystemCore\Config\StatusConfig.h(44): error:  #147: declaration is incompatible with "f_AL FlightAttitude"  (declared at line 44)
-  extern f_AL FlightAttitude;
-..\..\..\SystemCore\Config\StatusConfig.h(45): error:  #147: declaration is incompatible with "f_Status FlightStatus"  (declared at line 45)
-  extern f_Status FlightStatus;
-..\..\..\SystemCore\Config\pidConfig.h(53): error:  #147: declaration is incompatible with "PIDInfo_t PIDGroup[13]"  (declared at line 74 of "..\..\..\SystemCore\Math\pid.h")
-  PID PIDGroup[Num_Of_PIDList];
-..\..\..\SystemCore\Config\pidConfig.h(55): warning:  #1-D: last line of file ends without a newline
-  // height pid
-..\..\..\SystemCore\Control\control.c(59): error:  #20: identifier "g_Attitude" is undefined
-              g_Attitude.yaw = 0;
-..\..\..\SystemCore\Control\control.c(60): error:  #20: identifier "PIDGroup_desired_yaw_pos_tmp" is undefined
-              PIDGroup_desired_yaw_pos_tmp = g_Attitude.yaw;
-..\..\..\SystemCore\Control\control.c(67): error:  #20: identifier "fb_gyro_lpf" is undefined
-  						fb_gyro_lpf[0] += 0.5f *(g_MPUManager.gyroX * Gyro_G - fb_gyro_lpf[0]); //内环测量值 角度/秒
-..\..\..\SystemCore\Control\control.c(67): error:  #20: identifier "g_MPUManager" is undefined
-  						fb_gyro_lpf[0] += 0.5f *(g_MPUManager.gyroX * Gyro_G - fb_gyro_lpf[0]); //内环测量值 角度/秒
-..\..\..\SystemCore\Control\control.c(67): error:  #20: identifier "Gyro_G" is undefined
-  						fb_gyro_lpf[0] += 0.5f *(g_MPUManager.gyroX * Gyro_G - fb_gyro_lpf[0]); //内环测量值 角度/秒
-..\..\..\SystemCore\Control\control.c(92): error:  #167: argument of type "PID *" is incompatible with parameter of type "PIDInfo_t *"
-              ClacCascadePID(&PIDGroup[emPID_Roll_Spd],  &PIDGroup[emPID_Roll_Pos],  dt);      //X轴
-..\..\..\SystemCore\Control\control.c(92): error:  #167: argument of type "PID *" is incompatible with parameter of type "PIDInfo_t *"
-              ClacCascadePID(&PIDGroup[emPID_Roll_Spd],  &PIDGroup[emPID_Roll_Pos],  dt);      //X轴
-..\..\..\SystemCore\Control\control.c(93): error:  #167: argument of type "PID *" is incompatible with parameter of type "PIDInfo_t *"
-              ClacCascadePID(&PIDGroup[emPID_Pitch_Spd], &PIDGroup[emPID_Pitch_Pos], dt);     //Y轴
-..\..\..\SystemCore\Control\control.c(93): error:  #167: argument of type "PID *" is incompatible with parameter of type "PIDInfo_t *"
-              ClacCascadePID(&PIDGroup[emPID_Pitch_Spd], &PIDGroup[emPID_Pitch_Pos], dt);     //Y轴
-..\..\..\SystemCore\Control\control.c(94): error:  #167: argument of type "PID *" is incompatible with parameter of type "PIDInfo_t *"
-              ClacCascadePID(&PIDGroup[emPID_Yaw_Spd],   &PIDGroup[emPID_Yaw_Pos],   dt);       //Z轴
-..\..\..\SystemCore\Control\control.c(94): error:  #167: argument of type "PID *" is incompatible with parameter of type "PIDInfo_t *"
-              ClacCascadePID(&PIDGroup[emPID_Yaw_Spd],   &PIDGroup[emPID_Yaw_Pos],   dt);       //Z轴
-..\..\..\SystemCore\Control\control.c(110): error:  #20: identifier "EMERGENT" is undefined
-      if(FlightStatus.unlock == EMERGENT)     
-..\..\..\SystemCore\Control\control.c(150): error:  #2706: case label value has already appeared in this switch at line 142
-          case WAITING:
-..\..\..\SystemCore\Control\control.c(153): error:  #20: identifier "g_FMUflg" is undefined
-  								if(FlightStatus.Auto || g_FMUflg.take_off) //刚解锁时，如果，认为操作者还不想飞行
-..\..\..\SystemCore\Control\control.c(171): error:  #20: identifier "g_Attitude" is undefined
-                  if(g_Attitude.pitch < -MAX_ISFD_ATTITUDE 
-..\..\..\SystemCore\Control\control.c(189): warning:  #223-D: function "LIMIT" declared implicitly
-                  MOTOR1 = LIMIT(temp, 0, MOTOR_MAX_INIT_VALUE); 
-..\..\..\SystemCore\Control\control.c: 2 warnings, 28 errors
+..\..\..\SystemCore\Control\pos_ctrl.c: 0 warnings, 1 error
 compiling power.c...
 ..\..\..\SystemCore\Math\imu.h(15): error:  #20: identifier "f_MPU" is undefined
   void ATT_Update(const f_MPU *pMpu, f_AL *pAngE, float dt);
-..\..\..\SystemCore\Config\StatusConfig.h(25): error:  #256: invalid redeclaration of type name "f_Status"  (declared at line 25)
-  } f_Status;
-..\..\..\SystemCore\Config\StatusConfig.h(33): error:  #256: invalid redeclaration of type name "Quaternion"  (declared at line 33)
-  } Quaternion;
-..\..\..\SystemCore\Config\StatusConfig.h(41): error:  #256: invalid redeclaration of type name "f_AL"  (declared at line 41)
-  } f_AL;
-..\..\..\SystemCore\Config\StatusConfig.h(44): error:  #147: declaration is incompatible with "f_AL FlightAttitude"  (declared at line 44)
-  extern f_AL FlightAttitude;
-..\..\..\SystemCore\Config\StatusConfig.h(45): error:  #147: declaration is incompatible with "f_Status FlightStatus"  (declared at line 45)
-  extern f_Status FlightStatus;
-..\..\..\SystemCore\Config\fmuConfig.h(162): error:  #20: identifier "FMUflg_t" is undefined
-      FMUflg_t            *FMUflg;
 ..\..\..\SystemCore\Hardware\power.c(38): warning:  #177-D: variable "cnt"  was declared but never referenced
   static int cnt = 0;
-..\..\..\SystemCore\Hardware\power.c: 1 warning, 7 errors
-compiling mpu6050.c...
+..\..\..\SystemCore\Hardware\power.c: 1 warning, 1 error
+compiling control.c...
 ..\..\..\SystemCore\Math\imu.h(15): error:  #20: identifier "f_MPU" is undefined
   void ATT_Update(const f_MPU *pMpu, f_AL *pAngE, float dt);
-..\..\..\SystemCore\Config\StatusConfig.h(25): error:  #256: invalid redeclaration of type name "f_Status"  (declared at line 25)
-  } f_Status;
-..\..\..\SystemCore\Config\StatusConfig.h(33): error:  #256: invalid redeclaration of type name "Quaternion"  (declared at line 33)
-  } Quaternion;
-..\..\..\SystemCore\Config\StatusConfig.h(41): error:  #256: invalid redeclaration of type name "f_AL"  (declared at line 41)
-  } f_AL;
-..\..\..\SystemCore\Config\StatusConfig.h(44): error:  #147: declaration is incompatible with "f_AL FlightAttitude"  (declared at line 44)
-  extern f_AL FlightAttitude;
-..\..\..\SystemCore\Config\StatusConfig.h(45): error:  #147: declaration is incompatible with "f_Status FlightStatus"  (declared at line 45)
-  extern f_Status FlightStatus;
-..\..\..\SystemCore\Config\fmuConfig.h(162): error:  #20: identifier "FMUflg_t" is undefined
-      FMUflg_t            *FMUflg;
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(27): warning:  #1295-D: Deprecated declaration BSP_Init - give arg types
-  void BSP_Init();
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(39): warning:  #1295-D: Deprecated declaration DEBUG_LED_ON - give arg types
-  void DEBUG_LED_ON();
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(40): warning:  #1295-D: Deprecated declaration DEBUG_LED_OFF - give arg types
-  void DEBUG_LED_OFF();
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(41): warning:  #1295-D: Deprecated declaration STATUS_LED_ON - give arg types
-  void STATUS_LED_ON();
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(42): warning:  #1295-D: Deprecated declaration STATUS_LED_OFF - give arg types
-  void STATUS_LED_OFF();
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(43): warning:  #1295-D: Deprecated declaration GET_BAT_ADC - give arg types
-  uint8_t GET_BAT_ADC();
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(44): warning:  #1295-D: Deprecated declaration GET_KEY_STATUS - give arg types
-  uint8_t GET_KEY_STATUS();
-..\..\..\SystemCore\Hardware\mpu6050.c: 7 warnings, 7 errors
+..\..\..\SystemCore\Config\pidConfig.h(31): error:  #256: invalid redeclaration of type name "PID"  (declared at line 71 of "..\..\..\SystemCore\Math\pid.h")
+  }PID;
+..\..\..\SystemCore\Config\pidConfig.h(36): error:  #101: "PID_Pitch_Spd" has already been declared in the current scope
+      PID_Pitch_Spd = 0,
+..\..\..\SystemCore\Config\pidConfig.h(37): error:  #101: "PID_Roll_Spd" has already been declared in the current scope
+      PID_Roll_Spd,
+..\..\..\SystemCore\Config\pidConfig.h(38): error:  #101: "PID_Yaw_Spd" has already been declared in the current scope
+      PID_Yaw_Spd,
+..\..\..\SystemCore\Config\pidConfig.h(40): error:  #101: "PID_Pitch_Pos" has already been declared in the current scope
+      PID_Pitch_Pos,
+..\..\..\SystemCore\Config\pidConfig.h(41): error:  #101: "PID_Roll_Pos" has already been declared in the current scope
+      PID_Roll_Pos,
+..\..\..\SystemCore\Config\pidConfig.h(42): error:  #101: "PID_Yaw_Pos" has already been declared in the current scope
+      PID_Yaw_Pos,
+..\..\..\SystemCore\Config\pidConfig.h(45): error:  #101: "PID_Height_Spd" has already been declared in the current scope
+      PID_Height_Spd,
+..\..\..\SystemCore\Config\pidConfig.h(46): error:  #101: "PID_Height_Pos" has already been declared in the current scope
+      PID_Height_Pos,
+..\..\..\SystemCore\Config\pidConfig.h(55): error:  #147: declaration is incompatible with "PID PIDGroup[13]"  (declared at line 74 of "..\..\..\SystemCore\Math\pid.h")
+  PID PIDGroup[Num_Of_PIDList];
+..\..\..\SystemCore\Control\control.c(94): error:  #167: argument of type "PID *" is incompatible with parameter of type "PID *"
+              ClacCascadePID(&PIDGroup[PID_Roll_Spd],  &PIDGroup[PID_Roll_Pos],  dt);      //X轴
+..\..\..\SystemCore\Control\control.c(94): error:  #167: argument of type "PID *" is incompatible with parameter of type "PID *"
+              ClacCascadePID(&PIDGroup[PID_Roll_Spd],  &PIDGroup[PID_Roll_Pos],  dt);      //X轴
+..\..\..\SystemCore\Control\control.c(95): error:  #167: argument of type "PID *" is incompatible with parameter of type "PID *"
+              ClacCascadePID(&PIDGroup[PID_Pitch_Spd], &PIDGroup[PID_Pitch_Pos], dt);     //Y轴
+..\..\..\SystemCore\Control\control.c(95): error:  #167: argument of type "PID *" is incompatible with parameter of type "PID *"
+              ClacCascadePID(&PIDGroup[PID_Pitch_Spd], &PIDGroup[PID_Pitch_Pos], dt);     //Y轴
+..\..\..\SystemCore\Control\control.c(96): error:  #167: argument of type "PID *" is incompatible with parameter of type "PID *"
+              ClacCascadePID(&PIDGroup[PID_Yaw_Spd],   &PIDGroup[PID_Yaw_Pos],   dt);       //Z轴
+..\..\..\SystemCore\Control\control.c(96): error:  #167: argument of type "PID *" is incompatible with parameter of type "PID *"
+              ClacCascadePID(&PIDGroup[PID_Yaw_Spd],   &PIDGroup[PID_Yaw_Pos],   dt);       //Z轴
+..\..\..\SystemCore\Control\control.c: 0 warnings, 17 errors
+compiling timer_drv.c...
+..\..\..\SystemCore\Math\imu.h(15): error:  #20: identifier "f_MPU" is undefined
+  void ATT_Update(const f_MPU *pMpu, f_AL *pAngE, float dt);
+..\..\..\SystemCore\Hardware\timer_drv.c: 0 warnings, 1 error
+compiling FollowLine.c...
+..\..\..\SystemCore\Math\imu.h(15): error:  #20: identifier "f_MPU" is undefined
+  void ATT_Update(const f_MPU *pMpu, f_AL *pAngE, float dt);
+..\..\..\SystemCore\Control\FollowLine.c: 0 warnings, 1 error
 compiling kernel.c...
 ..\..\..\SystemCore\Math\imu.h(15): error:  #20: identifier "f_MPU" is undefined
   void ATT_Update(const f_MPU *pMpu, f_AL *pAngE, float dt);
-..\..\..\SystemCore\Config\StatusConfig.h(25): error:  #256: invalid redeclaration of type name "f_Status"  (declared at line 25)
-  } f_Status;
-..\..\..\SystemCore\Config\StatusConfig.h(33): error:  #256: invalid redeclaration of type name "Quaternion"  (declared at line 33)
-  } Quaternion;
-..\..\..\SystemCore\Config\StatusConfig.h(41): error:  #256: invalid redeclaration of type name "f_AL"  (declared at line 41)
-  } f_AL;
-..\..\..\SystemCore\Config\StatusConfig.h(44): error:  #147: declaration is incompatible with "f_AL FlightAttitude"  (declared at line 44)
-  extern f_AL FlightAttitude;
-..\..\..\SystemCore\Config\StatusConfig.h(45): error:  #147: declaration is incompatible with "f_Status FlightStatus"  (declared at line 45)
-  extern f_Status FlightStatus;
-..\..\..\SystemCore\Config\fmuConfig.h(162): error:  #20: identifier "FMUflg_t" is undefined
-      FMUflg_t            *FMUflg;
-..\..\..\SystemCore\Config\StatusConfig.h(25): error:  #256: invalid redeclaration of type name "f_Status"  (declared at line 25)
-  } f_Status;
-..\..\..\SystemCore\Config\StatusConfig.h(33): error:  #256: invalid redeclaration of type name "Quaternion"  (declared at line 33)
-  } Quaternion;
-..\..\..\SystemCore\Config\StatusConfig.h(41): error:  #256: invalid redeclaration of type name "f_AL"  (declared at line 41)
-  } f_AL;
-..\..\..\SystemCore\Config\StatusConfig.h(44): error:  #147: declaration is incompatible with "f_AL FlightAttitude"  (declared at line 44)
-  extern f_AL FlightAttitude;
-..\..\..\SystemCore\Config\StatusConfig.h(45): error:  #147: declaration is incompatible with "f_Status FlightStatus"  (declared at line 45)
-  extern f_Status FlightStatus;
-..\..\..\SystemCore\Config\StatusConfig.h(25): error:  #256: invalid redeclaration of type name "f_Status"  (declared at line 25)
-  } f_Status;
-..\..\..\SystemCore\Config\StatusConfig.h(33): error:  #256: invalid redeclaration of type name "Quaternion"  (declared at line 33)
-  } Quaternion;
-..\..\..\SystemCore\Config\StatusConfig.h(41): error:  #256: invalid redeclaration of type name "f_AL"  (declared at line 41)
-  } f_AL;
-..\..\..\SystemCore\Config\StatusConfig.h(44): error:  #147: declaration is incompatible with "f_AL FlightAttitude"  (declared at line 44)
-  extern f_AL FlightAttitude;
-..\..\..\SystemCore\Config\StatusConfig.h(45): error:  #147: declaration is incompatible with "f_Status FlightStatus"  (declared at line 45)
-  extern f_Status FlightStatus;
 ..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(27): warning:  #1295-D: Deprecated declaration BSP_Init - give arg types
   void BSP_Init();
 ..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(39): warning:  #1295-D: Deprecated declaration DEBUG_LED_ON - give arg types
@@ -471,121 +147,75 @@ compiling kernel.c...
   uint8_t GET_BAT_ADC();
 ..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(44): warning:  #1295-D: Deprecated declaration GET_KEY_STATUS - give arg types
   uint8_t GET_KEY_STATUS();
-..\..\..\SystemCore\Control\kernel.c: 7 warnings, 17 errors
-compiling Mymain.c...
-..\..\..\SystemCore\Mymain.c(9): warning:  #223-D: function "Key_Init" declared implicitly
-      Key_Init();
-..\..\..\SystemCore\Mymain.c(20): warning:  #223-D: function "delay_ms" declared implicitly
-      delay_ms(500);
-..\..\..\SystemCore\Mymain.c(23): warning:  #223-D: function "Key_Scan" declared implicitly
-          Key_Scan();
-..\..\..\SystemCore\Mymain.c(25): warning:  #1-D: last line of file ends without a newline
-  }
-..\..\..\SystemCore\Mymain.c: 4 warnings, 0 errors
+..\..\..\SystemCore\Control\kernel.c: 7 warnings, 1 error
+compiling SPL06.c...
+..\..\..\SystemCore\Math\imu.h(15): error:  #20: identifier "f_MPU" is undefined
+  void ATT_Update(const f_MPU *pMpu, f_AL *pAngE, float dt);
+..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(27): warning:  #1295-D: Deprecated declaration BSP_Init - give arg types
+  void BSP_Init();
+..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(39): warning:  #1295-D: Deprecated declaration DEBUG_LED_ON - give arg types
+  void DEBUG_LED_ON();
+..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(40): warning:  #1295-D: Deprecated declaration DEBUG_LED_OFF - give arg types
+  void DEBUG_LED_OFF();
+..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(41): warning:  #1295-D: Deprecated declaration STATUS_LED_ON - give arg types
+  void STATUS_LED_ON();
+..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(42): warning:  #1295-D: Deprecated declaration STATUS_LED_OFF - give arg types
+  void STATUS_LED_OFF();
+..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(43): warning:  #1295-D: Deprecated declaration GET_BAT_ADC - give arg types
+  uint8_t GET_BAT_ADC();
+..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(44): warning:  #1295-D: Deprecated declaration GET_KEY_STATUS - give arg types
+  uint8_t GET_KEY_STATUS();
+..\..\..\SystemCore\Hardware\SPL06.c(582): warning:  #223-D: function "SPL06_IIC_Read_Bytes" declared implicitly
+      HAL_SPL06_I2C_READ(SPL06_SLAVEADDR, SPL06_ID, 1, &u8Check);
+..\..\..\SystemCore\Hardware\SPL06.c(596): warning:  #223-D: function "SPL06_IIC_Read_Bytes" declared implicitly
+  	HAL_SPL06_I2C_READ(SPL06_SLAVEADDR, SPL06_COEF_C0_H, 1, &dataHigh);
+..\..\..\SystemCore\Hardware\SPL06.c(757): warning:  #223-D: function "SPL06_IIC_Write_Bytes" declared implicitly
+  	HAL_SPL06_I2C_WRITE(SPL06_SLAVEADDR, SPL06_PRS_CFG, prsCfgReg);
+..\..\..\SystemCore\Hardware\SPL06.c(761): warning:  #223-D: function "SPL06_IIC_Read_Bytes" declared implicitly
+  		HAL_SPL06_I2C_READ(SPL06_SLAVEADDR, SPL06_CFG_REG, 1, &prsCfgReg);
+..\..\..\SystemCore\Hardware\SPL06.c(881): warning:  #223-D: function "SPL06_IIC_Write_Bytes" declared implicitly
+  	HAL_SPL06_I2C_WRITE(SPL06_SLAVEADDR, SPL06_TMP_CFG, tmpCfgReg);
+..\..\..\SystemCore\Hardware\SPL06.c(885): warning:  #223-D: function "SPL06_IIC_Read_Bytes" declared implicitly
+  		HAL_SPL06_I2C_READ(SPL06_SLAVEADDR, SPL06_CFG_REG, 1, &tmpCfgReg);
+..\..\..\SystemCore\Hardware\SPL06.c(893): warning:  #223-D: function "SPL06_IIC_Write_Bytes" declared implicitly
+  	HAL_SPL06_I2C_WRITE(SPL06_SLAVEADDR, SPL06_MEAS_CFG, measType);
+..\..\..\SystemCore\Hardware\SPL06.c(902): warning:  #223-D: function "SPL06_IIC_Read_Bytes" declared implicitly
+  	HAL_SPL06_I2C_READ(SPL06_SLAVEADDR, SPL06_TMP_B2, 3, dataBuff);		
+..\..\..\SystemCore\Hardware\SPL06.c(918): warning:  #223-D: function "SPL06_IIC_Read_Bytes" declared implicitly
+  	HAL_SPL06_I2C_READ(SPL06_SLAVEADDR, SPL06_PSR_B2, 3, dataBuff);		
+..\..\..\SystemCore\Hardware\SPL06.c: 16 warnings, 1 error
+compiling mpu6050.c...
+..\..\..\SystemCore\Math\imu.h(15): error:  #20: identifier "f_MPU" is undefined
+  void ATT_Update(const f_MPU *pMpu, f_AL *pAngE, float dt);
+..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(27): warning:  #1295-D: Deprecated declaration BSP_Init - give arg types
+  void BSP_Init();
+..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(39): warning:  #1295-D: Deprecated declaration DEBUG_LED_ON - give arg types
+  void DEBUG_LED_ON();
+..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(40): warning:  #1295-D: Deprecated declaration DEBUG_LED_OFF - give arg types
+  void DEBUG_LED_OFF();
+..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(41): warning:  #1295-D: Deprecated declaration STATUS_LED_ON - give arg types
+  void STATUS_LED_ON();
+..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(42): warning:  #1295-D: Deprecated declaration STATUS_LED_OFF - give arg types
+  void STATUS_LED_OFF();
+..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(43): warning:  #1295-D: Deprecated declaration GET_BAT_ADC - give arg types
+  uint8_t GET_BAT_ADC();
+..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(44): warning:  #1295-D: Deprecated declaration GET_KEY_STATUS - give arg types
+  uint8_t GET_KEY_STATUS();
+..\..\..\SystemCore\Hardware\mpu6050.c: 7 warnings, 1 error
+compiling Init.c...
+..\..\..\SystemCore\Math\imu.h(15): error:  #20: identifier "f_MPU" is undefined
+  void ATT_Update(const f_MPU *pMpu, f_AL *pAngE, float dt);
+..\..\..\SystemCore\Control\Init.c: 0 warnings, 1 error
+compiling height_control.c...
 compiling kalman.c...
-compiling program_ctrl.c...
-..\..\..\SystemCore\Control\program_ctrl.c(5): error:  #5: cannot open source input file "gcs.h": No such file or directory
-  #include "gcs.h"
-..\..\..\SystemCore\Control\program_ctrl.c: 0 warnings, 1 error
 compiling queue.c...
-..\..\..\SystemCore\Math\queue.c(88): error:  #5: cannot open source input file "Hardware_uart.h": No such file or directory
-  #include "Hardware_uart.h"
-..\..\..\SystemCore\Math\queue.c: 0 warnings, 1 error
-compiling remote.c...
-..\..\..\SystemCore\Control\remote.c(33): error:  #5: cannot open source input file "gcs.h": No such file or directory
-  #include "gcs.h"
-..\..\..\SystemCore\Control\remote.c: 0 warnings, 1 error
-compiling speed_estimator.c...
+compiling program_ctrl.c...
 ..\..\..\SystemCore\Math\imu.h(15): error:  #20: identifier "f_MPU" is undefined
   void ATT_Update(const f_MPU *pMpu, f_AL *pAngE, float dt);
-..\..\..\SystemCore\Config\StatusConfig.h(25): error:  #256: invalid redeclaration of type name "f_Status"  (declared at line 25)
-  } f_Status;
-..\..\..\SystemCore\Config\StatusConfig.h(33): error:  #256: invalid redeclaration of type name "Quaternion"  (declared at line 33)
-  } Quaternion;
-..\..\..\SystemCore\Config\StatusConfig.h(41): error:  #256: invalid redeclaration of type name "f_AL"  (declared at line 41)
-  } f_AL;
-..\..\..\SystemCore\Config\StatusConfig.h(44): error:  #147: declaration is incompatible with "f_AL FlightAttitude"  (declared at line 44)
-  extern f_AL FlightAttitude;
-..\..\..\SystemCore\Config\StatusConfig.h(45): error:  #147: declaration is incompatible with "f_Status FlightStatus"  (declared at line 45)
-  extern f_Status FlightStatus;
-..\..\..\SystemCore\Config\fmuConfig.h(162): error:  #20: identifier "FMUflg_t" is undefined
-      FMUflg_t            *FMUflg;
-..\..\..\SystemCore\Config\StatusConfig.h(25): error:  #256: invalid redeclaration of type name "f_Status"  (declared at line 25)
-  } f_Status;
-..\..\..\SystemCore\Config\StatusConfig.h(33): error:  #256: invalid redeclaration of type name "Quaternion"  (declared at line 33)
-  } Quaternion;
-..\..\..\SystemCore\Config\StatusConfig.h(41): error:  #256: invalid redeclaration of type name "f_AL"  (declared at line 41)
-  } f_AL;
-..\..\..\SystemCore\Config\StatusConfig.h(44): error:  #147: declaration is incompatible with "f_AL FlightAttitude"  (declared at line 44)
-  extern f_AL FlightAttitude;
-..\..\..\SystemCore\Config\StatusConfig.h(45): error:  #147: declaration is incompatible with "f_Status FlightStatus"  (declared at line 45)
-  extern f_Status FlightStatus;
-..\..\..\SystemCore\Control\speed_estimator.c(131): error:  #20: identifier "g_FMUflg" is undefined
-  	if(wz_fus_sta == FIX_RESET || g_FMUflg.unlock == 0)
-..\..\..\SystemCore\Control\speed_estimator.c(149): warning:  #550-D: variable "acc"  was set but never used
-      static float acc = 0;
-..\..\..\SystemCore\Control\speed_estimator.c: 1 warning, 13 errors
-compiling SDK.c...
-..\..\..\SystemCore\Math\imu.h(15): error:  #20: identifier "f_MPU" is undefined
-  void ATT_Update(const f_MPU *pMpu, f_AL *pAngE, float dt);
-..\..\..\SystemCore\Config\StatusConfig.h(25): error:  #256: invalid redeclaration of type name "f_Status"  (declared at line 25)
-  } f_Status;
-..\..\..\SystemCore\Config\StatusConfig.h(33): error:  #256: invalid redeclaration of type name "Quaternion"  (declared at line 33)
-  } Quaternion;
-..\..\..\SystemCore\Config\StatusConfig.h(41): error:  #256: invalid redeclaration of type name "f_AL"  (declared at line 41)
-  } f_AL;
-..\..\..\SystemCore\Config\StatusConfig.h(44): error:  #147: declaration is incompatible with "f_AL FlightAttitude"  (declared at line 44)
-  extern f_AL FlightAttitude;
-..\..\..\SystemCore\Config\StatusConfig.h(45): error:  #147: declaration is incompatible with "f_Status FlightStatus"  (declared at line 45)
-  extern f_Status FlightStatus;
-..\..\..\SystemCore\Config\fmuConfig.h(162): error:  #20: identifier "FMUflg_t" is undefined
-      FMUflg_t            *FMUflg;
-..\..\..\SystemCore\Config\StatusConfig.h(25): error:  #256: invalid redeclaration of type name "f_Status"  (declared at line 25)
-  } f_Status;
-..\..\..\SystemCore\Config\StatusConfig.h(33): error:  #256: invalid redeclaration of type name "Quaternion"  (declared at line 33)
-  } Quaternion;
-..\..\..\SystemCore\Config\StatusConfig.h(41): error:  #256: invalid redeclaration of type name "f_AL"  (declared at line 41)
-  } f_AL;
-..\..\..\SystemCore\Config\StatusConfig.h(44): error:  #147: declaration is incompatible with "f_AL FlightAttitude"  (declared at line 44)
-  extern f_AL FlightAttitude;
-..\..\..\SystemCore\Config\StatusConfig.h(45): error:  #147: declaration is incompatible with "f_Status FlightStatus"  (declared at line 45)
-  extern f_Status FlightStatus;
-..\..\..\SystemCore\Control\SDK.c(266): error:  #20: identifier "g_FMUflg" is undefined
-      g_FMUflg.unlock = 0;
-..\..\..\SystemCore\Control\SDK.c(280): error:  #20: identifier "g_FMUflg" is undefined
-      g_FMUflg.unlock = 1;
-..\..\..\SystemCore\Control\SDK.c: 0 warnings, 14 errors
-compiling imu.c...
-..\..\..\SystemCore\Config\fmuConfig.h(162): error:  #20: identifier "FMUflg_t" is undefined
-      FMUflg_t            *FMUflg;
-..\..\..\SystemCore\Config\StatusConfig.h(25): error:  #256: invalid redeclaration of type name "f_Status"  (declared at line 25)
-  } f_Status;
-..\..\..\SystemCore\Config\StatusConfig.h(33): error:  #256: invalid redeclaration of type name "Quaternion"  (declared at line 33)
-  } Quaternion;
-..\..\..\SystemCore\Config\StatusConfig.h(41): error:  #256: invalid redeclaration of type name "f_AL"  (declared at line 41)
-  } f_AL;
-..\..\..\SystemCore\Config\StatusConfig.h(44): error:  #147: declaration is incompatible with "f_AL FlightAttitude"  (declared at line 44)
-  extern f_AL FlightAttitude;
-..\..\..\SystemCore\Config\StatusConfig.h(45): error:  #147: declaration is incompatible with "f_Status FlightStatus"  (declared at line 45)
-  extern f_Status FlightStatus;
-..\..\..\SystemCore\Config\StatusConfig.h(25): error:  #256: invalid redeclaration of type name "f_Status"  (declared at line 25)
-  } f_Status;
-..\..\..\SystemCore\Config\StatusConfig.h(33): error:  #256: invalid redeclaration of type name "Quaternion"  (declared at line 33)
-  } Quaternion;
-..\..\..\SystemCore\Config\StatusConfig.h(41): error:  #256: invalid redeclaration of type name "f_AL"  (declared at line 41)
-  } f_AL;
-..\..\..\SystemCore\Config\StatusConfig.h(44): error:  #147: declaration is incompatible with "f_AL FlightAttitude"  (declared at line 44)
-  extern f_AL FlightAttitude;
-..\..\..\SystemCore\Config\StatusConfig.h(45): error:  #147: declaration is incompatible with "f_Status FlightStatus"  (declared at line 45)
-  extern f_Status FlightStatus;
-..\..\..\SystemCore\Math\imu.c(65): error:  #147-D: declaration is incompatible with "void ATT_Update(const f_MPU *, f_AL *, float)"  (declared at line 15 of "..\..\..\SystemCore\Math\imu.h")
-  void ATT_Update(const f_MPU *pMpu, f_AL *pAngE, float dt) 
-..\..\..\SystemCore\Math\imu.c(130): error:  #147-D: declaration is incompatible with "void GetAngle(f_AL *)"  (declared at line 16 of "..\..\..\SystemCore\Math\imu.h")
-  void GetAngle(f_AL *pAngE) 
-..\..\..\SystemCore\Math\imu.c: 0 warnings, 13 errors
-compiling filter.c...
+..\..\..\SystemCore\Control\program_ctrl.c(84): warning:  #177-D: variable "time_compensate_ms"  was declared but never referenced
+      static s16 time_compensate_ms;
+..\..\..\SystemCore\Control\program_ctrl.c: 1 warning, 1 error
 compiling myMath.c...
-compiling pid.c...
 compiling bsp_stm32g031f8px.c...
 ..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(27): warning:  #1295-D: Deprecated declaration BSP_Init - give arg types
   void BSP_Init();
@@ -607,14 +237,43 @@ compiling bsp_stm32g031f8px.c...
   }
 ..\bsp_stm32g031f8px\bsp_stm32g031f8px.c(57): warning:  #940-D: missing return statement at end of non-void function "DEBUG_UART_TX" 
   }
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.c(110): warning:  #940-D: missing return statement at end of non-void function "GET_BAT_ADC" 
+..\bsp_stm32g031f8px\bsp_stm32g031f8px.c(114): warning:  #940-D: missing return statement at end of non-void function "GET_BAT_ADC" 
   }
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.c(115): warning:  #940-D: missing return statement at end of non-void function "GET_KEY_STATUS" 
+..\bsp_stm32g031f8px\bsp_stm32g031f8px.c(119): warning:  #940-D: missing return statement at end of non-void function "GET_KEY_STATUS" 
   }
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.c(170): warning:  #1-D: last line of file ends without a newline
+..\bsp_stm32g031f8px\bsp_stm32g031f8px.c(174): warning:  #1-D: last line of file ends without a newline
   }
 ..\bsp_stm32g031f8px\bsp_stm32g031f8px.c: 13 warnings, 0 errors
-"STM32G031F8Px\STM32G031F8Px.axf" - 208 Error(s), 45 Warning(s).
+compiling pid.c...
+compiling remote.c...
+..\..\..\SystemCore\Math\imu.h(15): error:  #20: identifier "f_MPU" is undefined
+  void ATT_Update(const f_MPU *pMpu, f_AL *pAngE, float dt);
+..\..\..\SystemCore\Control\remote.c(175): warning:  #177-D: variable "cnt"  was declared but never referenced
+      static uint8_t cnt = 0;
+..\..\..\SystemCore\Control\remote.c(333): warning:  #177-D: variable "Buff"  was declared but never referenced
+      uint8_t Buff[QUEUE_DATA_MAXLENGTH];
+..\..\..\SystemCore\Control\remote.c(334): warning:  #177-D: variable "length"  was declared but never referenced
+      uint8_t length;
+..\..\..\SystemCore\Control\remote.c: 3 warnings, 1 error
+compiling SDK.c...
+..\..\..\SystemCore\Math\imu.h(15): error:  #20: identifier "f_MPU" is undefined
+  void ATT_Update(const f_MPU *pMpu, f_AL *pAngE, float dt);
+..\..\..\SystemCore\Control\SDK.c: 0 warnings, 1 error
+compiling Mymain.c...
+..\..\..\SystemCore\Math\imu.h(15): error:  #20: identifier "f_MPU" is undefined
+  void ATT_Update(const f_MPU *pMpu, f_AL *pAngE, float dt);
+..\..\..\SystemCore\Mymain.c(20): warning:  #1-D: last line of file ends without a newline
+  }
+..\..\..\SystemCore\Mymain.c: 1 warning, 1 error
+compiling speed_estimator.c...
+..\..\..\SystemCore\Math\imu.h(15): error:  #20: identifier "f_MPU" is undefined
+  void ATT_Update(const f_MPU *pMpu, f_AL *pAngE, float dt);
+..\..\..\SystemCore\Control\speed_estimator.c(149): warning:  #550-D: variable "acc"  was set but never used
+      static float acc = 0;
+..\..\..\SystemCore\Control\speed_estimator.c: 1 warning, 1 error
+compiling filter.c...
+compiling imu.c...
+"STM32G031F8Px\STM32G031F8Px.axf" - 34 Error(s), 50 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -639,7 +298,7 @@ Package Vendor: Keil
    * Component: ARM::CMSIS:CORE:5.5.0
       Include file:  CMSIS\Core\Include\tz_context.h
 Target not created.
-Build Time Elapsed:  00:00:19
+Build Time Elapsed:  00:00:21
 </pre>
 </body>
 </html>

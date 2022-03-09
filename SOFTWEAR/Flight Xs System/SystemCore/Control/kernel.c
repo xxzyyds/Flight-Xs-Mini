@@ -25,8 +25,6 @@
 void Update(void);
 void UpdateUSBQueue(void);
 
-
-//私有变量区
             
 /******************************************************************************
   * 函数名称：KernelPolling
@@ -72,14 +70,7 @@ void KernelPolling()
     //125Hz
     if (Cnt % 8 == 0)
     {
-        // GetMPU6050Data();
-        // 姿态更新 四元数
-				// 更新出 Z轴 的 加速度
-        // ATT_Update(&g_MPUManager,&g_Attitude, 0.003f); 
-        // Z轴数据预估
-        // WZ_Est_Calcu(0.003f);
         //更新欧拉角
-			
         GetAngle(&FlightAttitude); 
     }
     

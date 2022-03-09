@@ -218,15 +218,15 @@ void SetRate(uint8_t u8_Sensor, uint8_t u8_SmplRate, uint8_t u8_OverSmpl)
 ******************************************************************************/
 void CalcParam(void)
 {
-    f_SPL06.Param.i16C0 = 204;
-    f_SPL06.Param.i16C1 = -261;
-    f_SPL06.Param.i32C00 = 80469;
-    f_SPL06.Param.i32C10 = -54769;
-    f_SPL06.Param.i16C01 = -2803;
-    f_SPL06.Param.i16C11 = 1226;
-    f_SPL06.Param.i16C20 = -10787;
-    f_SPL06.Param.i16C21 = 183;
-    f_SPL06.Param.i16C30 = -1603; 
+    f_SPL06Params.i16C0 = 204;
+    f_SPL06Params.i16C1 = -261;
+    f_SPL06Params.i32C00 = 80469;
+    f_SPL06Params.i32C10 = -54769;
+    f_SPL06Params.i16C01 = -2803;
+    f_SPL06Params.i16C11 = 1226;
+    f_SPL06Params.i16C20 = -10787;
+    f_SPL06Params.i16C21 = 183;
+    f_SPL06Params.i16C30 = -1603; 
 }
 
 /******************************************************************************
@@ -318,8 +318,8 @@ float GetTemp(void)
     float fTsc = 0;
 
     fTsc = f_SPL06.i32RawTemperature / (float)f_SPL06.i32KT;
-    fTCompensate =  f_SPL06.Param.i16C0 * 0.5 + \
-                    f_SPL06.Param.i16C1 * fTsc;
+    fTCompensate =  f_SPL06Params.i16C0 * 0.5 + \
+                    f_SPL06Params.i16C1 * fTsc;
     
     return fTCompensate;
 }
@@ -345,14 +345,14 @@ float GetSPL06Press(void)
     fTsc = f_SPL06.i32RawTemperature / (float)f_SPL06.i32KT;
     fPsc = f_SPL06.i32RawPressure / (float)f_SPL06.i32KP;
     
-    fqua2 = f_SPL06.Param.i32C10 \
-           + fPsc * (f_SPL06.Param.i16C20 \
-           + fPsc* f_SPL06.Param.i16C30);
-    fqua3 = fTsc * fPsc * (f_SPL06.Param.i16C11 \
-           + fPsc * f_SPL06.Param.i16C21);
+    fqua2 = f_SPL06Params.i32C10 \
+           + fPsc * (f_SPL06Params.i16C20 \
+           + fPsc* f_SPL06Params.i16C30);
+    fqua3 = fTsc * fPsc * (f_SPL06Params.i16C11 \
+           + fPsc * f_SPL06Params.i16C21);
     
-    fPCompensate = f_SPL06.Param.i32C00 \
-                   + fPsc * fqua2 + fTsc * f_SPL06.Param.i16C01\
+    fPCompensate = f_SPL06Params.i32C00 \
+                   + fPsc * fqua2 + fTsc * f_SPL06Params.i16C01\
                    + fqua3;
     
     return fPCompensate;

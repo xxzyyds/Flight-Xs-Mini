@@ -295,8 +295,6 @@ typedef struct
     OpenMVFrame_t *FrontOpenmvFramePtr;
     OpenMVFrame2_t *FrontOpenmvFramePtr2;
     OpenMVFrame_t *ptrFrame;
-    //飞机的状态
-    UAVInfo *ptrUAVInfo;
 
     //动作序列
     FSMList_t ActionList;
@@ -307,9 +305,9 @@ typedef struct
     int16_t WatchDogCnt;
 
     //3个PID控制器
-    PIDInfo_t *ptrPIDInfoV;
-    PIDInfo_t *ptrPIDInfoH;
-    PIDInfo_t *ptrPIDInfoY;
+    PID *ptrPIDInfoV;
+    PID *ptrPIDInfoH;
+    PID *ptrPIDInfoY;
 
     float distance;
 

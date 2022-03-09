@@ -55,7 +55,6 @@ stm32g031f8px\timer_drv.o: ..\..\..\SystemCore\Config\StatusConfig.h
 stm32g031f8px\timer_drv.o: ..\..\..\SystemCore\Config\fmuConfig.h
 stm32g031f8px\timer_drv.o: ..\..\..\SystemCore\Hardware\battery.h
 stm32g031f8px\timer_drv.o: ..\..\..\SystemCore\Control\control.h
-stm32g031f8px\timer_drv.o: ..\..\..\SystemCore\Config\StatusConfig.h
 stm32g031f8px\timer_drv.o: ..\..\..\SystemCore\Hardware\SPL06.h
 stm32g031f8px\timer_drv.o: ..\..\..\SystemCore\Hardware\hardware.h
 stm32g031f8px\timer_drv.o: ..\..\..\SystemCore\Hardware\motor.h

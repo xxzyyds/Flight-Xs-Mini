@@ -53,7 +53,6 @@ stm32g031f8px\kernel.o: ..\..\..\SystemCore\Config\StatusConfig.h
 stm32g031f8px\kernel.o: ..\..\..\SystemCore\Config\fmuConfig.h
 stm32g031f8px\kernel.o: ..\..\..\SystemCore\Hardware\battery.h
 stm32g031f8px\kernel.o: ..\..\..\SystemCore\Control\control.h
-stm32g031f8px\kernel.o: ..\..\..\SystemCore\Config\StatusConfig.h
 stm32g031f8px\kernel.o: ..\..\..\SystemCore\Hardware\SPL06.h
 stm32g031f8px\kernel.o: ..\..\..\SystemCore\Hardware\hardware.h
 stm32g031f8px\kernel.o: ..\..\..\SystemCore\Hardware\motor.h
@@ -66,9 +65,7 @@ stm32g031f8px\kernel.o: ..\..\..\SystemCore\Control\pos_ctrl.h
 stm32g031f8px\kernel.o: ..\..\..\SystemCore\Control\program_ctrl.h
 stm32g031f8px\kernel.o: ..\..\..\SystemCore\Hardware\mpu6050.h
 stm32g031f8px\kernel.o: ../Core/Inc/i2c.h
-stm32g031f8px\kernel.o: ..\..\..\SystemCore\Config\StatusConfig.h
 stm32g031f8px\kernel.o: ..\..\..\SystemCore\Control\FollowLine.h
-stm32g031f8px\kernel.o: ..\..\..\SystemCore\Config\StatusConfig.h
 stm32g031f8px\kernel.o: ..\..\..\SystemCore\Control\SDK.h
 stm32g031f8px\kernel.o: ..\bsp_stm32g031f8px\bsp_stm32g031f8px.h
 stm32g031f8px\kernel.o: ../Core/Inc/usart.h

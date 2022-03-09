@@ -20,7 +20,7 @@
                          ##### How to use this driver #####
 ==============================================================================
 PID驱动使用方法如下：
-1.构建一个PIDInfo_t结构体，将所需要控制的数据存放进去；
+1.构建一个PID结构体，将所需要控制的数据存放进去；
 2.调UpdatePID函数，计算PID输出结果
 3.可以直接调用ClacCascadePID直接计算串级PID
 
@@ -45,7 +45,7 @@ PID驱动使用方法如下：
 
 //私有变量区
 /*PID工程变量*/
-PIDInfo_t PIDGroup[emNum_Of_PID_List];
+PID PIDGroup[emNum_Of_PID_List];
 
 
 /******************************************************************************
@@ -68,10 +68,10 @@ void ResetPID(void)
         PIDGroup[i].offset = 0;
     }
     
-    PIDGroup[emPID_Height_Pos].desired = 80;
+    PIDGroup[PID_Height_Pos].desired = 80;
 }
 
-void reset_i(PIDInfo_t* pid)
+void reset_i(PID* pid)
 {
     pid->integ = 0;
 }
@@ -79,7 +79,7 @@ void reset_i(PIDInfo_t* pid)
 /******************************************************************************
   * 函数名称：UpdatePID
   * 函数描述：计算PID相关值
-  * 输    入：PIDInfo_t* pid：要计算的PID结构体指针
+  * 输    入：PID* pid：要计算的PID结构体指针
               float dt：单位运行时间
   * 输    出：void
   * 返    回：void
@@ -87,7 +87,7 @@ void reset_i(PIDInfo_t* pid)
   *    
   *
 ******************************************************************************/
-void UpdatePID(PIDInfo_t* pid, const float dt)
+void UpdatePID(PID* pid, const float dt)
 {
     float deriv;
     
@@ -127,8 +127,8 @@ void UpdatePID(PIDInfo_t* pid, const float dt)
 /******************************************************************************
   * 函数名称：ClacCascadePID
   * 函数描述：计算串级PID
-  * 输    入：PIDInfo_t* pidRate：PID速度环
-              PIDInfo_t* pidAngE：PID角度环
+  * 输    入：PID* pidRate：PID速度环
+              PID* pidAngE：PID角度环
               const float dt：单位运行时间
   * 输    出：void
   * 返    回：void
@@ -136,7 +136,7 @@ void UpdatePID(PIDInfo_t* pid, const float dt)
   *    
   *
 ******************************************************************************/
-void ClacCascadePID(PIDInfo_t* pidRate, PIDInfo_t* pidAngE, const float dt)  //串级PID
+void ClacCascadePID(PID* pidRate, PID* pidAngE, const float dt)  //串级PID
 {     
     UpdatePID(pidAngE, dt);    //先计算外环
     pidRate->desired = pidAngE->out;

@@ -1,8 +1,10 @@
+#ifndef __Status_CONFIG_H
+#define __Status_CONFIG_H
+
 #include "include.h"
-
-
 //ºê¶¨ÒåÇø
-#define WAITING 1
+#define WAITING 0
+#define WAITING_1 1
 #define READY 2
 #define PROCESS 3
 #define EXIT 4
@@ -45,4 +47,4 @@ extern f_AL FlightAttitude;
 extern f_Status FlightStatus;
 
 
-
+#endif

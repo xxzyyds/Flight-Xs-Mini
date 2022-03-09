@@ -60,4 +60,3 @@ stm32g031f8px\imu.o: ..\..\..\SystemCore\Hardware\hardware.h
 stm32g031f8px\imu.o: ..\..\..\SystemCore\Hardware\motor.h
 stm32g031f8px\imu.o: E:\EXE\MDK\ARM\ARMCC\Bin\..\include\math.h
 stm32g031f8px\imu.o: ..\..\..\SystemCore\Math\myMath.h
-stm32g031f8px\imu.o: ..\..\..\SystemCore\Config\StatusConfig.h

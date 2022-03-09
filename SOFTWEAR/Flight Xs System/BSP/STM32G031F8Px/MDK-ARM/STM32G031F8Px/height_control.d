@@ -64,4 +64,3 @@ stm32g031f8px\height_control.o: ../Core/Inc/i2c.h
 stm32g031f8px\height_control.o: ..\..\..\SystemCore\Math\myMath.h
 stm32g031f8px\height_control.o: ..\..\..\SystemCore\Control\sdk.h
 stm32g031f8px\height_control.o: ..\..\..\SystemCore\Control\FollowLine.h
-stm32g031f8px\height_control.o: ..\..\..\SystemCore\Config\StatusConfig.h

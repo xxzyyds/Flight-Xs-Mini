@@ -62,7 +62,12 @@
 #define MOTOR_MAX_INIT_VALUE   850
 #define MOTOR_MAX_VALUE   1000
 
-
+const float M_PI = 3.1415926535;
+const float RtA = 57.2957795f;
+const float AtR = 0.0174532925f;
+const float Gyro_G = 0.03051756f * 2;          
+const float Gyro_Gr = 0.0005326f * 2;    
+const float PI_2 = 1.570796f;
 
 //数据结构声明
 
@@ -148,6 +153,7 @@ typedef struct
 
 //Extern引用
 extern SPL f_SPL06;
+extern SPL06 f_SPL06Params;
 extern SPL06_t device_SPL06;
 
 //函数声明

@@ -12,9 +12,11 @@
 #include "include.h" 
 #include "StatusConfig.h"
 #include "pidConfig.h"
-
+#include "mymath.h"
 
 //定义
+float PIDGroup_desired_yaw_pos_tmp,fb_gyro_lpf[3];
+
 int16_t motor[4];
 
 #define MOTOR1      motor[0] 
@@ -56,42 +58,42 @@ void FlightPidControl(float dt)
 						// 批量复位PID数据，防止上次遗留的数据影响本次控制
             ResetPID();                             
             IMU_Reset();
-            g_Attitude.yaw = 0;
-            PIDGroup_desired_yaw_pos_tmp = g_Attitude.yaw;
-            PIDGroup[emPID_Yaw_Pos].measured = 0;
+            FlightAttitude.yaw = 0;
+            PIDGroup_desired_yaw_pos_tmp = FlightAttitude.yaw;
+            PIDGroup[PID_Yaw_Pos].measured = 0;
             status = PROCESS;
             break;
 				
         //正式进入控制
         case PROCESS:                
-						fb_gyro_lpf[0] += 0.5f *(g_MPUManager.gyroX * Gyro_G - fb_gyro_lpf[0]); //内环测量值 角度/秒
-						fb_gyro_lpf[1] += 0.5f *(g_MPUManager.gyroY * Gyro_G - fb_gyro_lpf[1]); //内环测量值 角度/秒
-						fb_gyro_lpf[2] += 0.5f *(g_MPUManager.gyroZ * Gyro_G - fb_gyro_lpf[2]); //内环测量值 角度/秒
+						fb_gyro_lpf[0] += 0.5f *(MPU6050.gyroX * Gyro_G - fb_gyro_lpf[0]); //内环测量值 角度/秒
+						fb_gyro_lpf[1] += 0.5f *(MPU6050.gyroY * Gyro_G - fb_gyro_lpf[1]); //内环测量值 角度/秒
+						fb_gyro_lpf[2] += 0.5f *(MPU6050.gyroZ * Gyro_G - fb_gyro_lpf[2]); //内环测量值 角度/秒
 
             //速度环PID测量值由陀螺仪给出
-            PIDGroup[emPID_Roll_Spd].measured = fb_gyro_lpf[0];
-            PIDGroup[emPID_Pitch_Spd].measured = fb_gyro_lpf[1];
-            PIDGroup[emPID_Yaw_Spd].measured = fb_gyro_lpf[2];
+            PIDGroup[PID_Roll_Spd].measured = fb_gyro_lpf[0];
+            PIDGroup[PID_Pitch_Spd].measured = fb_gyro_lpf[1];
+            PIDGroup[PID_Yaw_Spd].measured = fb_gyro_lpf[2];
         
             //位置环PID测量值由解算出来的姿态给出
-            PIDGroup[emPID_Pitch_Pos].measured = g_Attitude.pitch; //外环测量值 单位：角度
-            PIDGroup[emPID_Roll_Pos].measured = g_Attitude.roll;
+            PIDGroup[PID_Pitch_Pos].measured = FlightAttitude.pitch; //外环测量值 单位：角度
+            PIDGroup[PID_Roll_Pos].measured = FlightAttitude.roll;
             
             //YAW做个特殊处理
-            PIDGroup[emPID_Yaw_Pos].measured = 0;
-            PIDGroup[emPID_Yaw_Pos].desired = (PIDGroup_desired_yaw_pos_tmp - g_Attitude.yaw);
-            if(PIDGroup[emPID_Yaw_Pos].desired>=180)
+            PIDGroup[PID_Yaw_Pos].measured = 0;
+            PIDGroup[PID_Yaw_Pos].desired = (PIDGroup_desired_yaw_pos_tmp - FlightAttitude.yaw);
+            if(PIDGroup[PID_Yaw_Pos].desired>=180)
             {
-                PIDGroup[emPID_Yaw_Pos].desired -= 360;
+                PIDGroup[PID_Yaw_Pos].desired -= 360;
             }
-            else if(PIDGroup[emPID_Yaw_Pos].desired<=-180)
+            else if(PIDGroup[PID_Yaw_Pos].desired<=-180)
             {
-                PIDGroup[emPID_Yaw_Pos].desired += 360;
+                PIDGroup[PID_Yaw_Pos].desired += 360;
             }
 
-            ClacCascadePID(&PIDGroup[emPID_Roll_Spd],  &PIDGroup[emPID_Roll_Pos],  dt);      //X轴
-            ClacCascadePID(&PIDGroup[emPID_Pitch_Spd], &PIDGroup[emPID_Pitch_Pos], dt);     //Y轴
-            ClacCascadePID(&PIDGroup[emPID_Yaw_Spd],   &PIDGroup[emPID_Yaw_Pos],   dt);       //Z轴
+            ClacCascadePID(&PIDGroup[PID_Roll_Spd],  &PIDGroup[PID_Roll_Pos],  dt);      //X轴
+            ClacCascadePID(&PIDGroup[PID_Pitch_Spd], &PIDGroup[PID_Pitch_Pos], dt);     //Y轴
+            ClacCascadePID(&PIDGroup[PID_Yaw_Spd],   &PIDGroup[PID_Yaw_Pos],   dt);       //Z轴
             break;
 						
 				// 退出控制
@@ -107,7 +109,7 @@ void FlightPidControl(float dt)
             break;
     }
     // 紧急制动
-    if(FlightStatus.unlock == EMERGENT)     
+    if(FlightStatus.unlock == 0)     
     {
         status = EXIT;
     }
@@ -147,10 +149,10 @@ void MotorControl(void)
                 status = WAITING_2;
             }
         //等待状态2
-        case WAITING:
+        case WAITING_1:
             {
 								// todo: 如果  不处于一键起飞并且 目标Z速度 小于0， 怠速 
-								if(FlightStatus.Auto || g_FMUflg.take_off) //刚解锁时，如果，认为操作者还不想飞行
+								if(FlightStatus.Auto || FlightStatus.take_off) //刚解锁时，如果，认为操作者还不想飞行
                 {
                     status = PROCESS_31;
                 }
@@ -168,10 +170,10 @@ void MotorControl(void)
                 int16_t temp = 0;
                 
                 // 紧急制动，当姿态角小于某一些值时，制动
-                if(g_Attitude.pitch < -MAX_ISFD_ATTITUDE 
-                || g_Attitude.pitch > MAX_ISFD_ATTITUDE
-                || g_Attitude.roll  < -MAX_ISFD_ATTITUDE
-                || g_Attitude.roll  > MAX_ISFD_ATTITUDE)
+                if(FlightAttitude.pitch < -MAX_ISFD_ATTITUDE 
+                || FlightAttitude.pitch > MAX_ISFD_ATTITUDE
+                || FlightAttitude.roll  < -MAX_ISFD_ATTITUDE
+                || FlightAttitude.roll  > MAX_ISFD_ATTITUDE)
                 {
                     FlightStatus.unlock = 0;
                     status = EXIT_255;
@@ -192,10 +194,10 @@ void MotorControl(void)
                 MOTOR4 = LIMIT(temp, 0, MOTOR_MAX_INIT_VALUE); 
                 
                 //电机控制
-                MOTOR1 += +PIDGroup[emPID_Roll_Spd].out - PIDGroup[emPID_Pitch_Spd].out + PIDGroup[emPID_Yaw_Spd].out;
-                MOTOR2 += +PIDGroup[emPID_Roll_Spd].out + PIDGroup[emPID_Pitch_Spd].out - PIDGroup[emPID_Yaw_Spd].out;
-                MOTOR3 += -PIDGroup[emPID_Roll_Spd].out + PIDGroup[emPID_Pitch_Spd].out + PIDGroup[emPID_Yaw_Spd].out;
-                MOTOR4 += -PIDGroup[emPID_Roll_Spd].out - PIDGroup[emPID_Pitch_Spd].out - PIDGroup[emPID_Yaw_Spd].out;
+                MOTOR1 += +PIDGroup[PID_Roll_Spd].out - PIDGroup[PID_Pitch_Spd].out + PIDGroup[PID_Yaw_Spd].out;
+                MOTOR2 += +PIDGroup[PID_Roll_Spd].out + PIDGroup[PID_Pitch_Spd].out - PIDGroup[PID_Yaw_Spd].out;
+                MOTOR3 += -PIDGroup[PID_Roll_Spd].out + PIDGroup[PID_Pitch_Spd].out + PIDGroup[PID_Yaw_Spd].out;
+                MOTOR4 += -PIDGroup[PID_Roll_Spd].out - PIDGroup[PID_Pitch_Spd].out - PIDGroup[PID_Yaw_Spd].out;
                 
                 //电机限速
                 MOTOR1 = LIMIT(MOTOR1, 100, MOTOR_MAX_VALUE); 

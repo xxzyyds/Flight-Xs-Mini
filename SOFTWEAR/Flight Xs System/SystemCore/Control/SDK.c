@@ -2,6 +2,8 @@
 #include "program_ctrl.h"
 #include "FollowLine.h"
 #include "myMath.h"
+#include "fmuConfig.h"
+#include "StatusConfig.h"
 
 //void sdk_target_set(float x_pos,float y_pos,float velocity_x, float velocity);
 //
@@ -23,7 +25,7 @@ typedef enum
     sdk_pid_list,
 } sdk_pid_list_t;
 
-PIDInfo_t sdk_pid[sdk_pid_list];
+PID sdk_pid[sdk_pid_list];
 void sdk_update_s_2(float raw, s2_t *s2);
 
 sdk_manager_t sdk_manager;
@@ -187,11 +189,11 @@ void sdk_update(float dt)
         PIDGroup_desired_yaw_pos_tmp += sdk_manager.sdk_yaw_d_angle;
         sdk_manager.yaw_mark += sdk_manager.sdk_yaw_d_angle;
 
-        if (PIDGroup[emPID_Yaw_Pos].desired >= 180)
+        if (PIDGroup[PID_Yaw_Pos].desired >= 180)
         {
             PIDGroup_desired_yaw_pos_tmp -= 360;
         }
-        else if (PIDGroup[emPID_Yaw_Pos].desired < -180)
+        else if (PIDGroup[PID_Yaw_Pos].desired < -180)
         {
             PIDGroup_desired_yaw_pos_tmp += 360;
         }
@@ -263,7 +265,7 @@ void sdk_velocity_set(float x, float y)
 void sdk_lock()
 {
     //上锁
-    g_FMUflg.unlock = 0;
+    FlightStatus.unlock = 0;
 }
 
 /******************************************************************************
@@ -277,7 +279,7 @@ void sdk_lock()
 void sdk_unlock()
 {
     //解锁
-    g_FMUflg.unlock = 1;
+    FlightStatus.unlock = 1;
 }
 
 /******************************************************************************

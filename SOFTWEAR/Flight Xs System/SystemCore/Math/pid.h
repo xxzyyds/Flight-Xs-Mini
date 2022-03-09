@@ -20,64 +20,16 @@
 //外部文件引用
 #include <stdbool.h>
 #include "stdint.h"
+#include "pidConfig.h"
 
 //宏定义区
 
 
-//枚举声明
-typedef enum
-{
-    emPID_Pitch_Spd = 0,
-    emPID_Roll_Spd,
-    emPID_Yaw_Spd,
-    emPID_Pitch_Pos,
-    emPID_Roll_Pos,
-    emPID_Yaw_Pos,
-    emPID_Height_Spd,
-    emPID_Height_Pos,
-    emPID_FolloLinePosVertically,
-    emPID_FolloLinePosHorizontally,
-    emPID_FolloLineSpdVertically,
-    emPID_FolloLineSpdHorizontally,
-    emPID_FollowSpdYaw,
-    
-    emNum_Of_PID_List,
-}emPID_list_t;
-
-typedef struct
-{
-    float kp;           //< proportional gain
-    float ki;           //< integral gain
-    float kd;           //< derivative gain
-    float out;
-    float Err;
-    float desired;     //< set point
-    float measured;
-    
-    float DeathArea;
-    
-    float Err_LimitHigh;
-    float Err_LimitLow;
-    
-    float offset;      //
-    float prevError;    //< previous error
-    float integ;        //< integral
-
-    float IntegLimitHigh;       //< integral limit
-    float IntegLimitLow;
-
-    float OutLimitHigh;
-    float OutLimitLow;
-}PIDInfo_t;
-
-//Extern引用
-extern PIDInfo_t PIDGroup[emNum_Of_PID_List];
-
 //函数声明
-void reset_i(PIDInfo_t* pid);
+void reset_i(PID* pid);
 void ResetPID(void);
-void ClacCascadePID(PIDInfo_t* pidRate, PIDInfo_t* pidAngE, const float dt);  //串级PID
-void UpdatePID(PIDInfo_t* pid, const float dt);  //PID
+void ClacCascadePID(PID* pidRate, PID* pidAngE, const float dt);  //串级PID
+void UpdatePID(PID* pid, const float dt);  //PID
 #endif
 
 /******************* (C) 版权所有 2018 北京中科浩电科技有限公司 *******************/

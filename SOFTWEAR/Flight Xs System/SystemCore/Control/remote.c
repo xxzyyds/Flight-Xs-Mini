@@ -1,21 +1,3 @@
-/**
-  ******************************************************************************
-  * Copyright (c) 2018,北京中科浩电科技有限公司
-  * All rights reserved.
-  * 文件名称：remote.c
-  * 摘    要：
-  *
-  * 当前版本：V1.0
-  * 作    者：北京中科浩电科技有限公司研发部 
-  * 完成日期：    
-  * 修改说明：
-  * 
-  *
-  * 历史版本：
-  *
-  *
-  *******************************************************************************/
-
 /*==============================================================================
                          ##### How to use this driver #####
 ==============================================================================
@@ -30,12 +12,12 @@
 #include "myMath.h"
 #include "LED.h"
 #include "Remote.h"
-#include "gcs.h"
-#include "communication.h"
 #include "pid.h"
 #include "spl06.h"
 #include "speed_estimator.h"
-#include "arm_math.h"
+#include "fmuConfig.h"
+#include "StatusConfig.h"
+
 //宏定义区
 
 
@@ -173,7 +155,7 @@ void RemotePolling()
     
     if(OnlineCnt <= 0 )
     {
-        g_FMUflg.unlock = 0;
+        FlightStatus.unlock = 0;
     }
 }
  
@@ -220,19 +202,19 @@ void RemoteUnlock(void)
             }
             break;            
         case WAITING_4:    //解锁前准备                   
-            g_FMUflg.unlock = 1;   //解锁标志位
+            FlightStatus.unlock = 1;   //解锁标志位
 
             status = PROCESS_31;   //进入控制
             break;
         case PROCESS_31:    //进入解锁状态
-            if(!g_FMUflg.unlock)                           //其它紧急情况可直接锁定飞控
+            if(!FlightStatus.unlock)                           //其它紧急情况可直接锁定飞控
             {
                 status = EXIT_255;                
             }
 
             break;
         case EXIT_255: //进入锁定                           
-            g_FMUflg.unlock = 0;           //锁定
+            FlightStatus.unlock = 0;           //锁定
             status = WAITING_1;     //返回等待解锁
             break;
         default:
@@ -258,7 +240,7 @@ void RemoteUnlock(void)
             {
                 cnt = 0;
                 status = WAITING_2;
-                g_FMUflg.unlock = 1;//解锁标志位
+                FlightStatus.unlock = 1;//解锁标志位
                 ResetPID();
                 IMU_Reset();
                 WZ_Fus_Reset();
@@ -279,21 +261,21 @@ void RemoteUnlock(void)
             {
                 cnt = 0;
                 status = WAITING_1;
-                g_FMUflg.unlock = 0;   
+                FlightStatus.unlock = 0;   
             }
             break;
     }
     
     if(Remote.AUX2 <1100)
     {
-        //g_FMUflg.unlock = 1;
+        //FlightStatus.unlock = 1;
     }else if(Remote.AUX2 > 1500)
     {
         cnt = 0;
         status = WAITING_1;
         ResetPID();
         IMU_Reset();
-        g_FMUflg.unlock = 0;
+        FlightStatus.unlock = 0;
     }
 #endif
 }
@@ -309,13 +291,12 @@ void RemoteUnlock(void)
   *
 ******************************************************************************/
 #include "pos_ctrl.h"
-#include "Ano_OF.h"
 extern float PIDGroup_desired_yaw_pos_tmp;
 void RCReceiveHandle()
 {
     const float roll_pitch_ratio = 0.04f;  //遥控控制姿态的量
-		PIDGroup[emPID_Pitch_Pos].desired =-(Remote.pitch - 1500)*roll_pitch_ratio;     //将遥杆值作为飞行角度的期望值  
-		PIDGroup[emPID_Roll_Pos].desired  = (Remote.roll - 1500)*roll_pitch_ratio;
+		PIDGroup[PID_Pitch_Pos].desired =-(Remote.pitch - 1500)*roll_pitch_ratio;     //将遥杆值作为飞行角度的期望值  
+		PIDGroup[PID_Roll_Pos].desired  = (Remote.roll - 1500)*roll_pitch_ratio;
         
 		if(Remote.yaw > 1700 )
 		{    //以下为遥控控制偏航角 +-号代表方向 0.75代表控制偏航角的旋转量                            
@@ -326,11 +307,11 @@ void RCReceiveHandle()
 				PIDGroup_desired_yaw_pos_tmp += 0.1f;
 		}
 		//
-		if(PIDGroup[emPID_Yaw_Pos].desired>=180)
+		if(PIDGroup[PID_Yaw_Pos].desired>=180)
 		{
 				PIDGroup_desired_yaw_pos_tmp -= 360;
 		}
-		else if(PIDGroup[emPID_Yaw_Pos].desired<-180)
+		else if(PIDGroup[PID_Yaw_Pos].desired<-180)
 		{
 				PIDGroup_desired_yaw_pos_tmp += 360;
 		}

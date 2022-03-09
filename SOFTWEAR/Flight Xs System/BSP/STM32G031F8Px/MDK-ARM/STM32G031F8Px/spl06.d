@@ -55,12 +55,10 @@ stm32g031f8px\spl06.o: ..\..\..\SystemCore\Config\StatusConfig.h
 stm32g031f8px\spl06.o: ..\..\..\SystemCore\Config\fmuConfig.h
 stm32g031f8px\spl06.o: ..\..\..\SystemCore\Hardware\battery.h
 stm32g031f8px\spl06.o: ..\..\..\SystemCore\Control\control.h
-stm32g031f8px\spl06.o: ..\..\..\SystemCore\Config\StatusConfig.h
 stm32g031f8px\spl06.o: ..\..\..\SystemCore\Hardware\hardware.h
 stm32g031f8px\spl06.o: ..\..\..\SystemCore\Hardware\motor.h
 stm32g031f8px\spl06.o: E:\EXE\MDK\ARM\ARMCC\Bin\..\include\stdio.h
 stm32g031f8px\spl06.o: ..\..\..\SystemCore\Hardware\timer_drv.h
-stm32g031f8px\spl06.o: ..\..\..\SystemCore\Config\StatusConfig.h
 stm32g031f8px\spl06.o: ..\bsp_stm32g031f8px\bsp_stm32g031f8px.h
 stm32g031f8px\spl06.o: ../Core/Inc/usart.h
 stm32g031f8px\spl06.o: ../Core/Inc/adc.h

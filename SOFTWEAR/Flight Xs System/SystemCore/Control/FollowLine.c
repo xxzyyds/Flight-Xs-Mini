@@ -4,11 +4,14 @@
 #include "timer_drv.h"
 #include "myMath.h"
 #include "program_ctrl.h"
+#include "fmuConfig.h"
+#include "StatusConfig.h"
+#include "SDK.h"
 
 
 extern HeightInfo_t HeightInfo;
 
-extern PIDInfo_t PIDGroup[emNum_Of_PID_List];
+extern PID PIDGroup[emNum_Of_PID_List];
 extern u16 val, spd;
 extern _program_ctrl_st program_ctrl;
 bool FollowLine = false;
@@ -114,7 +117,7 @@ void UpdateAction(float dt)
         break;
     //上锁动作
     case ActionLock:
-        g_UAVinfo.FMUflg->unlock = 0;
+        FlightStatus.unlock = 0;
         break;
     default:
         break;
@@ -149,10 +152,6 @@ void UpdateButton()
     // 判断按键
     volatile static uint8_t input = 0;
 	
-    input = P1IN & BIT1;
-	
-
-    
     if (input)
     {
         static bool CloseGate = true;
@@ -161,13 +160,12 @@ void UpdateButton()
 				// 防止重复进入
         if (CloseGate)
         {
-						
             CloseGate = false;
             FollowManager.ActionList = ActionCountdown;
         }
     }
     else
     {
-        return
+        return;
     }
 }

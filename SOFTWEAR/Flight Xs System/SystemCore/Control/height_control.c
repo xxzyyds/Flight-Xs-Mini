@@ -38,9 +38,6 @@
 //私有变量区
 HeightInfo_t HeightInfo;
 
-
-#include "gcs.h"
-//#include "program_ctrl.h"
 //程序移植映射表
 //=====mapping=====
 
@@ -131,7 +128,7 @@ void ALT_Ctrl(float dT_s)
 	
 	//==exp_val state
 	//
-	if(g_UAVinfo.UAV_Mode >= Altitude_Hold && fc_state_take_off != 0 )
+	if(fc_state_take_off != 0 )
   {
 		exp_vel = exp_vel_transition[3];
 		//
@@ -171,7 +168,7 @@ void ALT_Ctrl(float dT_s)
 	HeightInfo.Thr = wz_out;
 	
 	//unlock state
-	if(g_FMUflg.unlock == 0)
+	if(FlightStatus.unlock == 0)
 	{
 		acc_err_i = 0;
 		exp_hei = fb_hei;
@@ -179,27 +176,7 @@ void ALT_Ctrl(float dT_s)
 	}
 	else
 	{
-		if(g_UAVinfo.UAV_Mode >= Altitude_Hold)
-		{
-			//有向上的目标速度，状态切换为起飞
-			if((int16_t)(exp_vel_transition[2])>0)
-			{
-                //增加高度位置判断
-                if(HeightInfo.Z_Postion < 40 && HeightInfo.Z_Postion > -40)
-                {
-                    fc_state_take_off = 1;
-                }else
-                {
-                    HeightInfo.Z_Postion = 0;
-                    HeightInfo.Z_Acc = 0;
-                    HeightInfo.Z_Speed = 0;
-                }
-			}
-		}
-		else//g_UAVinfo.UAV_Mode < Altitude_Hold
-		{
-			fc_state_take_off = 1;
-		}
+		fc_state_take_off = 1;
 	}
 }
 

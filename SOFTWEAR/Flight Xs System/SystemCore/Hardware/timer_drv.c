@@ -25,7 +25,7 @@ void SysTick_Handler(void)
         //获取MPU6050的原始数据
         GetMPU6050Data();
         //姿态更新——四元数
-        ATT_Update(&g_MPUManager,&g_Attitude, 0.003333); 
+        ATT_Update(&MPU6050,&FlightAttitude, 0.003333); 
         
         //Z轴数据预估
         WZ_Est_Calcu(0.003333);

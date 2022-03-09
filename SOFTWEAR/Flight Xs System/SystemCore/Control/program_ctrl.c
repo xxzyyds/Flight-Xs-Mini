@@ -10,11 +10,9 @@
 //STATE
 #define MOTOR_PREPARATION    (1)
 #define FC_STATE_FLYING      (fc_state_take_off)
-#define FC_STATE_UNLOKED     (g_FMUflg.unlock)
+#define FC_STATE_UNLOKED     (FlightStatus.unlock)
 #define RC_STATE_FAILSAFE    (0)
 #define FC_STATE_FLIGHT_MODE (g_UAVinfo.UAV_Mode >= Altitude_Hold)//当前为定点模式
-//EN
-#define FC_STATE_POS_HOLD_EN (ANO_OF.STATE.of_fus)                //光流有效，使能定点。
 
 //SET_DATA
 //自动起飞目标高度
@@ -34,7 +32,7 @@
 #define ALT_CM             (HeightInfo.Z_Postion)
 //FUNCTION
 #define FC_CMD_UNLOCK      (FC_Unlock_Fun())
-#define FC_CMD_LOCK        (g_FMUflg.unlock = 0)
+#define FC_CMD_LOCK        (FlightStatus.unlock = 0)
 //=====mapping=====
 
 static void FC_Unlock_Fun()
@@ -183,7 +181,7 @@ void Program_Ctrl_Task(u8 dT_ms)
         FlyCtrlReset();
         //
 //        if(!RC_STATE_FAILSAFE && FC_STATE_FLIGHT_MODE && FC_STATE_POS_HOLD_EN)
-        if(!RC_STATE_FAILSAFE && FC_STATE_FLIGHT_MODE)
+        if(!RC_STATE_FAILSAFE)
         {
             program_ctrl.state_ok = 1;
         }

@@ -53,8 +53,14 @@ stm32g031f8px\init.o: ..\..\..\SystemCore\Config\StatusConfig.h
 stm32g031f8px\init.o: ..\..\..\SystemCore\Config\fmuConfig.h
 stm32g031f8px\init.o: ..\..\..\SystemCore\Hardware\battery.h
 stm32g031f8px\init.o: ..\..\..\SystemCore\Control\control.h
-stm32g031f8px\init.o: ..\..\..\SystemCore\Config\StatusConfig.h
 stm32g031f8px\init.o: ..\..\..\SystemCore\Hardware\SPL06.h
 stm32g031f8px\init.o: ..\..\..\SystemCore\Hardware\hardware.h
 stm32g031f8px\init.o: ..\..\..\SystemCore\Hardware\motor.h
 stm32g031f8px\init.o: E:\EXE\MDK\ARM\ARMCC\Bin\..\include\math.h
+stm32g031f8px\init.o: ..\..\..\SystemCore\Hardware\led.h
+stm32g031f8px\init.o: ..\..\..\SystemCore\Control\FollowLine.h
+stm32g031f8px\init.o: ..\..\..\SystemCore\Control\sdk.h
+stm32g031f8px\init.o: ..\..\..\SystemCore\Hardware\timer_drv.h
+stm32g031f8px\init.o: ..\..\..\SystemCore\Hardware\power.h
+stm32g031f8px\init.o: ..\..\..\SystemCore\Hardware\MPU6050.h
+stm32g031f8px\init.o: ../Core/Inc/i2c.h

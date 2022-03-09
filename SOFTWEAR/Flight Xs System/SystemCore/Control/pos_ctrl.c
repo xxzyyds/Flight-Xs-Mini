@@ -1,6 +1,5 @@
 #include "pos_ctrl.h"
 #include "Remote.h"
-#include "Ano_OF.h"
 #include "height_control.h"
 #include "myMath.h"
 #include "program_ctrl.h"
@@ -54,12 +53,9 @@ void POS_Ctrl(float dT_s)
 		exp_velocity[1] = 0;
 	}
     
-	//
-	fb_velocity[0] = ANO_OF.DX2;
-	fb_velocity[1] = ANO_OF.DY2;
-	//
-	fb_velocity_fixed[0] = ANO_OF.DX2FIX;
-	fb_velocity_fixed[1] = ANO_OF.DY2FIX;
+	fb_velocity[0] += MPU6050.accX * dT_s;
+	fb_velocity[1]+= MPU6050.accX * dT_s;
+	
 	//====ctrl====
 	//计算位置速度误差 = 期望速度 - 反馈速度
 	pos_velocity_err[0] = exp_velocity[0] - fb_velocity[0];//fb_velocity_fixed[0];

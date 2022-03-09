@@ -7,8 +7,6 @@
 #include "fmuConfig.h"
 //宏定义区
 
-
-
 //函数声明
 float GetNormAccz(void);
 

@@ -58,5 +58,3 @@ stm32g031f8px\speed_estimator.o: ..\..\..\SystemCore\Control\remote.h
 stm32g031f8px\speed_estimator.o: ..\..\..\SystemCore\Math\imu.h
 stm32g031f8px\speed_estimator.o: ..\..\..\SystemCore\Config\StatusConfig.h
 stm32g031f8px\speed_estimator.o: ..\..\..\SystemCore\Hardware\battery.h
-stm32g031f8px\speed_estimator.o: ..\..\..\SystemCore\Config\StatusConfig.h
-stm32g031f8px\speed_estimator.o: ..\..\..\SystemCore\Config\StatusConfig.h

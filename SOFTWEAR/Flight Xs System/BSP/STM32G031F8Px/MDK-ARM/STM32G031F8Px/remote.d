@@ -46,3 +46,17 @@ stm32g031f8px\remote.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_uart.h
 stm32g031f8px\remote.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_uart_ex.h
 stm32g031f8px\remote.o: ..\..\..\SystemCore\Hardware\LED.h
 stm32g031f8px\remote.o: ..\..\..\SystemCore\Control\Remote.h
+stm32g031f8px\remote.o: ..\..\..\SystemCore\Hardware\spl06.h
+stm32g031f8px\remote.o: ..\..\..\SystemCore\Control\speed_estimator.h
+stm32g031f8px\remote.o: ..\..\..\SystemCore\Config\fmuConfig.h
+stm32g031f8px\remote.o: ..\..\..\SystemCore\Control\include.h
+stm32g031f8px\remote.o: ..\..\..\SystemCore\Math\queue.h
+stm32g031f8px\remote.o: E:\EXE\MDK\ARM\ARMCC\Bin\..\include\string.h
+stm32g031f8px\remote.o: ..\..\..\SystemCore\Config\fmuConfig.h
+stm32g031f8px\remote.o: ..\..\..\SystemCore\Hardware\hardware.h
+stm32g031f8px\remote.o: ..\..\..\SystemCore\Hardware\motor.h
+stm32g031f8px\remote.o: ..\..\..\SystemCore\Control\height_control.h
+stm32g031f8px\remote.o: ..\..\..\SystemCore\Math\imu.h
+stm32g031f8px\remote.o: ..\..\..\SystemCore\Config\StatusConfig.h
+stm32g031f8px\remote.o: ..\..\..\SystemCore\Hardware\battery.h
+stm32g031f8px\remote.o: ..\..\..\SystemCore\Control\pos_ctrl.h

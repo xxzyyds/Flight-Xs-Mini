@@ -53,10 +53,9 @@ stm32g031f8px\control.o: ..\..\..\SystemCore\Config\StatusConfig.h
 stm32g031f8px\control.o: ..\..\..\SystemCore\Config\fmuConfig.h
 stm32g031f8px\control.o: ..\..\..\SystemCore\Hardware\battery.h
 stm32g031f8px\control.o: ..\..\..\SystemCore\Control\control.h
-stm32g031f8px\control.o: ..\..\..\SystemCore\Config\StatusConfig.h
 stm32g031f8px\control.o: ..\..\..\SystemCore\Hardware\SPL06.h
 stm32g031f8px\control.o: ..\..\..\SystemCore\Hardware\hardware.h
 stm32g031f8px\control.o: ..\..\..\SystemCore\Hardware\motor.h
 stm32g031f8px\control.o: E:\EXE\MDK\ARM\ARMCC\Bin\..\include\math.h
-stm32g031f8px\control.o: ..\..\..\SystemCore\Config\StatusConfig.h
 stm32g031f8px\control.o: ..\..\..\SystemCore\Config\pidConfig.h
+stm32g031f8px\control.o: ..\..\..\SystemCore\Math\mymath.h

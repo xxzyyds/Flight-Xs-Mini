@@ -56,9 +56,8 @@ stm32g031f8px\followline.o: ..\..\..\SystemCore\Math\imu.h
 stm32g031f8px\followline.o: ..\..\..\SystemCore\Config\StatusConfig.h
 stm32g031f8px\followline.o: ..\..\..\SystemCore\Hardware\battery.h
 stm32g031f8px\followline.o: ..\..\..\SystemCore\Control\control.h
-stm32g031f8px\followline.o: ..\..\..\SystemCore\Config\StatusConfig.h
 stm32g031f8px\followline.o: ..\..\..\SystemCore\Hardware\SPL06.h
-stm32g031f8px\followline.o: ..\..\..\SystemCore\Config\StatusConfig.h
 stm32g031f8px\followline.o: ..\..\..\SystemCore\Hardware\timer_drv.h
 stm32g031f8px\followline.o: ..\..\..\SystemCore\Math\myMath.h
 stm32g031f8px\followline.o: ..\..\..\SystemCore\Control\program_ctrl.h
+stm32g031f8px\followline.o: ..\..\..\SystemCore\Control\SDK.h

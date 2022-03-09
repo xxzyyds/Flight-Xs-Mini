@@ -2,6 +2,8 @@
 // 高度 --> 四轴的角速度 -->【基础转速】
 
 // pid
+#ifndef __PID_CONFIG_H
+#define __PID_CONFIG_H
 typedef struct
 {
     float kp;           //< proportional gain
@@ -53,3 +55,6 @@ typedef enum
 PID PIDGroup[Num_Of_PIDList];
 
 // height pid
+
+
+#endif

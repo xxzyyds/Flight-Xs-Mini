@@ -128,7 +128,7 @@ void WZ_Fix_Calcu(float dT_s)//¸úËæ¿ØÖÆÖÜÆÚ
 	HeightInfo.Z_Postion = est_wz_height;
 	
 	//
-	if(wz_fus_sta == FIX_RESET || g_FMUflg.unlock == 0)
+	if(wz_fus_sta == FIX_RESET || FlightStatus.unlock == 0)
 	{
 		WZ_Fus_Reset();
 		//

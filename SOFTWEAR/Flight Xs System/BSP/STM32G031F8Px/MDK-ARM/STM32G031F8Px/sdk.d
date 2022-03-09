@@ -57,8 +57,6 @@ stm32g031f8px\sdk.o: ..\..\..\SystemCore\Math\imu.h
 stm32g031f8px\sdk.o: ..\..\..\SystemCore\Config\StatusConfig.h
 stm32g031f8px\sdk.o: ..\..\..\SystemCore\Hardware\battery.h
 stm32g031f8px\sdk.o: ..\..\..\SystemCore\Control\control.h
-stm32g031f8px\sdk.o: ..\..\..\SystemCore\Config\StatusConfig.h
 stm32g031f8px\sdk.o: ..\..\..\SystemCore\Hardware\SPL06.h
-stm32g031f8px\sdk.o: ..\..\..\SystemCore\Config\StatusConfig.h
 stm32g031f8px\sdk.o: ..\..\..\SystemCore\Control\program_ctrl.h
 stm32g031f8px\sdk.o: ..\..\..\SystemCore\Math\myMath.h

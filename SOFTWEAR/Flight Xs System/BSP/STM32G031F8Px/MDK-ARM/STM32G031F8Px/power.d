@@ -54,7 +54,6 @@ stm32g031f8px\power.o: ..\..\..\SystemCore\Config\StatusConfig.h
 stm32g031f8px\power.o: ..\..\..\SystemCore\Config\fmuConfig.h
 stm32g031f8px\power.o: ..\..\..\SystemCore\Hardware\battery.h
 stm32g031f8px\power.o: ..\..\..\SystemCore\Control\control.h
-stm32g031f8px\power.o: ..\..\..\SystemCore\Config\StatusConfig.h
 stm32g031f8px\power.o: ..\..\..\SystemCore\Hardware\SPL06.h
 stm32g031f8px\power.o: ..\..\..\SystemCore\Hardware\hardware.h
 stm32g031f8px\power.o: ..\..\..\SystemCore\Hardware\motor.h

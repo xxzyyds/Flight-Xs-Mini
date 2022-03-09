@@ -1,8 +1,5 @@
 #include "hardware.h"
 #include "include.h"
-#include "msp.h"
-#include "HARDWARE_i2c.h"
-#include "HARDWARE_uart.h"
 #include "timer_drv.h"
 #include "power.h"
 #include "beep.h"

@@ -46,7 +46,6 @@ stm32g031f8px\led.o: E:\EXE\MDK\ARM\ARMCC\Bin\..\include\stdbool.h
 stm32g031f8px\led.o: ..\..\..\SystemCore\Hardware\Hardware.h
 stm32g031f8px\led.o: ..\..\..\SystemCore\Hardware\battery.h
 stm32g031f8px\led.o: ..\..\..\SystemCore\Hardware\timer_drv.h
-stm32g031f8px\led.o: ..\..\..\SystemCore\Control\FollowLine.h
 stm32g031f8px\led.o: ..\..\..\SystemCore\Config\fmuConfig.h
 stm32g031f8px\led.o: ..\..\..\SystemCore\Control\include.h
 stm32g031f8px\led.o: ..\..\..\SystemCore\Math\queue.h
@@ -59,6 +58,5 @@ stm32g031f8px\led.o: ..\..\..\SystemCore\Control\height_control.h
 stm32g031f8px\led.o: ..\..\..\SystemCore\Control\remote.h
 stm32g031f8px\led.o: ..\..\..\SystemCore\Math\imu.h
 stm32g031f8px\led.o: ..\..\..\SystemCore\Config\StatusConfig.h
-stm32g031f8px\led.o: ..\..\..\SystemCore\Config\StatusConfig.h
 stm32g031f8px\led.o: ..\..\..\SystemCore\Hardware\SPL06.h
-stm32g031f8px\led.o: ..\..\..\SystemCore\Config\StatusConfig.h
+stm32g031f8px\led.o: ..\..\..\SystemCore\Control\FollowLine.h

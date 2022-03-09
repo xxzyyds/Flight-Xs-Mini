@@ -69,19 +69,7 @@ void UpdateMotor(int16_t M1, int16_t M2, int16_t M3, int16_t M4)
     M1 = LIMIT(M1, 0, 999);   //电机取值限幅 0-999
     M2 = LIMIT(M2, 0, 999); 
     M3 = LIMIT(M3, 0, 999);
-    M4 = LIMIT(M4, 0, 999);
-        
-#ifdef MSP432    
-    M1 = M1 + 1000;
-    M2 = M2 + 1000;
-    M3 = M3 + 1000;
-    M4 = M4 + 1000;
-    
-    Timer_A_setCompareValue (TIMER_A0_BASE, TIMER_A_CAPTURECOMPARE_REGISTER_1, M2);
-    Timer_A_setCompareValue (TIMER_A2_BASE, TIMER_A_CAPTURECOMPARE_REGISTER_1, M4);
-    Timer_A_setCompareValue (TIMER_A0_BASE, TIMER_A_CAPTURECOMPARE_REGISTER_3, M1);
-    Timer_A_setCompareValue (TIMER_A0_BASE, TIMER_A_CAPTURECOMPARE_REGISTER_4, M3);
-#endif    
+    M4 = LIMIT(M4, 0, 999); 
     
 #ifdef STM32
     TIM2->CCR1 = M1;
