@@ -2,6 +2,7 @@
 #include "hardware.h"
 #include "kernel.h"
 #include "include.h"
+#include <bsp_stm32g031f8px.h>
 // init --> getInfo by IMU ang receive Msg form controller --> Control the motor --> getInfo
 
 /*************************** While(1) only detect ****************************************************/
@@ -10,7 +11,7 @@ int main()
 {
     // init hardware and software
     //MCU初始化
-    MCU_Init();
+    BSP_Init();
     
     while(true)
     {

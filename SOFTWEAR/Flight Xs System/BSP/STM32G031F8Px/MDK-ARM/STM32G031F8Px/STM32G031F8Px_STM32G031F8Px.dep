@@ -2120,7 +2120,7 @@ I (C:\Program Files (x86)\Keil_MDK\ARM\ARMCC\include\math.h)(0x60252378)
 I (..\..\..\SystemCore\Control\remote.h)(0x5D4B8D22)
 I (..\..\..\SystemCore\Hardware\battery.h)(0x6226F442)
 I (..\..\..\SystemCore\Config\StatusConfig.h)(0x62286D07)
-F (..\..\..\SystemCore\Mymain.c)(0x62286D07)(--c99 -c --cpu Cortex-M0+ -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I ../Drivers/CMSIS/Include -I ..\..\..\SystemCore\Config -I ..\..\..\SystemCore\Control -I ..\..\..\SystemCore\Hardware -I ..\..\..\SystemCore\Math -I ..\bsp_stm32g031f8px-I.\RTE\_STM32G031F8Px-IC:\Users\xxzyyds\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Users\xxzyyds\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.4.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32G031xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G031xx-o stm32g031f8px\mymain.o --omf_browse stm32g031f8px\mymain.crf --depend stm32g031f8px\mymain.d)
+F (..\..\..\SystemCore\Mymain.c)(0x62288BB6)(--c99 -c --cpu Cortex-M0+ -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I ../Drivers/CMSIS/Include -I ..\..\..\SystemCore\Config -I ..\..\..\SystemCore\Control -I ..\..\..\SystemCore\Hardware -I ..\..\..\SystemCore\Math -I ..\bsp_stm32g031f8px-I.\RTE\_STM32G031F8Px-IC:\Users\xxzyyds\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Users\xxzyyds\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.4.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32G031xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G031xx-o stm32g031f8px\mymain.o --omf_browse stm32g031f8px\mymain.crf --depend stm32g031f8px\mymain.d)
 I (..\..\..\SystemCore\Hardware\hardware.h)(0x6073A350)
 I (C:\Program Files (x86)\Keil_MDK\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (C:\Program Files (x86)\Keil_MDK\ARM\ARMCC\include\stdbool.h)(0x6025237C)
@@ -2177,6 +2177,13 @@ I (..\..\..\SystemCore\Config\StatusConfig.h)(0x62286D07)
 I (..\..\..\SystemCore\Hardware\SPL06.h)(0x62286D07)
 I (..\..\..\SystemCore\Hardware\motor.h)(0x6223703F)
 I (C:\Program Files (x86)\Keil_MDK\ARM\ARMCC\include\math.h)(0x60252378)
+I (..\bsp_stm32g031f8px\bsp_stm32g031f8px.h)(0x6226EED0)
+I (../Core/Inc/usart.h)(0x6225EA18)
+I (../Core/Inc/adc.h)(0x6225EA18)
+I (../Core/Inc/dma.h)(0x6225EA18)
+I (../Core/Inc/i2c.h)(0x6225EA18)
+I (../Core/Inc/tim.h)(0x6225EA18)
+I (../Core/Inc/gpio.h)(0x6225EA17)
 F (..\..\..\SystemCore\Config\fmuConfig.h)(0x62288985)()
 F (..\..\..\SystemCore\Config\pidConfig.h)(0x62288867)()
 F (..\..\..\SystemCore\Config\StatusConfig.h)(0x62286D07)()

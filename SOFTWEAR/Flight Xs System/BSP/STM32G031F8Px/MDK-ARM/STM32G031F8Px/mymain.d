@@ -58,3 +58,10 @@ stm32g031f8px\mymain.o: ..\..\..\SystemCore\Hardware\SPL06.h
 stm32g031f8px\mymain.o: ..\..\..\SystemCore\Hardware\hardware.h
 stm32g031f8px\mymain.o: ..\..\..\SystemCore\Hardware\motor.h
 stm32g031f8px\mymain.o: C:\Program Files (x86)\Keil_MDK\ARM\ARMCC\Bin\..\include\math.h
+stm32g031f8px\mymain.o: ..\bsp_stm32g031f8px\bsp_stm32g031f8px.h
+stm32g031f8px\mymain.o: ../Core/Inc/usart.h
+stm32g031f8px\mymain.o: ../Core/Inc/adc.h
+stm32g031f8px\mymain.o: ../Core/Inc/dma.h
+stm32g031f8px\mymain.o: ../Core/Inc/i2c.h
+stm32g031f8px\mymain.o: ../Core/Inc/tim.h
+stm32g031f8px\mymain.o: ../Core/Inc/gpio.h

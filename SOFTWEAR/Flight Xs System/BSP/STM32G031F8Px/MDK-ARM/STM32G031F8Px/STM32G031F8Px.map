@@ -1100,6 +1100,7 @@ Section Cross References
     speed_estimator.o(i.WZ_Obs_Calcu) refers to fdiv.o(.text) for __aeabi_fdiv
     speed_estimator.o(i.WZ_Obs_Calcu) refers to speed_estimator.o(.data) for .data
     speed_estimator.o(i.WZ_Obs_Calcu) refers to speed_estimator.o(.bss) for .bss
+    mymain.o(i.main) refers to bsp_stm32g031f8px.o(i.BSP_Init) for BSP_Init
     mymain.o(i.main) refers to kernel.o(i.KernelPolling) for KernelPolling
     filter.o(i.AntiPulse_MovingAverage_Filter) refers to aeabi_sdiv.o(.text) for __aeabi_uidivmod
     filter.o(i.IIR_I_Filter) refers to fmul.o(x$fpl$fmul) for __aeabi_fmul
@@ -1567,44 +1568,26 @@ Section Cross References
 
 Removing Unused input sections from the image.
 
-    Removing main.o(i.Error_Handler), (4 bytes).
     Removing gpio.o(.rev16_text), (4 bytes).
     Removing gpio.o(.revsh_text), (4 bytes).
-    Removing gpio.o(i.MX_GPIO_Init), (120 bytes).
     Removing adc.o(.rev16_text), (4 bytes).
     Removing adc.o(.revsh_text), (4 bytes).
     Removing adc.o(i.HAL_ADC_MspDeInit), (44 bytes).
-    Removing adc.o(i.HAL_ADC_MspInit), (96 bytes).
-    Removing adc.o(i.MX_ADC1_Init), (112 bytes).
-    Removing adc.o(.bss), (100 bytes).
     Removing dma.o(.rev16_text), (4 bytes).
     Removing dma.o(.revsh_text), (4 bytes).
-    Removing dma.o(i.MX_DMA_Init), (72 bytes).
     Removing i2c.o(.rev16_text), (4 bytes).
     Removing i2c.o(.revsh_text), (4 bytes).
     Removing i2c.o(i.HAL_I2C_MspDeInit), (116 bytes).
-    Removing i2c.o(i.HAL_I2C_MspInit), (264 bytes).
-    Removing i2c.o(i.MX_I2C1_Init), (88 bytes).
-    Removing i2c.o(i.MX_I2C2_Init), (88 bytes).
     Removing tim.o(.rev16_text), (4 bytes).
     Removing tim.o(.revsh_text), (4 bytes).
     Removing tim.o(i.HAL_TIM_Base_MspDeInit), (68 bytes).
-    Removing tim.o(i.HAL_TIM_Base_MspInit), (84 bytes).
-    Removing tim.o(i.HAL_TIM_MspPostInit), (108 bytes).
-    Removing tim.o(i.MX_TIM1_Init), (116 bytes).
-    Removing tim.o(i.MX_TIM2_Init), (184 bytes).
-    Removing tim.o(i.MX_TIM3_Init), (184 bytes).
     Removing usart.o(.rev16_text), (4 bytes).
     Removing usart.o(.revsh_text), (4 bytes).
     Removing usart.o(i.HAL_UART_MspDeInit), (108 bytes).
-    Removing usart.o(i.HAL_UART_MspInit), (324 bytes).
-    Removing usart.o(i.MX_USART1_UART_Init), (104 bytes).
-    Removing usart.o(i.MX_USART2_UART_Init), (60 bytes).
     Removing stm32g0xx_it.o(.rev16_text), (4 bytes).
     Removing stm32g0xx_it.o(.revsh_text), (4 bytes).
     Removing stm32g0xx_hal_msp.o(.rev16_text), (4 bytes).
     Removing stm32g0xx_hal_msp.o(.revsh_text), (4 bytes).
-    Removing stm32g0xx_hal_msp.o(i.HAL_MspInit), (44 bytes).
     Removing stm32g0xx_hal_adc.o(.rev16_text), (4 bytes).
     Removing stm32g0xx_hal_adc.o(.revsh_text), (4 bytes).
     Removing stm32g0xx_hal_adc.o(i.ADC_ConversionStop), (96 bytes).
@@ -1614,7 +1597,6 @@ Removing Unused input sections from the image.
     Removing stm32g0xx_hal_adc.o(i.ADC_Disable), (116 bytes).
     Removing stm32g0xx_hal_adc.o(i.ADC_Enable), (180 bytes).
     Removing stm32g0xx_hal_adc.o(i.HAL_ADC_AnalogWDGConfig), (648 bytes).
-    Removing stm32g0xx_hal_adc.o(i.HAL_ADC_ConfigChannel), (548 bytes).
     Removing stm32g0xx_hal_adc.o(i.HAL_ADC_ConvCpltCallback), (2 bytes).
     Removing stm32g0xx_hal_adc.o(i.HAL_ADC_ConvHalfCpltCallback), (2 bytes).
     Removing stm32g0xx_hal_adc.o(i.HAL_ADC_DeInit), (172 bytes).
@@ -1623,7 +1605,6 @@ Removing Unused input sections from the image.
     Removing stm32g0xx_hal_adc.o(i.HAL_ADC_GetState), (4 bytes).
     Removing stm32g0xx_hal_adc.o(i.HAL_ADC_GetValue), (6 bytes).
     Removing stm32g0xx_hal_adc.o(i.HAL_ADC_IRQHandler), (336 bytes).
-    Removing stm32g0xx_hal_adc.o(i.HAL_ADC_Init), (604 bytes).
     Removing stm32g0xx_hal_adc.o(i.HAL_ADC_LevelOutOfWindowCallback), (2 bytes).
     Removing stm32g0xx_hal_adc.o(i.HAL_ADC_MspDeInit), (2 bytes).
     Removing stm32g0xx_hal_adc.o(i.HAL_ADC_MspInit), (2 bytes).
@@ -1635,12 +1616,8 @@ Removing Unused input sections from the image.
     Removing stm32g0xx_hal_adc.o(i.HAL_ADC_Stop), (62 bytes).
     Removing stm32g0xx_hal_adc.o(i.HAL_ADC_Stop_DMA), (120 bytes).
     Removing stm32g0xx_hal_adc.o(i.HAL_ADC_Stop_IT), (72 bytes).
-    Removing stm32g0xx_hal_adc.o(i.LL_ADC_IsEnabled), (8 bytes).
-    Removing stm32g0xx_hal_adc.o(i.LL_ADC_REG_IsConversionOngoing), (8 bytes).
     Removing stm32g0xx_hal_adc.o(i.LL_ADC_REG_IsTriggerSourceSWStart), (16 bytes).
     Removing stm32g0xx_hal_adc.o(i.LL_ADC_SetAnalogWDMonitChannels), (48 bytes).
-    Removing stm32g0xx_hal_adc.o(i.LL_ADC_SetCommonPathInternalCh), (14 bytes).
-    Removing stm32g0xx_hal_adc.o(i.LL_ADC_SetSamplingTimeCommonChannels), (22 bytes).
     Removing stm32g0xx_hal_adc_ex.o(.rev16_text), (4 bytes).
     Removing stm32g0xx_hal_adc_ex.o(.revsh_text), (4 bytes).
     Removing stm32g0xx_hal_adc_ex.o(i.HAL_ADCEx_Calibration_GetValue), (12 bytes).
@@ -1654,7 +1631,6 @@ Removing Unused input sections from the image.
     Removing stm32g0xx_hal_rcc.o(.rev16_text), (4 bytes).
     Removing stm32g0xx_hal_rcc.o(.revsh_text), (4 bytes).
     Removing stm32g0xx_hal_rcc.o(i.HAL_RCC_CSSCallback), (2 bytes).
-    Removing stm32g0xx_hal_rcc.o(i.HAL_RCC_ClockConfig), (344 bytes).
     Removing stm32g0xx_hal_rcc.o(i.HAL_RCC_DeInit), (164 bytes).
     Removing stm32g0xx_hal_rcc.o(i.HAL_RCC_DisableLSECSS), (16 bytes).
     Removing stm32g0xx_hal_rcc.o(i.HAL_RCC_EnableCSS), (20 bytes).
@@ -1662,20 +1638,16 @@ Removing Unused input sections from the image.
     Removing stm32g0xx_hal_rcc.o(i.HAL_RCC_GetClockConfig), (56 bytes).
     Removing stm32g0xx_hal_rcc.o(i.HAL_RCC_GetHCLKFreq), (12 bytes).
     Removing stm32g0xx_hal_rcc.o(i.HAL_RCC_GetOscConfig), (188 bytes).
-    Removing stm32g0xx_hal_rcc.o(i.HAL_RCC_GetPCLK1Freq), (40 bytes).
     Removing stm32g0xx_hal_rcc.o(i.HAL_RCC_GetResetSource), (24 bytes).
-    Removing stm32g0xx_hal_rcc.o(i.HAL_RCC_GetSysClockFreq), (140 bytes).
     Removing stm32g0xx_hal_rcc.o(i.HAL_RCC_LSECSSCallback), (2 bytes).
     Removing stm32g0xx_hal_rcc.o(i.HAL_RCC_MCOConfig), (80 bytes).
     Removing stm32g0xx_hal_rcc.o(i.HAL_RCC_NMI_IRQHandler), (36 bytes).
-    Removing stm32g0xx_hal_rcc.o(i.HAL_RCC_OscConfig), (1008 bytes).
     Removing stm32g0xx_hal_rcc_ex.o(.rev16_text), (4 bytes).
     Removing stm32g0xx_hal_rcc_ex.o(.revsh_text), (4 bytes).
     Removing stm32g0xx_hal_rcc_ex.o(i.HAL_RCCEx_DisableLSCO), (92 bytes).
     Removing stm32g0xx_hal_rcc_ex.o(i.HAL_RCCEx_EnableLSCO), (140 bytes).
     Removing stm32g0xx_hal_rcc_ex.o(i.HAL_RCCEx_GetPeriphCLKConfig), (96 bytes).
     Removing stm32g0xx_hal_rcc_ex.o(i.HAL_RCCEx_GetPeriphCLKFreq), (544 bytes).
-    Removing stm32g0xx_hal_rcc_ex.o(i.HAL_RCCEx_PeriphCLKConfig), (432 bytes).
     Removing stm32g0xx_hal_flash.o(.rev16_text), (4 bytes).
     Removing stm32g0xx_hal_flash.o(.revsh_text), (4 bytes).
     Removing stm32g0xx_hal_flash.o(i.FLASH_Program_DoubleWord), (28 bytes).
@@ -1716,20 +1688,15 @@ Removing Unused input sections from the image.
     Removing stm32g0xx_hal_gpio.o(i.HAL_GPIO_EXTI_Falling_Callback), (2 bytes).
     Removing stm32g0xx_hal_gpio.o(i.HAL_GPIO_EXTI_IRQHandler), (40 bytes).
     Removing stm32g0xx_hal_gpio.o(i.HAL_GPIO_EXTI_Rising_Callback), (2 bytes).
-    Removing stm32g0xx_hal_gpio.o(i.HAL_GPIO_Init), (344 bytes).
     Removing stm32g0xx_hal_gpio.o(i.HAL_GPIO_LockPin), (36 bytes).
     Removing stm32g0xx_hal_gpio.o(i.HAL_GPIO_ReadPin), (10 bytes).
     Removing stm32g0xx_hal_gpio.o(i.HAL_GPIO_TogglePin), (16 bytes).
-    Removing stm32g0xx_hal_gpio.o(i.HAL_GPIO_WritePin), (12 bytes).
     Removing stm32g0xx_hal_dma.o(.rev16_text), (4 bytes).
     Removing stm32g0xx_hal_dma.o(.revsh_text), (4 bytes).
-    Removing stm32g0xx_hal_dma.o(i.DMA_CalcDMAMUXChannelBaseAndMask), (48 bytes).
-    Removing stm32g0xx_hal_dma.o(i.DMA_CalcDMAMUXRequestGenBaseAndMask), (40 bytes).
     Removing stm32g0xx_hal_dma.o(i.DMA_SetConfig), (72 bytes).
     Removing stm32g0xx_hal_dma.o(i.HAL_DMA_DeInit), (132 bytes).
     Removing stm32g0xx_hal_dma.o(i.HAL_DMA_GetError), (4 bytes).
     Removing stm32g0xx_hal_dma.o(i.HAL_DMA_GetState), (6 bytes).
-    Removing stm32g0xx_hal_dma.o(i.HAL_DMA_Init), (164 bytes).
     Removing stm32g0xx_hal_dma.o(i.HAL_DMA_PollForTransfer), (272 bytes).
     Removing stm32g0xx_hal_dma.o(i.HAL_DMA_RegisterCallback), (72 bytes).
     Removing stm32g0xx_hal_dma.o(i.HAL_DMA_Start), (78 bytes).
@@ -1759,7 +1726,6 @@ Removing Unused input sections from the image.
     Removing stm32g0xx_hal_pwr_ex.o(.rev16_text), (4 bytes).
     Removing stm32g0xx_hal_pwr_ex.o(.revsh_text), (4 bytes).
     Removing stm32g0xx_hal_pwr_ex.o(i.HAL_PWREx_ConfigPVD), (112 bytes).
-    Removing stm32g0xx_hal_pwr_ex.o(i.HAL_PWREx_ControlVoltageScaling), (76 bytes).
     Removing stm32g0xx_hal_pwr_ex.o(i.HAL_PWREx_DisableBatteryCharging), (16 bytes).
     Removing stm32g0xx_hal_pwr_ex.o(i.HAL_PWREx_DisableFlashPowerDown), (16 bytes).
     Removing stm32g0xx_hal_pwr_ex.o(i.HAL_PWREx_DisableGPIOPullDown), (80 bytes).
@@ -1792,17 +1758,13 @@ Removing Unused input sections from the image.
     Removing stm32g0xx_hal_cortex.o(i.HAL_MPU_Enable), (24 bytes).
     Removing stm32g0xx_hal_cortex.o(i.HAL_NVIC_ClearPendingIRQ), (24 bytes).
     Removing stm32g0xx_hal_cortex.o(i.HAL_NVIC_DisableIRQ), (32 bytes).
-    Removing stm32g0xx_hal_cortex.o(i.HAL_NVIC_EnableIRQ), (24 bytes).
     Removing stm32g0xx_hal_cortex.o(i.HAL_NVIC_GetPendingIRQ), (32 bytes).
     Removing stm32g0xx_hal_cortex.o(i.HAL_NVIC_GetPriority), (52 bytes).
     Removing stm32g0xx_hal_cortex.o(i.HAL_NVIC_SetPendingIRQ), (24 bytes).
-    Removing stm32g0xx_hal_cortex.o(i.HAL_NVIC_SetPriority), (8 bytes).
     Removing stm32g0xx_hal_cortex.o(i.HAL_NVIC_SystemReset), (28 bytes).
     Removing stm32g0xx_hal_cortex.o(i.HAL_SYSTICK_CLKSourceConfig), (24 bytes).
     Removing stm32g0xx_hal_cortex.o(i.HAL_SYSTICK_Callback), (2 bytes).
-    Removing stm32g0xx_hal_cortex.o(i.HAL_SYSTICK_Config), (48 bytes).
     Removing stm32g0xx_hal_cortex.o(i.HAL_SYSTICK_IRQHandler), (8 bytes).
-    Removing stm32g0xx_hal_cortex.o(i.__NVIC_SetPriority), (68 bytes).
     Removing stm32g0xx_hal.o(.rev16_text), (4 bytes).
     Removing stm32g0xx_hal.o(.revsh_text), (4 bytes).
     Removing stm32g0xx_hal.o(i.HAL_DBGMCU_DisableDBGStandbyMode), (16 bytes).
@@ -1819,8 +1781,6 @@ Removing Unused input sections from the image.
     Removing stm32g0xx_hal.o(i.HAL_GetUIDw0), (12 bytes).
     Removing stm32g0xx_hal.o(i.HAL_GetUIDw1), (12 bytes).
     Removing stm32g0xx_hal.o(i.HAL_GetUIDw2), (12 bytes).
-    Removing stm32g0xx_hal.o(i.HAL_Init), (40 bytes).
-    Removing stm32g0xx_hal.o(i.HAL_InitTick), (72 bytes).
     Removing stm32g0xx_hal.o(i.HAL_MspDeInit), (2 bytes).
     Removing stm32g0xx_hal.o(i.HAL_MspInit), (2 bytes).
     Removing stm32g0xx_hal.o(i.HAL_ResumeTick), (16 bytes).
@@ -1861,7 +1821,6 @@ Removing Unused input sections from the image.
     Removing stm32g0xx_hal_i2c.o(i.HAL_I2C_GetError), (4 bytes).
     Removing stm32g0xx_hal_i2c.o(i.HAL_I2C_GetMode), (6 bytes).
     Removing stm32g0xx_hal_i2c.o(i.HAL_I2C_GetState), (6 bytes).
-    Removing stm32g0xx_hal_i2c.o(i.HAL_I2C_Init), (180 bytes).
     Removing stm32g0xx_hal_i2c.o(i.HAL_I2C_IsDeviceReady), (288 bytes).
     Removing stm32g0xx_hal_i2c.o(i.HAL_I2C_ListenCpltCallback), (2 bytes).
     Removing stm32g0xx_hal_i2c.o(i.HAL_I2C_MasterRxCpltCallback), (2 bytes).
@@ -1923,8 +1882,6 @@ Removing Unused input sections from the image.
     Removing stm32g0xx_hal_i2c.o(i.I2C_WaitOnRXNEFlagUntilTimeout), (128 bytes).
     Removing stm32g0xx_hal_i2c_ex.o(.rev16_text), (4 bytes).
     Removing stm32g0xx_hal_i2c_ex.o(.revsh_text), (4 bytes).
-    Removing stm32g0xx_hal_i2c_ex.o(i.HAL_I2CEx_ConfigAnalogFilter), (74 bytes).
-    Removing stm32g0xx_hal_i2c_ex.o(i.HAL_I2CEx_ConfigDigitalFilter), (72 bytes).
     Removing stm32g0xx_hal_i2c_ex.o(i.HAL_I2CEx_DisableFastModePlus), (36 bytes).
     Removing stm32g0xx_hal_i2c_ex.o(i.HAL_I2CEx_DisableWakeUp), (66 bytes).
     Removing stm32g0xx_hal_i2c_ex.o(i.HAL_I2CEx_EnableFastModePlus), (36 bytes).
@@ -1933,7 +1890,6 @@ Removing Unused input sections from the image.
     Removing stm32g0xx_hal_tim.o(.revsh_text), (4 bytes).
     Removing stm32g0xx_hal_tim.o(i.HAL_TIM_Base_DeInit), (84 bytes).
     Removing stm32g0xx_hal_tim.o(i.HAL_TIM_Base_GetState), (6 bytes).
-    Removing stm32g0xx_hal_tim.o(i.HAL_TIM_Base_Init), (76 bytes).
     Removing stm32g0xx_hal_tim.o(i.HAL_TIM_Base_MspDeInit), (2 bytes).
     Removing stm32g0xx_hal_tim.o(i.HAL_TIM_Base_MspInit), (2 bytes).
     Removing stm32g0xx_hal_tim.o(i.HAL_TIM_Base_Start), (80 bytes).
@@ -1942,7 +1898,6 @@ Removing Unused input sections from the image.
     Removing stm32g0xx_hal_tim.o(i.HAL_TIM_Base_Stop), (40 bytes).
     Removing stm32g0xx_hal_tim.o(i.HAL_TIM_Base_Stop_DMA), (64 bytes).
     Removing stm32g0xx_hal_tim.o(i.HAL_TIM_Base_Stop_IT), (52 bytes).
-    Removing stm32g0xx_hal_tim.o(i.HAL_TIM_ConfigClockSource), (216 bytes).
     Removing stm32g0xx_hal_tim.o(i.HAL_TIM_ConfigOCrefClear), (264 bytes).
     Removing stm32g0xx_hal_tim.o(i.HAL_TIM_ConfigTI1Input), (16 bytes).
     Removing stm32g0xx_hal_tim.o(i.HAL_TIM_DMABurstState), (6 bytes).
@@ -2005,15 +1960,11 @@ Removing Unused input sections from the image.
     Removing stm32g0xx_hal_tim.o(i.HAL_TIM_OnePulse_Start_IT), (132 bytes).
     Removing stm32g0xx_hal_tim.o(i.HAL_TIM_OnePulse_Stop), (128 bytes).
     Removing stm32g0xx_hal_tim.o(i.HAL_TIM_OnePulse_Stop_IT), (148 bytes).
-    Removing stm32g0xx_hal_tim.o(i.HAL_TIM_PWM_ConfigChannel), (286 bytes).
     Removing stm32g0xx_hal_tim.o(i.HAL_TIM_PWM_DeInit), (84 bytes).
     Removing stm32g0xx_hal_tim.o(i.HAL_TIM_PWM_GetState), (6 bytes).
-    Removing stm32g0xx_hal_tim.o(i.HAL_TIM_PWM_Init), (76 bytes).
     Removing stm32g0xx_hal_tim.o(i.HAL_TIM_PWM_MspDeInit), (2 bytes).
-    Removing stm32g0xx_hal_tim.o(i.HAL_TIM_PWM_MspInit), (2 bytes).
     Removing stm32g0xx_hal_tim.o(i.HAL_TIM_PWM_PulseFinishedCallback), (2 bytes).
     Removing stm32g0xx_hal_tim.o(i.HAL_TIM_PWM_PulseFinishedHalfCpltCallback), (2 bytes).
-    Removing stm32g0xx_hal_tim.o(i.HAL_TIM_PWM_Start), (200 bytes).
     Removing stm32g0xx_hal_tim.o(i.HAL_TIM_PWM_Start_DMA), (444 bytes).
     Removing stm32g0xx_hal_tim.o(i.HAL_TIM_PWM_Start_IT), (236 bytes).
     Removing stm32g0xx_hal_tim.o(i.HAL_TIM_PWM_Stop), (152 bytes).
@@ -2026,8 +1977,6 @@ Removing Unused input sections from the image.
     Removing stm32g0xx_hal_tim.o(i.HAL_TIM_SlaveConfigSynchro_IT), (76 bytes).
     Removing stm32g0xx_hal_tim.o(i.HAL_TIM_TriggerCallback), (2 bytes).
     Removing stm32g0xx_hal_tim.o(i.HAL_TIM_TriggerHalfCpltCallback), (2 bytes).
-    Removing stm32g0xx_hal_tim.o(i.TIM_Base_SetConfig), (132 bytes).
-    Removing stm32g0xx_hal_tim.o(i.TIM_CCxChannelCmd), (26 bytes).
     Removing stm32g0xx_hal_tim.o(i.TIM_DMACaptureCplt), (118 bytes).
     Removing stm32g0xx_hal_tim.o(i.TIM_DMACaptureHalfCplt), (56 bytes).
     Removing stm32g0xx_hal_tim.o(i.TIM_DMADelayPulseCplt), (102 bytes).
@@ -2037,18 +1986,8 @@ Removing Unused input sections from the image.
     Removing stm32g0xx_hal_tim.o(i.TIM_DMAPeriodElapsedHalfCplt), (10 bytes).
     Removing stm32g0xx_hal_tim.o(i.TIM_DMATriggerCplt), (24 bytes).
     Removing stm32g0xx_hal_tim.o(i.TIM_DMATriggerHalfCplt), (10 bytes).
-    Removing stm32g0xx_hal_tim.o(i.TIM_ETR_SetConfig), (22 bytes).
-    Removing stm32g0xx_hal_tim.o(i.TIM_ITRx_SetConfig), (20 bytes).
-    Removing stm32g0xx_hal_tim.o(i.TIM_OC1_SetConfig), (124 bytes).
-    Removing stm32g0xx_hal_tim.o(i.TIM_OC2_SetConfig), (124 bytes).
-    Removing stm32g0xx_hal_tim.o(i.TIM_OC3_SetConfig), (124 bytes).
-    Removing stm32g0xx_hal_tim.o(i.TIM_OC4_SetConfig), (108 bytes).
-    Removing stm32g0xx_hal_tim.o(i.TIM_OC5_SetConfig), (92 bytes).
-    Removing stm32g0xx_hal_tim.o(i.TIM_OC6_SetConfig), (100 bytes).
     Removing stm32g0xx_hal_tim.o(i.TIM_SlaveTimer_SetConfig), (144 bytes).
-    Removing stm32g0xx_hal_tim.o(i.TIM_TI1_ConfigInputStage), (34 bytes).
     Removing stm32g0xx_hal_tim.o(i.TIM_TI1_SetConfig), (76 bytes).
-    Removing stm32g0xx_hal_tim.o(i.TIM_TI2_ConfigInputStage), (38 bytes).
     Removing stm32g0xx_hal_tim.o(i.TIM_TI2_SetConfig), (52 bytes).
     Removing stm32g0xx_hal_tim_ex.o(.rev16_text), (4 bytes).
     Removing stm32g0xx_hal_tim_ex.o(.revsh_text), (4 bytes).
@@ -2075,7 +2014,6 @@ Removing Unused input sections from the image.
     Removing stm32g0xx_hal_tim_ex.o(i.HAL_TIMEx_HallSensor_Stop), (64 bytes).
     Removing stm32g0xx_hal_tim_ex.o(i.HAL_TIMEx_HallSensor_Stop_DMA), (76 bytes).
     Removing stm32g0xx_hal_tim_ex.o(i.HAL_TIMEx_HallSensor_Stop_IT), (76 bytes).
-    Removing stm32g0xx_hal_tim_ex.o(i.HAL_TIMEx_MasterConfigSynchronization), (108 bytes).
     Removing stm32g0xx_hal_tim_ex.o(i.HAL_TIMEx_OCN_Start), (144 bytes).
     Removing stm32g0xx_hal_tim_ex.o(i.HAL_TIMEx_OCN_Start_DMA), (328 bytes).
     Removing stm32g0xx_hal_tim_ex.o(i.HAL_TIMEx_OCN_Start_IT), (172 bytes).
@@ -2104,7 +2042,6 @@ Removing Unused input sections from the image.
     Removing stm32g0xx_hal_uart.o(.revsh_text), (4 bytes).
     Removing stm32g0xx_hal_uart.o(i.HAL_HalfDuplex_EnableReceiver), (78 bytes).
     Removing stm32g0xx_hal_uart.o(i.HAL_HalfDuplex_EnableTransmitter), (78 bytes).
-    Removing stm32g0xx_hal_uart.o(i.HAL_HalfDuplex_Init), (118 bytes).
     Removing stm32g0xx_hal_uart.o(i.HAL_LIN_Init), (146 bytes).
     Removing stm32g0xx_hal_uart.o(i.HAL_LIN_SendBreak), (42 bytes).
     Removing stm32g0xx_hal_uart.o(i.HAL_MultiProcessor_DisableMuteMode), (58 bytes).
@@ -2128,7 +2065,6 @@ Removing Unused input sections from the image.
     Removing stm32g0xx_hal_uart.o(i.HAL_UART_EnableReceiverTimeout), (64 bytes).
     Removing stm32g0xx_hal_uart.o(i.HAL_UART_GetError), (6 bytes).
     Removing stm32g0xx_hal_uart.o(i.HAL_UART_GetState), (12 bytes).
-    Removing stm32g0xx_hal_uart.o(i.HAL_UART_Init), (108 bytes).
     Removing stm32g0xx_hal_uart.o(i.HAL_UART_MspDeInit), (2 bytes).
     Removing stm32g0xx_hal_uart.o(i.HAL_UART_MspInit), (2 bytes).
     Removing stm32g0xx_hal_uart.o(i.HAL_UART_Receive), (276 bytes).
@@ -2141,8 +2077,6 @@ Removing Unused input sections from the image.
     Removing stm32g0xx_hal_uart.o(i.HAL_UART_Transmit_DMA), (184 bytes).
     Removing stm32g0xx_hal_uart.o(i.HAL_UART_Transmit_IT), (192 bytes).
     Removing stm32g0xx_hal_uart.o(i.HAL_UART_TxHalfCpltCallback), (2 bytes).
-    Removing stm32g0xx_hal_uart.o(i.UART_AdvFeatureConfig), (202 bytes).
-    Removing stm32g0xx_hal_uart.o(i.UART_CheckIdleState), (100 bytes).
     Removing stm32g0xx_hal_uart.o(i.UART_DMAError), (78 bytes).
     Removing stm32g0xx_hal_uart.o(i.UART_DMAReceiveCplt), (152 bytes).
     Removing stm32g0xx_hal_uart.o(i.UART_DMARxAbortCallback), (64 bytes).
@@ -2157,37 +2091,26 @@ Removing Unused input sections from the image.
     Removing stm32g0xx_hal_uart.o(i.UART_RxISR_16BIT_FIFOEN), (396 bytes).
     Removing stm32g0xx_hal_uart.o(i.UART_RxISR_8BIT), (172 bytes).
     Removing stm32g0xx_hal_uart.o(i.UART_RxISR_8BIT_FIFOEN), (396 bytes).
-    Removing stm32g0xx_hal_uart.o(i.UART_SetConfig), (524 bytes).
     Removing stm32g0xx_hal_uart.o(i.UART_Start_Receive_DMA), (172 bytes).
     Removing stm32g0xx_hal_uart.o(i.UART_Start_Receive_IT), (280 bytes).
     Removing stm32g0xx_hal_uart.o(i.UART_TxISR_16BIT), (96 bytes).
     Removing stm32g0xx_hal_uart.o(i.UART_TxISR_16BIT_FIFOEN), (116 bytes).
     Removing stm32g0xx_hal_uart.o(i.UART_TxISR_8BIT), (92 bytes).
     Removing stm32g0xx_hal_uart.o(i.UART_TxISR_8BIT_FIFOEN), (112 bytes).
-    Removing stm32g0xx_hal_uart.o(i.UART_WaitOnFlagUntilTimeout), (210 bytes).
-    Removing stm32g0xx_hal_uart.o(.constdata), (24 bytes).
     Removing stm32g0xx_hal_uart_ex.o(.rev16_text), (4 bytes).
     Removing stm32g0xx_hal_uart_ex.o(.revsh_text), (4 bytes).
     Removing stm32g0xx_hal_uart_ex.o(i.HAL_MultiProcessorEx_AddressLength_Set), (54 bytes).
     Removing stm32g0xx_hal_uart_ex.o(i.HAL_RS485Ex_Init), (144 bytes).
-    Removing stm32g0xx_hal_uart_ex.o(i.HAL_UARTEx_DisableFifoMode), (60 bytes).
     Removing stm32g0xx_hal_uart_ex.o(i.HAL_UARTEx_DisableStopMode), (48 bytes).
     Removing stm32g0xx_hal_uart_ex.o(i.HAL_UARTEx_EnableFifoMode), (62 bytes).
     Removing stm32g0xx_hal_uart_ex.o(i.HAL_UARTEx_EnableStopMode), (48 bytes).
     Removing stm32g0xx_hal_uart_ex.o(i.HAL_UARTEx_ReceiveToIdle), (340 bytes).
     Removing stm32g0xx_hal_uart_ex.o(i.HAL_UARTEx_ReceiveToIdle_DMA), (112 bytes).
     Removing stm32g0xx_hal_uart_ex.o(i.HAL_UARTEx_ReceiveToIdle_IT), (112 bytes).
-    Removing stm32g0xx_hal_uart_ex.o(i.HAL_UARTEx_SetRxFifoThreshold), (72 bytes).
-    Removing stm32g0xx_hal_uart_ex.o(i.HAL_UARTEx_SetTxFifoThreshold), (70 bytes).
     Removing stm32g0xx_hal_uart_ex.o(i.HAL_UARTEx_StopModeWakeUpSourceConfig), (152 bytes).
-    Removing stm32g0xx_hal_uart_ex.o(i.UARTEx_SetNbDataToProcess), (68 bytes).
-    Removing stm32g0xx_hal_uart_ex.o(.constdata), (16 bytes).
     Removing system_stm32g0xx.o(.rev16_text), (4 bytes).
     Removing system_stm32g0xx.o(.revsh_text), (4 bytes).
     Removing system_stm32g0xx.o(i.SystemCoreClockUpdate), (144 bytes).
-    Removing system_stm32g0xx.o(.constdata), (64 bytes).
-    Removing system_stm32g0xx.o(.constdata), (32 bytes).
-    Removing system_stm32g0xx.o(.data), (4 bytes).
     Removing battery.o(.rev16_text), (4 bytes).
     Removing battery.o(.revsh_text), (4 bytes).
     Removing battery.o(i.BatteryAlarmHandle), (84 bytes).
@@ -2328,7 +2251,6 @@ Removing Unused input sections from the image.
     Removing queue.o(i.enQueue), (62 bytes).
     Removing bsp_stm32g031f8px.o(.rev16_text), (4 bytes).
     Removing bsp_stm32g031f8px.o(.revsh_text), (4 bytes).
-    Removing bsp_stm32g031f8px.o(i.BSP_Init), (104 bytes).
     Removing bsp_stm32g031f8px.o(i.BT_UART_RX), (2 bytes).
     Removing bsp_stm32g031f8px.o(i.BT_UART_TX), (2 bytes).
     Removing bsp_stm32g031f8px.o(i.DEBUG_LED_OFF), (2 bytes).
@@ -2343,8 +2265,7 @@ Removing Unused input sections from the image.
     Removing bsp_stm32g031f8px.o(i.SPL06_IIC_Write_Byte), (36 bytes).
     Removing bsp_stm32g031f8px.o(i.STATUS_LED_OFF), (2 bytes).
     Removing bsp_stm32g031f8px.o(i.STATUS_LED_ON), (2 bytes).
-    Removing bsp_stm32g031f8px.o(i.SystemClock_Config), (148 bytes).
     Removing bsp_stm32g031f8px.o(i.UART_Write), (8 bytes).
     Removing stm32g0xx_hal_dma.o(i.__ARM_common_switch8), (26 bytes).
 
-779 unused section(s) (total 62532 bytes) removed from the image.
+699 unused section(s) (total 52110 bytes) removed from the image.
