@@ -3,6 +3,7 @@
 #include "FollowLine.h"
 #include "myMath.h"
 #include "fmuConfig.h"
+#include "pidConfig.h"
 #include "StatusConfig.h"
 
 //void sdk_target_set(float x_pos,float y_pos,float velocity_x, float velocity);
@@ -11,8 +12,9 @@
 #define MAX_VELOCITY_Y 80
 #define MAX_ALT_THR 20
 #define LAND_SPEED -50
-extern float PIDGroup_desired_yaw_pos_tmp;
 
+extern float PIDGroup_desired_yaw_pos_tmp;
+extern PID PIDGroup[Num_Of_PIDList];
 
 typedef enum
 {

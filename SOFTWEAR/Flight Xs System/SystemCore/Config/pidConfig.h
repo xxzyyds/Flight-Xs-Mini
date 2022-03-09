@@ -46,13 +46,13 @@ typedef enum
     PID_Height_Pos,
 		
 		// ³Ì¿Ø
-    sdk_pos_x,
-    sdk_pos_y,
+    //sdk_pos_x,
+    //sdk_pos_y,
 	
     Num_Of_PIDList,
 }PIDList;
 
-PID PIDGroup[Num_Of_PIDList];
+//PID PIDGroup[Num_Of_PIDList];
 
 // height pid
 

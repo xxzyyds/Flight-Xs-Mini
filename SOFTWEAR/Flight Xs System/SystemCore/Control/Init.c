@@ -15,6 +15,7 @@
 #include "timer_drv.h"
 #include "power.h"
 #include "fmuConfig.h"
+#include "pidConfig.h"
 #include "StatusConfig.h"
 #include "MPU6050.h"
 
@@ -29,6 +30,7 @@
                               g_NRFManager.Check
 #endif
 //Extern引用
+extern PID PIDGroup[Num_Of_PIDList];
 extern bool InitComplete;
 //私有函数区
 void PID_Init(void); 

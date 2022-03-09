@@ -45,7 +45,7 @@ PID驱动使用方法如下：
 
 //私有变量区
 /*PID工程变量*/
-PID PIDGroup[emNum_Of_PID_List];
+PID PIDGroup[Num_Of_PIDList];
 
 
 /******************************************************************************
@@ -60,7 +60,7 @@ PID PIDGroup[emNum_Of_PID_List];
 ******************************************************************************/
 void ResetPID(void)
 {
-    for(int i = 0; i < emNum_Of_PID_List; i++)
+    for(int i = 0; i < Num_Of_PIDList; i++)
     {
         PIDGroup[i].integ = 0;
         PIDGroup[i].prevError = 0;

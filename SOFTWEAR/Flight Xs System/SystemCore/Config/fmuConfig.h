@@ -8,10 +8,8 @@
 #include "include.h"
 #include "height_control.h"
 #include "remote.h"
-#include "imu.h"
 #include "battery.h"
 #include "control.h"
-#include "fmuConfig.h"
 #include "StatusConfig.h"
 #include "SPL06.h"
 
@@ -41,8 +39,6 @@
 
 
 #define STM32
-#ifdef STM32
-#endif
 
 
 #define DEBUG_PORT             A2
@@ -62,13 +58,14 @@
 #define MOTOR_MAX_INIT_VALUE   850
 #define MOTOR_MAX_VALUE   1000
 
+/*
 const float M_PI = 3.1415926535;
 const float RtA = 57.2957795f;
 const float AtR = 0.0174532925f;
 const float Gyro_G = 0.03051756f * 2;          
 const float Gyro_Gr = 0.0005326f * 2;    
 const float PI_2 = 1.570796f;
-
+*/
 //数据结构声明
 
 typedef struct{

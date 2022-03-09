@@ -16,6 +16,7 @@
 #include "spl06.h"
 #include "speed_estimator.h"
 #include "fmuConfig.h"
+#include "pidConfig.h"
 #include "StatusConfig.h"
 
 //宏定义区
@@ -25,6 +26,7 @@
 //Extern引用
 extern uint8_t SBusRxBuff[30];
 extern bool InitComplete;
+extern PID PIDGroup[Num_Of_PIDList];
 
 //私有函数区
 void RemoteUnlock(void);    

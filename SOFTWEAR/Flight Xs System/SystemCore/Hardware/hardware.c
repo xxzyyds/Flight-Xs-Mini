@@ -2,11 +2,12 @@
 #include "include.h"
 #include "timer_drv.h"
 #include "power.h"
-#include "beep.h"
+//#include "beep.h"
 
 void power_managre(void);
 
 /*MCU初始化*/
+/*
 void MCU_Init(void)
 {
     //停止监督看门狗定时器
@@ -45,8 +46,9 @@ void power_managre()
     //如果又是PC6为低
     //那么PC7为高
 }
-
+*/
 /*LED区*/
+/*
 void Hardware_LED_Red_ON(uint8_t luminance)
 {
     P2OUT |= GPIO_PIN0;
@@ -158,7 +160,7 @@ void Hardware_LED_MOTOR4_TOGGLE(void)
 {
 
 }
-
+*/
 //void Delay_ms(uint16_t ms)
 //{
 //    uint32_t curTicks;
