@@ -25,11 +25,12 @@
 
 
 */
+/*
 //外部文件引用
 #include "motor.h"
 #include "myMath.h"
 #include "timer_drv.h"
-#include "eeprom.h"
+//#include "eeprom.h"
 //宏定义区
 
 
@@ -49,7 +50,7 @@ Timer_A_PWMConfig pwmConfig =
         TIMER_A_OUTPUTMODE_RESET_SET,
         1000
 };
-
+*/
 /******************************************************************************
   * 函数名称：UpdateMotor
   * 函数描述：驱动电机转动，电机输出取值0-1000
@@ -64,6 +65,7 @@ Timer_A_PWMConfig pwmConfig =
   *    
   *
 ******************************************************************************/
+/*
 void UpdateMotor(int16_t M1, int16_t M2, int16_t M3, int16_t M4)
 {
     M1 = LIMIT(M1, 0, 999);   //电机取值限幅 0-999
@@ -71,14 +73,12 @@ void UpdateMotor(int16_t M1, int16_t M2, int16_t M3, int16_t M4)
     M3 = LIMIT(M3, 0, 999);
     M4 = LIMIT(M4, 0, 999); 
     
-#ifdef STM32
     TIM2->CCR1 = M1;
     TIM2->CCR2 = M2;
-    TIM2->CCR3 = M3;
-    TIM2->CCR4 = M4;
-#endif
+    TIM3->CCR1 = M3;
+    TIM3->CCR2 = M4;
 }
-
+*/
 /******************************************************************************
   * 函数名称：Motor_Init
   * 函数描述：初始化PWM波输出
@@ -89,6 +89,7 @@ void UpdateMotor(int16_t M1, int16_t M2, int16_t M3, int16_t M4)
   *    950 = 5%
   *    2000 = 10%
 ******************************************************************************/
+/*
 void Motor_Init()
 {
     MAP_GPIO_setAsPeripheralModuleFunctionOutputPin(GPIO_PORT_P2, GPIO_PIN4
@@ -161,6 +162,6 @@ void Motor_Calc()
     Timer_A_setCompareValue (TIMER_A0_BASE, TIMER_A_CAPTURECOMPARE_REGISTER_4, 1000);
     Delay_ms(1500);
 }
-
+*/
 /******************* (C) 版权所有 2018 北京中科浩电科技有限公司 *******************/
 

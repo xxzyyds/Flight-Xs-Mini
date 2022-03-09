@@ -1,3 +1,4 @@
+/*
 #include "timer_Drv.h"
 #include "mpu6050.h"
 #include "imu.h"
@@ -5,7 +6,7 @@
 #include "speed_estimator.h"
 
 volatile uint32_t usTicks = 0;
-volatile uint32_t msTicks = 0;                      /* counts 1ms timeTicks       */
+volatile uint32_t msTicks = 0;
 
 extern bool KernelRunning;                    
 extern bool InitComplete;
@@ -38,7 +39,7 @@ void SysTick_Configuration(void)
     usTicks = SystemCoreClock / 1000000;
 	
 	//core_cm4.h
-    SysTick_Config(SystemCoreClock / 1000);       /* Systick interrupt each 1ms */
+    SysTick_Config(SystemCoreClock / 1000);       // Systick interrupt each 1ms 
 }
 
 uint32_t GetSysTime_us(void) //两次获取若大于u32/1000(us),则两次差值溢出，不可取
@@ -74,3 +75,4 @@ void Delay(uint32_t nCount)
 {
   for(; nCount!= 0;nCount--);
 }
+*/

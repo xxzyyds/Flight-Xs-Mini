@@ -24,6 +24,14 @@
 
 
 //宏定义区
+
+#define M_PI  3.1415926535
+#define RtA  57.2957795f
+#define AtR  0.0174532925f
+#define Gyro_G  (0.03051756f * 2)    
+#define Gyro_Gr  (0.0005326f * 2)
+#define PI_2  1.570796f
+
 #define PI 3.1415926f
 #define squa( Sq )        (((float)Sq)*((float)Sq))
 #define absu16( Math_X )  ((Math_X)<0? -(Math_X):(Math_X))
@@ -38,12 +46,13 @@
 
 
 //Extern引用
+/*
 extern const float M_PI;
 extern const float AtR;
 extern const float RtA;
 extern const float Gyro_G;
 extern const float Gyro_Gr;
-
+*/
 
 //函数声明
 extern float safe_asin(float v);

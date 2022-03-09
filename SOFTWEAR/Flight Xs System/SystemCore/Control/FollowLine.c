@@ -7,11 +7,12 @@
 #include "fmuConfig.h"
 #include "StatusConfig.h"
 #include "SDK.h"
+#include "pidConfig.h"
 
 
 extern HeightInfo_t HeightInfo;
 
-extern PID PIDGroup[emNum_Of_PID_List];
+extern PID PIDGroup[Num_Of_PIDList];
 extern u16 val, spd;
 extern _program_ctrl_st program_ctrl;
 bool FollowLine = false;

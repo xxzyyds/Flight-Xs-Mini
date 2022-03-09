@@ -1,10 +1,11 @@
 
-#ifndef __IMU_H
-#define __IMU_H
+#ifndef __IMU_H__
+#define __IMU_H__
+
 //外部文件引用
+#include "fmuConfig.h"
 #include "main.h"
 #include "StatusConfig.h"
-#include "fmuConfig.h"
 //宏定义区
 
 //函数声明

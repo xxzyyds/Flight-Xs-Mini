@@ -17,6 +17,9 @@
 //定义
 float PIDGroup_desired_yaw_pos_tmp,fb_gyro_lpf[3];
 
+//
+extern PID PIDGroup[Num_Of_PIDList];
+
 int16_t motor[4];
 
 #define MOTOR1      motor[0] 
@@ -214,5 +217,5 @@ void MotorControl(void)
             break;
     }
     //更新电机输出
-    UpdateMotor(MOTOR1, MOTOR2, MOTOR3, MOTOR4);
+    Update_Motor(MOTOR1, MOTOR2, MOTOR3, MOTOR4);
 }

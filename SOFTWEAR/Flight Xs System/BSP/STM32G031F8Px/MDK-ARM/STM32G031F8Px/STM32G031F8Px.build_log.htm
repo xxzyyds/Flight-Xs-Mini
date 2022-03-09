@@ -3,13 +3,13 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Tool Versions:</h2>
-IDE-Version: ¬µVision V5.35.0.0
+IDE-Version: ¶ÃVision V5.35.0.0
 Copyright (C) 2021 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: , , LIC=ZB4EI-TG0G3-011P1-C7Y0H-7TG5Z-RF3WC
+License Information: xue xingzheng, JLU, LIC=CRMKE-5R9W0-VH587-EWU5U-RR77N-3MXAP
  
 Tool Versions:
-Toolchain:       MDK-ARM Plus  Version: 5.35.0.2
-Toolchain Path:  E:\EXE\MDK\ARM\ARMCC\Bin
+Toolchain:       MDK-ARM Professional  Version: 5.35.0.2
+Toolchain Path:  C:\Program Files (x86)\Keil_MDK\ARM\ARMCC\Bin
 C Compiler:      Armcc.exe V5.06 update 7 (build 960)
 Assembler:       Armasm.exe V5.06 update 7 (build 960)
 Linker/Locator:  ArmLink.exe V5.06 update 7 (build 960)
@@ -21,259 +21,50 @@ Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.9.0
 Dialog DLL:      TARMCM1.DLL V1.14.4.0
  
 <h2>Project:</h2>
-D:\OneDrive - mails.jlu.edu.cn\Document\Creat\Magic\C\Drone\Flight-Xs-Mini\SOFTWEAR\Flight Xs System\BSP\STM32G031F8Px\MDK-ARM\STM32G031F8Px.uvprojx
-Project File Date:  03/08/2022
+C:\Users\xxzyyds\Documents\GitHub\SOFTWEAR\Flight Xs System\BSP\STM32G031F8Px\MDK-ARM\STM32G031F8Px.uvprojx
+Project File Date:  03/09/2022
 
 <h2>Output:</h2>
-*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'E:\EXE\MDK\ARM\ARMCC\Bin'
-Rebuild target 'STM32G031F8Px'
-assembling startup_stm32g031xx.s...
-compiling adc.c...
-compiling stm32g0xx_hal_adc_ex.c...
-compiling i2c.c...
-compiling dma.c...
-compiling stm32g0xx_it.c...
-compiling tim.c...
-compiling stm32g0xx_hal_msp.c...
-compiling main.c...
-compiling gpio.c...
-compiling usart.c...
-compiling stm32g0xx_ll_adc.c...
-compiling stm32g0xx_hal_adc.c...
-compiling stm32g0xx_ll_rcc.c...
-compiling stm32g0xx_ll_dma.c...
-compiling stm32g0xx_hal_gpio.c...
-compiling stm32g0xx_hal_pwr_ex.c...
-compiling stm32g0xx_hal_cortex.c...
-compiling stm32g0xx_hal_dma_ex.c...
-compiling stm32g0xx_hal_flash_ex.c...
-compiling stm32g0xx_hal.c...
-compiling stm32g0xx_hal_flash.c...
-compiling stm32g0xx_hal_pwr.c...
-compiling stm32g0xx_hal_dma.c...
-compiling stm32g0xx_hal_rcc.c...
-compiling stm32g0xx_hal_rcc_ex.c...
-compiling system_stm32g0xx.c...
-compiling LED.c...
-..\..\..\SystemCore\Math\imu.h(15): error:  #20: identifier "f_MPU" is undefined
-  void ATT_Update(const f_MPU *pMpu, f_AL *pAngE, float dt);
-..\..\..\SystemCore\Hardware\LED.c: 0 warnings, 1 error
-compiling stm32g0xx_hal_i2c_ex.c...
-compiling hardware.c...
-..\..\..\SystemCore\Math\imu.h(15): error:  #20: identifier "f_MPU" is undefined
-  void ATT_Update(const f_MPU *pMpu, f_AL *pAngE, float dt);
-..\..\..\SystemCore\Hardware\hardware.c(3): error:  #5: cannot open source input file "HARDWARE_i2c.h": No such file or directory
-  #include "HARDWARE_i2c.h"
-..\..\..\SystemCore\Hardware\hardware.c: 0 warnings, 2 errors
-compiling stm32g0xx_hal_exti.c...
-compiling stm32g0xx_hal_uart_ex.c...
-compiling battery.c...
-compiling stm32g0xx_hal_tim_ex.c...
-compiling stm32g0xx_hal_uart.c...
-compiling stm32g0xx_hal_i2c.c...
-compiling stm32g0xx_hal_tim.c...
-compiling motor.c...
-..\..\..\SystemCore\Hardware\motor.c(32): error:  #5: cannot open source input file "eeprom.h": No such file or directory
-  #include "eeprom.h"
-..\..\..\SystemCore\Hardware\motor.c: 0 warnings, 1 error
-compiling pos_ctrl.c...
-..\..\..\SystemCore\Math\imu.h(15): error:  #20: identifier "f_MPU" is undefined
-  void ATT_Update(const f_MPU *pMpu, f_AL *pAngE, float dt);
-..\..\..\SystemCore\Control\pos_ctrl.c: 0 warnings, 1 error
-compiling power.c...
-..\..\..\SystemCore\Math\imu.h(15): error:  #20: identifier "f_MPU" is undefined
-  void ATT_Update(const f_MPU *pMpu, f_AL *pAngE, float dt);
-..\..\..\SystemCore\Hardware\power.c(38): warning:  #177-D: variable "cnt"  was declared but never referenced
-  static int cnt = 0;
-..\..\..\SystemCore\Hardware\power.c: 1 warning, 1 error
-compiling control.c...
-..\..\..\SystemCore\Math\imu.h(15): error:  #20: identifier "f_MPU" is undefined
-  void ATT_Update(const f_MPU *pMpu, f_AL *pAngE, float dt);
-..\..\..\SystemCore\Config\pidConfig.h(31): error:  #256: invalid redeclaration of type name "PID"  (declared at line 71 of "..\..\..\SystemCore\Math\pid.h")
-  }PID;
-..\..\..\SystemCore\Config\pidConfig.h(36): error:  #101: "PID_Pitch_Spd" has already been declared in the current scope
-      PID_Pitch_Spd = 0,
-..\..\..\SystemCore\Config\pidConfig.h(37): error:  #101: "PID_Roll_Spd" has already been declared in the current scope
-      PID_Roll_Spd,
-..\..\..\SystemCore\Config\pidConfig.h(38): error:  #101: "PID_Yaw_Spd" has already been declared in the current scope
-      PID_Yaw_Spd,
-..\..\..\SystemCore\Config\pidConfig.h(40): error:  #101: "PID_Pitch_Pos" has already been declared in the current scope
-      PID_Pitch_Pos,
-..\..\..\SystemCore\Config\pidConfig.h(41): error:  #101: "PID_Roll_Pos" has already been declared in the current scope
-      PID_Roll_Pos,
-..\..\..\SystemCore\Config\pidConfig.h(42): error:  #101: "PID_Yaw_Pos" has already been declared in the current scope
-      PID_Yaw_Pos,
-..\..\..\SystemCore\Config\pidConfig.h(45): error:  #101: "PID_Height_Spd" has already been declared in the current scope
-      PID_Height_Spd,
-..\..\..\SystemCore\Config\pidConfig.h(46): error:  #101: "PID_Height_Pos" has already been declared in the current scope
-      PID_Height_Pos,
-..\..\..\SystemCore\Config\pidConfig.h(55): error:  #147: declaration is incompatible with "PID PIDGroup[13]"  (declared at line 74 of "..\..\..\SystemCore\Math\pid.h")
-  PID PIDGroup[Num_Of_PIDList];
-..\..\..\SystemCore\Control\control.c(94): error:  #167: argument of type "PID *" is incompatible with parameter of type "PID *"
-              ClacCascadePID(&PIDGroup[PID_Roll_Spd],  &PIDGroup[PID_Roll_Pos],  dt);      //X÷·
-..\..\..\SystemCore\Control\control.c(94): error:  #167: argument of type "PID *" is incompatible with parameter of type "PID *"
-              ClacCascadePID(&PIDGroup[PID_Roll_Spd],  &PIDGroup[PID_Roll_Pos],  dt);      //X÷·
-..\..\..\SystemCore\Control\control.c(95): error:  #167: argument of type "PID *" is incompatible with parameter of type "PID *"
-              ClacCascadePID(&PIDGroup[PID_Pitch_Spd], &PIDGroup[PID_Pitch_Pos], dt);     //Y÷·
-..\..\..\SystemCore\Control\control.c(95): error:  #167: argument of type "PID *" is incompatible with parameter of type "PID *"
-              ClacCascadePID(&PIDGroup[PID_Pitch_Spd], &PIDGroup[PID_Pitch_Pos], dt);     //Y÷·
-..\..\..\SystemCore\Control\control.c(96): error:  #167: argument of type "PID *" is incompatible with parameter of type "PID *"
-              ClacCascadePID(&PIDGroup[PID_Yaw_Spd],   &PIDGroup[PID_Yaw_Pos],   dt);       //Z÷·
-..\..\..\SystemCore\Control\control.c(96): error:  #167: argument of type "PID *" is incompatible with parameter of type "PID *"
-              ClacCascadePID(&PIDGroup[PID_Yaw_Spd],   &PIDGroup[PID_Yaw_Pos],   dt);       //Z÷·
-..\..\..\SystemCore\Control\control.c: 0 warnings, 17 errors
-compiling timer_drv.c...
-..\..\..\SystemCore\Math\imu.h(15): error:  #20: identifier "f_MPU" is undefined
-  void ATT_Update(const f_MPU *pMpu, f_AL *pAngE, float dt);
-..\..\..\SystemCore\Hardware\timer_drv.c: 0 warnings, 1 error
-compiling FollowLine.c...
-..\..\..\SystemCore\Math\imu.h(15): error:  #20: identifier "f_MPU" is undefined
-  void ATT_Update(const f_MPU *pMpu, f_AL *pAngE, float dt);
-..\..\..\SystemCore\Control\FollowLine.c: 0 warnings, 1 error
-compiling kernel.c...
-..\..\..\SystemCore\Math\imu.h(15): error:  #20: identifier "f_MPU" is undefined
-  void ATT_Update(const f_MPU *pMpu, f_AL *pAngE, float dt);
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(27): warning:  #1295-D: Deprecated declaration BSP_Init - give arg types
-  void BSP_Init();
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(39): warning:  #1295-D: Deprecated declaration DEBUG_LED_ON - give arg types
-  void DEBUG_LED_ON();
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(40): warning:  #1295-D: Deprecated declaration DEBUG_LED_OFF - give arg types
-  void DEBUG_LED_OFF();
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(41): warning:  #1295-D: Deprecated declaration STATUS_LED_ON - give arg types
-  void STATUS_LED_ON();
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(42): warning:  #1295-D: Deprecated declaration STATUS_LED_OFF - give arg types
-  void STATUS_LED_OFF();
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(43): warning:  #1295-D: Deprecated declaration GET_BAT_ADC - give arg types
-  uint8_t GET_BAT_ADC();
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(44): warning:  #1295-D: Deprecated declaration GET_KEY_STATUS - give arg types
-  uint8_t GET_KEY_STATUS();
-..\..\..\SystemCore\Control\kernel.c: 7 warnings, 1 error
-compiling SPL06.c...
-..\..\..\SystemCore\Math\imu.h(15): error:  #20: identifier "f_MPU" is undefined
-  void ATT_Update(const f_MPU *pMpu, f_AL *pAngE, float dt);
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(27): warning:  #1295-D: Deprecated declaration BSP_Init - give arg types
-  void BSP_Init();
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(39): warning:  #1295-D: Deprecated declaration DEBUG_LED_ON - give arg types
-  void DEBUG_LED_ON();
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(40): warning:  #1295-D: Deprecated declaration DEBUG_LED_OFF - give arg types
-  void DEBUG_LED_OFF();
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(41): warning:  #1295-D: Deprecated declaration STATUS_LED_ON - give arg types
-  void STATUS_LED_ON();
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(42): warning:  #1295-D: Deprecated declaration STATUS_LED_OFF - give arg types
-  void STATUS_LED_OFF();
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(43): warning:  #1295-D: Deprecated declaration GET_BAT_ADC - give arg types
-  uint8_t GET_BAT_ADC();
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(44): warning:  #1295-D: Deprecated declaration GET_KEY_STATUS - give arg types
-  uint8_t GET_KEY_STATUS();
-..\..\..\SystemCore\Hardware\SPL06.c(582): warning:  #223-D: function "SPL06_IIC_Read_Bytes" declared implicitly
-      HAL_SPL06_I2C_READ(SPL06_SLAVEADDR, SPL06_ID, 1, &u8Check);
-..\..\..\SystemCore\Hardware\SPL06.c(596): warning:  #223-D: function "SPL06_IIC_Read_Bytes" declared implicitly
-  	HAL_SPL06_I2C_READ(SPL06_SLAVEADDR, SPL06_COEF_C0_H, 1, &dataHigh);
-..\..\..\SystemCore\Hardware\SPL06.c(757): warning:  #223-D: function "SPL06_IIC_Write_Bytes" declared implicitly
-  	HAL_SPL06_I2C_WRITE(SPL06_SLAVEADDR, SPL06_PRS_CFG, prsCfgReg);
-..\..\..\SystemCore\Hardware\SPL06.c(761): warning:  #223-D: function "SPL06_IIC_Read_Bytes" declared implicitly
-  		HAL_SPL06_I2C_READ(SPL06_SLAVEADDR, SPL06_CFG_REG, 1, &prsCfgReg);
-..\..\..\SystemCore\Hardware\SPL06.c(881): warning:  #223-D: function "SPL06_IIC_Write_Bytes" declared implicitly
-  	HAL_SPL06_I2C_WRITE(SPL06_SLAVEADDR, SPL06_TMP_CFG, tmpCfgReg);
-..\..\..\SystemCore\Hardware\SPL06.c(885): warning:  #223-D: function "SPL06_IIC_Read_Bytes" declared implicitly
-  		HAL_SPL06_I2C_READ(SPL06_SLAVEADDR, SPL06_CFG_REG, 1, &tmpCfgReg);
-..\..\..\SystemCore\Hardware\SPL06.c(893): warning:  #223-D: function "SPL06_IIC_Write_Bytes" declared implicitly
-  	HAL_SPL06_I2C_WRITE(SPL06_SLAVEADDR, SPL06_MEAS_CFG, measType);
-..\..\..\SystemCore\Hardware\SPL06.c(902): warning:  #223-D: function "SPL06_IIC_Read_Bytes" declared implicitly
-  	HAL_SPL06_I2C_READ(SPL06_SLAVEADDR, SPL06_TMP_B2, 3, dataBuff);		
-..\..\..\SystemCore\Hardware\SPL06.c(918): warning:  #223-D: function "SPL06_IIC_Read_Bytes" declared implicitly
-  	HAL_SPL06_I2C_READ(SPL06_SLAVEADDR, SPL06_PSR_B2, 3, dataBuff);		
-..\..\..\SystemCore\Hardware\SPL06.c: 16 warnings, 1 error
-compiling mpu6050.c...
-..\..\..\SystemCore\Math\imu.h(15): error:  #20: identifier "f_MPU" is undefined
-  void ATT_Update(const f_MPU *pMpu, f_AL *pAngE, float dt);
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(27): warning:  #1295-D: Deprecated declaration BSP_Init - give arg types
-  void BSP_Init();
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(39): warning:  #1295-D: Deprecated declaration DEBUG_LED_ON - give arg types
-  void DEBUG_LED_ON();
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(40): warning:  #1295-D: Deprecated declaration DEBUG_LED_OFF - give arg types
-  void DEBUG_LED_OFF();
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(41): warning:  #1295-D: Deprecated declaration STATUS_LED_ON - give arg types
-  void STATUS_LED_ON();
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(42): warning:  #1295-D: Deprecated declaration STATUS_LED_OFF - give arg types
-  void STATUS_LED_OFF();
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(43): warning:  #1295-D: Deprecated declaration GET_BAT_ADC - give arg types
-  uint8_t GET_BAT_ADC();
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(44): warning:  #1295-D: Deprecated declaration GET_KEY_STATUS - give arg types
-  uint8_t GET_KEY_STATUS();
-..\..\..\SystemCore\Hardware\mpu6050.c: 7 warnings, 1 error
-compiling Init.c...
-..\..\..\SystemCore\Math\imu.h(15): error:  #20: identifier "f_MPU" is undefined
-  void ATT_Update(const f_MPU *pMpu, f_AL *pAngE, float dt);
-..\..\..\SystemCore\Control\Init.c: 0 warnings, 1 error
-compiling height_control.c...
-compiling kalman.c...
-compiling queue.c...
-compiling program_ctrl.c...
-..\..\..\SystemCore\Math\imu.h(15): error:  #20: identifier "f_MPU" is undefined
-  void ATT_Update(const f_MPU *pMpu, f_AL *pAngE, float dt);
-..\..\..\SystemCore\Control\program_ctrl.c(84): warning:  #177-D: variable "time_compensate_ms"  was declared but never referenced
-      static s16 time_compensate_ms;
-..\..\..\SystemCore\Control\program_ctrl.c: 1 warning, 1 error
-compiling myMath.c...
-compiling bsp_stm32g031f8px.c...
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(27): warning:  #1295-D: Deprecated declaration BSP_Init - give arg types
-  void BSP_Init();
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(39): warning:  #1295-D: Deprecated declaration DEBUG_LED_ON - give arg types
-  void DEBUG_LED_ON();
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(40): warning:  #1295-D: Deprecated declaration DEBUG_LED_OFF - give arg types
-  void DEBUG_LED_OFF();
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(41): warning:  #1295-D: Deprecated declaration STATUS_LED_ON - give arg types
-  void STATUS_LED_ON();
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(42): warning:  #1295-D: Deprecated declaration STATUS_LED_OFF - give arg types
-  void STATUS_LED_OFF();
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(43): warning:  #1295-D: Deprecated declaration GET_BAT_ADC - give arg types
-  uint8_t GET_BAT_ADC();
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(44): warning:  #1295-D: Deprecated declaration GET_KEY_STATUS - give arg types
-  uint8_t GET_KEY_STATUS();
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.c(49): warning:  #940-D: missing return statement at end of non-void function "BT_UART_TX" 
-  }
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.c(53): warning:  #940-D: missing return statement at end of non-void function "BT_UART_RX" 
-  }
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.c(57): warning:  #940-D: missing return statement at end of non-void function "DEBUG_UART_TX" 
-  }
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.c(114): warning:  #940-D: missing return statement at end of non-void function "GET_BAT_ADC" 
-  }
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.c(119): warning:  #940-D: missing return statement at end of non-void function "GET_KEY_STATUS" 
-  }
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.c(174): warning:  #1-D: last line of file ends without a newline
-  }
-..\bsp_stm32g031f8px\bsp_stm32g031f8px.c: 13 warnings, 0 errors
-compiling pid.c...
-compiling remote.c...
-..\..\..\SystemCore\Math\imu.h(15): error:  #20: identifier "f_MPU" is undefined
-  void ATT_Update(const f_MPU *pMpu, f_AL *pAngE, float dt);
-..\..\..\SystemCore\Control\remote.c(175): warning:  #177-D: variable "cnt"  was declared but never referenced
-      static uint8_t cnt = 0;
-..\..\..\SystemCore\Control\remote.c(333): warning:  #177-D: variable "Buff"  was declared but never referenced
-      uint8_t Buff[QUEUE_DATA_MAXLENGTH];
-..\..\..\SystemCore\Control\remote.c(334): warning:  #177-D: variable "length"  was declared but never referenced
-      uint8_t length;
-..\..\..\SystemCore\Control\remote.c: 3 warnings, 1 error
-compiling SDK.c...
-..\..\..\SystemCore\Math\imu.h(15): error:  #20: identifier "f_MPU" is undefined
-  void ATT_Update(const f_MPU *pMpu, f_AL *pAngE, float dt);
-..\..\..\SystemCore\Control\SDK.c: 0 warnings, 1 error
+*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Program Files (x86)\Keil_MDK\ARM\ARMCC\Bin'
+Build target 'STM32G031F8Px'
 compiling Mymain.c...
-..\..\..\SystemCore\Math\imu.h(15): error:  #20: identifier "f_MPU" is undefined
-  void ATT_Update(const f_MPU *pMpu, f_AL *pAngE, float dt);
-..\..\..\SystemCore\Mymain.c(20): warning:  #1-D: last line of file ends without a newline
+..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(27): warning:  #1295-D: Deprecated declaration BSP_Init - give arg types
+  void BSP_Init();
+..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(39): warning:  #1295-D: Deprecated declaration DEBUG_LED_ON - give arg types
+  void DEBUG_LED_ON();
+..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(40): warning:  #1295-D: Deprecated declaration DEBUG_LED_OFF - give arg types
+  void DEBUG_LED_OFF();
+..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(41): warning:  #1295-D: Deprecated declaration STATUS_LED_ON - give arg types
+  void STATUS_LED_ON();
+..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(42): warning:  #1295-D: Deprecated declaration STATUS_LED_OFF - give arg types
+  void STATUS_LED_OFF();
+..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(43): warning:  #1295-D: Deprecated declaration GET_BAT_ADC - give arg types
+  uint8_t GET_BAT_ADC();
+..\bsp_stm32g031f8px\bsp_stm32g031f8px.h(44): warning:  #1295-D: Deprecated declaration GET_KEY_STATUS - give arg types
+  uint8_t GET_KEY_STATUS();
+..\..\..\SystemCore\Mymain.c(21): warning:  #1-D: last line of file ends without a newline
   }
-..\..\..\SystemCore\Mymain.c: 1 warning, 1 error
-compiling speed_estimator.c...
-..\..\..\SystemCore\Math\imu.h(15): error:  #20: identifier "f_MPU" is undefined
-  void ATT_Update(const f_MPU *pMpu, f_AL *pAngE, float dt);
-..\..\..\SystemCore\Control\speed_estimator.c(149): warning:  #550-D: variable "acc"  was set but never used
-      static float acc = 0;
-..\..\..\SystemCore\Control\speed_estimator.c: 1 warning, 1 error
-compiling filter.c...
-compiling imu.c...
-"STM32G031F8Px\STM32G031F8Px.axf" - 34 Error(s), 50 Warning(s).
+..\..\..\SystemCore\Mymain.c: 8 warnings, 0 errors
+linking...
+STM32G031F8Px\STM32G031F8Px.axf: Error: L6218E: Undefined symbol FlightStatus (referred from led.o).
+STM32G031F8Px\STM32G031F8Px.axf: Error: L6218E: Undefined symbol Delay_ms (referred from mpu6050.o).
+STM32G031F8Px\STM32G031F8Px.axf: Error: L6218E: Undefined symbol MPU6050 (referred from mpu6050.o).
+STM32G031F8Px\STM32G031F8Px.axf: Error: L6218E: Undefined symbol SPL06_IIC_Write_Bytes (referred from spl06.o).
+STM32G031F8Px\STM32G031F8Px.axf: Error: L6218E: Undefined symbol f_SPL06 (referred from spl06.o).
+STM32G031F8Px\STM32G031F8Px.axf: Error: L6218E: Undefined symbol f_SPL06Params (referred from spl06.o).
+STM32G031F8Px\STM32G031F8Px.axf: Error: L6218E: Undefined symbol FlightAttitude (referred from control.o).
+STM32G031F8Px\STM32G031F8Px.axf: Error: L6218E: Undefined symbol FollowManager (referred from followline.o).
+STM32G031F8Px\STM32G031F8Px.axf: Error: L6218E: Undefined symbol ExpAlt (referred from height_control.o).
+STM32G031F8Px\STM32G031F8Px.axf: Error: L6218E: Undefined symbol FbAlt (referred from height_control.o).
+STM32G031F8Px\STM32G031F8Px.axf: Error: L6218E: Undefined symbol Follow_Init (referred from init.o).
+STM32G031F8Px\STM32G031F8Px.axf: Error: L6218E: Undefined symbol InitComplete (referred from init.o).
+STM32G031F8Px\STM32G031F8Px.axf: Error: L6218E: Undefined symbol LEDInit (referred from init.o).
+STM32G031F8Px\STM32G031F8Px.axf: Error: L6218E: Undefined symbol PollingLED (referred from kernel.o).
+STM32G031F8Px\STM32G031F8Px.axf: Error: L6218E: Undefined symbol SBusRxBuff (referred from remote.o).
+Not enough information to list image symbols.
+Not enough information to list load addresses in the image map.
+Finished: 2 information, 0 warning and 15 error messages.
+"STM32G031F8Px\STM32G031F8Px.axf" - 15 Error(s), 8 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -290,15 +81,15 @@ Package Vendor: Keil
 
 <h2>Collection of Component include folders:</h2>
   .\RTE\_STM32G031F8Px
-  E:\EXE\MDK\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include
-  E:\EXE\MDK\Arm\Packs\Keil\STM32G0xx_DFP\1.4.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include
+  C:\Users\xxzyyds\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include
+  C:\Users\xxzyyds\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.4.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include
 
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.5.0
       Include file:  CMSIS\Core\Include\tz_context.h
 Target not created.
-Build Time Elapsed:  00:00:21
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>
