@@ -71,7 +71,7 @@ void UpdateStatus()
     }
     break;
     case ActionHoverStartPoint:
-        ActionHoldPoint(MAX_HOVER_ERR, 10000, ActionLand);
+        ActionHoldPoint(MAX_HOVER_ERR, 500, ActionLand);
         break;
 
     case ActionLand:
@@ -147,8 +147,8 @@ void ActionHoldPoint(int8_t Err, int16_t HoldTime, FSMList_t NextAction)
 
 void UpdateButton()
 {
-    // ÅÐ¶Ï°´¼ü
-    volatile static uint8_t input = 0;
+    // todo ÅÐ¶Ï°´¼ü
+    volatile static uint8_t input = 1;
 	
     if (input)
     {
