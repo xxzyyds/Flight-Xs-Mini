@@ -24,7 +24,6 @@
 
 
 //Extern引用
-extern uint8_t SBusRxBuff[30];
 extern bool InitComplete;
 extern PID PIDGroup[Num_Of_PIDList];
 
@@ -34,6 +33,7 @@ void RemoteUnlock(void);
 
 
 //私有变量区
+uint8_t SBusRxBuff[30];
 SBusRemote_t SBusRemote;
 uint8_t RC_rxData[32];
 Remote_t Remote;
@@ -174,7 +174,7 @@ void RemotePolling()
 void RemoteUnlock(void)
 {
     volatile static uint8_t status = WAITING_1;
-    static uint8_t cnt = 0;
+//    static uint8_t cnt = 0;
 #ifndef MSP432
     switch(status)
     {
@@ -332,6 +332,6 @@ void RCReceiveHandle()
 ******************************************************************************/
 void UpdateFMUToRemote()
 {
-    uint8_t Buff[QUEUE_DATA_MAXLENGTH];
-    uint8_t length;
+//    uint8_t Buff[QUEUE_DATA_MAXLENGTH];
+//    uint8_t length;
 }

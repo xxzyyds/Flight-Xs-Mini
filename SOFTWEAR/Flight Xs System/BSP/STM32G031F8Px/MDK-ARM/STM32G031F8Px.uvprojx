@@ -10,7 +10,7 @@
       <TargetName>STM32G031F8Px</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>5060960::V5.06 update 7 (build 960)::ARMCC</pCCUsed>
+      <pCCUsed>5060960::V5.06 update 7 (build 960)::.\ARMCC</pCCUsed>
       <uAC6>0</uAC6>
       <TargetOption>
         <TargetCommonOption>
@@ -692,6 +692,11 @@
               <FileName>StatusConfig.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\..\..\SystemCore\Config\StatusConfig.h</FilePath>
+            </File>
+            <File>
+              <FileName>config.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\SystemCore\Config\config.c</FilePath>
             </File>
           </Files>
         </Group>

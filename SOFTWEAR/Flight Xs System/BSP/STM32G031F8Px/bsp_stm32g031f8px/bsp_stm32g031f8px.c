@@ -1,5 +1,5 @@
 #include <bsp_stm32g031f8px.h>
-
+#include <string.h>
 
 
 
@@ -7,6 +7,48 @@ uint8_t UART_Write(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size)
 {
 		return HAL_UART_Transmit_DMA(huart,pData,Size);
 }
+uint8_t BT_UART_TX(char* msg)
+{
+	return HAL_UART_Transmit_DMA(&huart1,(uint8_t*)msg,strlen(msg));
+}
+uint8_t BT_UART_RX(BT_RX_DATA_t* data)
+{
+	return 0;
+}
+uint8_t DEBUG_UART_TX(char* msg)
+{
+	return 0;
+}
+void DEBUG_LED_ON()
+{
+	return;
+}
+
+void DEBUG_LED_OFF()
+{
+	return;
+}
+
+void STATUS_LED_ON()
+{
+	return;
+}
+
+void STATUS_LED_OFF()
+{
+	return;
+}
+
+uint8_t GET_BAT_ADC()
+{
+	return 0;
+}
+
+uint8_t GET_KEY_STATUS()
+{
+	return 0;
+}
+
 
 
 
@@ -36,6 +78,7 @@ void BSP_Init()
 	
 	Update_Motor(0,0,0,0);
 }
+
 void Update_Motor(uint8_t Duty1,uint8_t Duty2,uint8_t Duty3,uint8_t Duty4)    //设置电机Motorx的占空比为Dutyx‰
 {
 	__HAL_TIM_SetCompare(&htim2,TIM_CHANNEL_1,Duty1);
@@ -43,18 +86,7 @@ void Update_Motor(uint8_t Duty1,uint8_t Duty2,uint8_t Duty3,uint8_t Duty4)    //
 	__HAL_TIM_SetCompare(&htim3,TIM_CHANNEL_1,Duty3);
 	__HAL_TIM_SetCompare(&htim3,TIM_CHANNEL_2,Duty4);
 }
-uint8_t BT_UART_TX(char* msg)
-{
-	
-}
-uint8_t BT_UART_RX(BT_RX_DATA_t* data)
-{
-	
-}
-uint8_t DEBUG_UART_TX(char* msg)
-{
-	
-}
+
 // MPU6050
 uint8_t MPU6050_IIC_Write_Byte(uint16_t DevAddress, uint16_t MemAddress, uint8_t pData)
 {
@@ -87,35 +119,9 @@ uint8_t SPL06_IIC_Read_Bytes(uint16_t DevAddress, uint16_t MemAddress, uint8_t *
 {
 	return HAL_I2C_Mem_Read(&hi2c2,DevAddress,MemAddress,I2C_MEMADD_SIZE_8BIT,TMP,len,0xff);
 }
-
-void DEBUG_LED_ON()
+uint8_t SPL06_IIC_Write_Bytes(uint16_t DevAddress, uint16_t MemAddress, uint8_t *TMP, uint8_t len)
 {
-		
-}
-
-void DEBUG_LED_OFF()
-{
-
-}
-
-void STATUS_LED_ON()
-{
-
-}
-
-void STATUS_LED_OFF()
-{
-
-}
-
-uint8_t GET_BAT_ADC()
-{
-
-}
-
-uint8_t GET_KEY_STATUS()
-{
-
+	return HAL_I2C_Mem_Write(&hi2c2,DevAddress,MemAddress,I2C_MEMADD_SIZE_8BIT,TMP,len,0xff);
 }
 
 

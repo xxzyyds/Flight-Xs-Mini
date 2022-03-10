@@ -13,6 +13,9 @@
 #include "StatusConfig.h"
 #include "pidConfig.h"
 #include "mymath.h"
+#include "imu.h"
+#include "pid.h"
+#include "bsp_stm32g031f8px.h"
 
 //∂®“Â
 float PIDGroup_desired_yaw_pos_tmp,fb_gyro_lpf[3];

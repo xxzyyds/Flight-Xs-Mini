@@ -52,8 +52,8 @@ static float hei_err,vel_err,acc_err,acc_err_i,acc_out,wz_out;
 #define A_KI 0.6f
 
 //extern uint8_t fc_state
-extern int16_t ExpAlt;
-extern int16_t FbAlt;
+int16_t ExpAlt;
+int16_t FbAlt;
 uint8_t fc_state_take_off = 0;
 void ALT_Ctrl(float dT_s)
 {

@@ -35,7 +35,7 @@ void power_init(void)
 	*/
 }
 
-static int cnt = 0;
+//static int cnt = 0;
 void power_update(void)
 {
 	/*

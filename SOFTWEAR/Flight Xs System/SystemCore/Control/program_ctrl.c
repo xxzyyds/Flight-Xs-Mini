@@ -81,7 +81,7 @@ void One_Key_Take_off_Land_Ctrl_Task(u8 dT_ms)
 {
     static s32 ref_height;
     static s16 exp_time_ms,runtime_ms;
-    static s16 time_compensate_ms;
+//    static s16 time_compensate_ms;
     
     //触发，通过一键起飞函数置位
     if(one_key_takeoff_f != 0)

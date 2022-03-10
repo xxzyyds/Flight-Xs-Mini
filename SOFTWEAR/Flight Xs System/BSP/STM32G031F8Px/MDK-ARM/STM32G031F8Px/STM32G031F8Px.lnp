@@ -52,6 +52,7 @@
 "stm32g031f8px\sdk.o"
 "stm32g031f8px\speed_estimator.o"
 "stm32g031f8px\mymain.o"
+"stm32g031f8px\config.o"
 "stm32g031f8px\filter.o"
 "stm32g031f8px\imu.o"
 "stm32g031f8px\kalman.o"

@@ -18,6 +18,7 @@
 #include "pidConfig.h"
 #include "StatusConfig.h"
 #include "MPU6050.h"
+#include "remote.h"
 
 //ºê¶¨ÒåÇø
 #define HARDWARE_CHECK_LED    LED_STATUS_ON;LED_POWER_ON;HAL_Delay(100);\

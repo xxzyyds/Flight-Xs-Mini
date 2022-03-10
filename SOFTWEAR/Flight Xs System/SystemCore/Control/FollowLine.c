@@ -13,7 +13,7 @@ extern PID PIDGroup[Num_Of_PIDList];
 extern u16 val, spd;
 extern _program_ctrl_st program_ctrl;
 bool FollowLine = false;
-
+FollowManager_t FollowManager;
 
 void UpdateStatus(void);
 void UpdateAction(float dt);

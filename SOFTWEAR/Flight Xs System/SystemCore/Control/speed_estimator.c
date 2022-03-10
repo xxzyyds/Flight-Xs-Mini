@@ -146,6 +146,7 @@ void WZ_Fus_Reset()
 
 int32_t Terrain_following(int32_t alt,float dt)
 {
+	/*
     static float acc = 0;
     static float velocity = 0;
     static float last_velocity = 0;
@@ -165,7 +166,8 @@ int32_t Terrain_following(int32_t alt,float dt)
     
     last_velocity = velocity;
     last_alt = alt;
-    
+    */
+		
 //    UpdateToGCSLine2(velocity, acc, 0,0,0,0,0,0);
     
     return alt;

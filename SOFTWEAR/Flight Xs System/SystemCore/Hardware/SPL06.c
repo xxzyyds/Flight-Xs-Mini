@@ -59,7 +59,7 @@ float bsp_SPL06_Get_Temperature(SPL06_t *spl06);
 float bsp_SPL06_Get_Pressure(SPL06_t *spl06);
 
 //私有变量区
-SPL06_t device_SPL06;
+//SPL06_t device_SPL06;
 	
 /******************************************************************************
   * 函数名称：SPL06_Init
@@ -403,7 +403,7 @@ void ResetAlt()
         SPL06_IIC_Read_Bytes(addr, regisaddr,data,length)
 
 #define HAL_SPL06_I2C_WRITE(SPL06_SLAVEADDR, regisaddr, data)\
-        SPL06_IIC_Write_Bytes(SPL06_SLAVEADDR, regisaddr, data)
+        SPL06_IIC_Write_Byte(SPL06_SLAVEADDR, regisaddr, data)
 
 #define SPL06_SLAVEADDR						(0x77)		/*SDO Low: 0x77 / SDO High or NC: 0x77*/
 #ifdef SPL06_SLAVEADDR
