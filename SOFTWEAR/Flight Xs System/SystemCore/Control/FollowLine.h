@@ -4,8 +4,7 @@
 #include "stdint.h"
 #include "stdbool.h"
 #include "pid.h"
-#include "fmuConfig.h"
-#include "StatusConfig.h"
+
 
 //µ¥Î»:10ms
 #define MAX_COUNTDOWN 100 * 8

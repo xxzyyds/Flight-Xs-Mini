@@ -120,7 +120,6 @@ extern LedManager_t g_LedManager;
 
 //º¯ÊıÉùÃ÷
 void LEDInit(void);
-void PollingLED(void);
 
 #endif
 

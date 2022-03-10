@@ -839,9 +839,11 @@ Section Cross References
     mpu6050.o(i.GetMPU6050Data) refers to mpu6050.o(.data) for .data
     mpu6050.o(i.GetMPU6050Data) refers to mpu6050.o(.bss) for .bss
     mpu6050.o(i.GetMPU6050Offset) refers to rt_memclr.o(.text) for __aeabi_memclr4
+    mpu6050.o(i.GetMPU6050Offset) refers to stm32g0xx_hal.o(i.HAL_Delay) for HAL_Delay
     mpu6050.o(i.GetMPU6050Offset) refers to mpu6050.o(i.GetMPU6050Data) for GetMPU6050Data
     mpu6050.o(i.GetMPU6050Offset) refers to mpu6050.o(.data) for .data
     mpu6050.o(i.MPU6050Init) refers to bsp_stm32g031f8px.o(i.MPU6050_IIC_Read_Byte) for MPU6050_IIC_Read_Byte
+    mpu6050.o(i.MPU6050Init) refers to stm32g0xx_hal.o(i.HAL_Delay) for HAL_Delay
     mpu6050.o(i.MPU6050Init) refers to bsp_stm32g031f8px.o(i.MPU6050_IIC_Write_Byte) for MPU6050_IIC_Write_Byte
     mpu6050.o(i.MPU6050Init) refers to mpu6050.o(i.GetMPU6050Offset) for GetMPU6050Offset
     spl06.o(i.GetRawPressure) refers to bsp_stm32g031f8px.o(i.SPL06_IIC_Read_Byte) for SPL06_IIC_Read_Byte
@@ -871,6 +873,7 @@ Section Cross References
     spl06.o(i.SPL06_Init) refers to spl06.o(i.CalcParam) for CalcParam
     spl06.o(i.SPL06_Init) refers to spl06.o(i.SetRate) for SetRate
     spl06.o(i.SPL06_Init) refers to spl06.o(i.SelectMode) for SelectMode
+    spl06.o(i.SPL06_Init) refers to stm32g0xx_hal.o(i.HAL_Delay) for HAL_Delay
     spl06.o(i.SPL06_Init) refers to spl06.o(i.UpdateSPL06Info) for UpdateSPL06Info
     spl06.o(i.SelectMode) refers to bsp_stm32g031f8px.o(i.SPL06_IIC_Write_Byte) for SPL06_IIC_Write_Byte
     spl06.o(i.SetRate) refers to bsp_stm32g031f8px.o(i.SPL06_IIC_Write_Byte) for SPL06_IIC_Write_Byte
@@ -908,6 +911,7 @@ Section Cross References
     control.o(i.FlightPidControl) refers to faddsub.o(x$fpl$fsub) for __aeabi_fsub
     control.o(i.FlightPidControl) refers to fscalbn.o(.text) for __ARM_scalbnf
     control.o(i.FlightPidControl) refers to faddsub.o(x$fpl$fadd) for __aeabi_fadd
+    control.o(i.FlightPidControl) refers to f2d.o(.text) for __aeabi_f2d
     control.o(i.FlightPidControl) refers to pid.o(i.ClacCascadePID) for ClacCascadePID
     control.o(i.FlightPidControl) refers to control.o(.data) for .data
     control.o(i.FlightPidControl) refers to pid.o(.bss) for PIDGroup
@@ -940,9 +944,9 @@ Section Cross References
     height_control.o(i.ALT_Ctrl) refers to flef.o(x$fpl$fleqf) for __aeabi_cfcmple
     height_control.o(i.ALT_Ctrl) refers to ffixi.o(.text) for __aeabi_f2iz
     height_control.o(i.ALT_Ctrl) refers to ffixui.o(.text) for __aeabi_f2uiz
-    height_control.o(i.ALT_Ctrl) refers to height_control.o(.bss) for .bss
     height_control.o(i.ALT_Ctrl) refers to height_control.o(.data) for .data
     height_control.o(i.ALT_Ctrl) refers to remote.o(.bss) for Remote
+    height_control.o(i.ALT_Ctrl) refers to height_control.o(.bss) for .bss
     height_control.o(i.ALT_Ctrl) refers to sdk.o(.bss) for sdk_manager
     init.o(i.Hadrware_Init) refers to mpu6050.o(i.MPU6050Init) for MPU6050Init
     init.o(i.Hadrware_Init) refers to spl06.o(i.SPL06Init) for SPL06Init
@@ -980,7 +984,6 @@ Section Cross References
     program_ctrl.o(i.One_Key_Take_off_Land_Ctrl_Task) refers to program_ctrl.o(.data) for .data
     program_ctrl.o(i.One_Key_Take_off_Land_Ctrl_Task) refers to program_ctrl.o(.bss) for .bss
     program_ctrl.o(i.One_Key_Take_off_Land_Ctrl_Task) refers to height_control.o(.data) for fc_state_take_off
-    program_ctrl.o(i.One_Key_Take_off_Land_Ctrl_Task) refers to height_control.o(.bss) for HeightInfo
     program_ctrl.o(i.One_Key_Takeoff) refers to program_ctrl.o(.data) for .data
     program_ctrl.o(i.Program_Ctrl_Task) refers to program_ctrl.o(i.FlyCtrlReset) for FlyCtrlReset
     program_ctrl.o(i.Program_Ctrl_Task) refers to stm32g0xx_hal_dma.o(i.__ARM_common_switch8) for __ARM_common_switch8
@@ -1048,21 +1051,14 @@ Section Cross References
     sdk.o(i.sdk_round_set) refers to sdk.o(i.sdk_yaw_set) for sdk_yaw_set
     sdk.o(i.sdk_round_set) refers to sdk.o(.bss) for .bss
     sdk.o(i.sdk_takeoff) refers to sdk.o(.bss) for .bss
-    sdk.o(i.sdk_update) refers to sdk.o(i.sdk_update_s_2) for sdk_update_s_2
     sdk.o(i.sdk_update) refers to faddsub.o(x$fpl$fadd) for __aeabi_fadd
     sdk.o(i.sdk_update) refers to faddsub.o(x$fpl$fsub) for __aeabi_fsub
     sdk.o(i.sdk_update) refers to pid.o(i.UpdatePID) for UpdatePID
     sdk.o(i.sdk_update) refers to pid.o(i.reset_i) for reset_i
-    sdk.o(i.sdk_update) refers to height_control.o(.bss) for HeightInfo
     sdk.o(i.sdk_update) refers to sdk.o(.bss) for .bss
     sdk.o(i.sdk_update) refers to sdk.o(.data) for .data
     sdk.o(i.sdk_update) refers to control.o(.data) for PIDGroup_desired_yaw_pos_tmp
     sdk.o(i.sdk_update) refers to pid.o(.bss) for PIDGroup
-    sdk.o(i.sdk_update_s_2) refers to faddsub.o(x$fpl$fadd) for __aeabi_fadd
-    sdk.o(i.sdk_update_s_2) refers to fflti.o(.text) for __aeabi_ui2f
-    sdk.o(i.sdk_update_s_2) refers to fdiv.o(.text) for __aeabi_fdiv
-    sdk.o(i.sdk_update_s_2) refers to faddsub.o(x$fpl$fsub) for __aeabi_fsub
-    sdk.o(i.sdk_update_s_2) refers to fmul.o(x$fpl$fmul) for __aeabi_fmul
     sdk.o(i.sdk_velocity_reset) refers to sdk.o(.bss) for .bss
     sdk.o(i.sdk_velocity_set) refers to sdk.o(.bss) for .bss
     sdk.o(i.sdk_velociyt_x_set) refers to sdk.o(.bss) for .bss
@@ -1084,7 +1080,6 @@ Section Cross References
     speed_estimator.o(i.Terrain_following) refers to speed_estimator.o(.data) for .data
     speed_estimator.o(i.WZ_Est_Calcu) refers to fmul.o(x$fpl$fmul) for __aeabi_fmul
     speed_estimator.o(i.WZ_Est_Calcu) refers to faddsub.o(x$fpl$fadd) for __aeabi_fadd
-    speed_estimator.o(i.WZ_Est_Calcu) refers to height_control.o(.bss) for HeightInfo
     speed_estimator.o(i.WZ_Est_Calcu) refers to speed_estimator.o(.data) for .data
     speed_estimator.o(i.WZ_Fix_Calcu) refers to fmul.o(x$fpl$fmul) for __aeabi_fmul
     speed_estimator.o(i.WZ_Fix_Calcu) refers to faddsub.o(x$fpl$fadd) for __aeabi_fadd
@@ -1092,7 +1087,6 @@ Section Cross References
     speed_estimator.o(i.WZ_Fix_Calcu) refers to speed_estimator.o(i.WZ_Fus_Reset) for WZ_Fus_Reset
     speed_estimator.o(i.WZ_Fix_Calcu) refers to speed_estimator.o(.data) for .data
     speed_estimator.o(i.WZ_Fix_Calcu) refers to speed_estimator.o(.bss) for .bss
-    speed_estimator.o(i.WZ_Fix_Calcu) refers to height_control.o(.bss) for HeightInfo
     speed_estimator.o(i.WZ_Fus_Reset) refers to speed_estimator.o(.data) for .data
     speed_estimator.o(i.WZ_Obs_Calcu) refers to fmul.o(x$fpl$fmul) for __aeabi_fmul
     speed_estimator.o(i.WZ_Obs_Calcu) refers to ffixi.o(.text) for __aeabi_f2iz
@@ -1124,7 +1118,6 @@ Section Cross References
     imu.o(i.ATT_Update) refers to fflti.o(.text) for __aeabi_i2f
     imu.o(i.ATT_Update) refers to mymath.o(i.Q_rsqrt) for Q_rsqrt
     imu.o(i.ATT_Update) refers to imu.o(.data) for .data
-    imu.o(i.ATT_Update) refers to height_control.o(.bss) for HeightInfo
     imu.o(i.GetAngle) refers to fmul.o(x$fpl$fmul) for __aeabi_fmul
     imu.o(i.GetAngle) refers to faddsub.o(x$fpl$fadd) for __aeabi_fadd
     imu.o(i.GetAngle) refers to fscalbn.o(.text) for __ARM_scalbnf
@@ -2164,7 +2157,7 @@ Removing Unused input sections from the image.
     Removing height_control.o(.revsh_text), (4 bytes).
     Removing init.o(.rev16_text), (4 bytes).
     Removing init.o(.revsh_text), (4 bytes).
-    Removing init.o(i.Hadrware_Init), (56 bytes).
+    Removing init.o(i.Hadrware_Init), (48 bytes).
     Removing init.o(i.PID_Init), (120 bytes).
     Removing init.o(.bss), (332 bytes).
     Removing init.o(.data), (4 bytes).
@@ -2268,4 +2261,4 @@ Removing Unused input sections from the image.
     Removing bsp_stm32g031f8px.o(i.UART_Write), (8 bytes).
     Removing stm32g0xx_hal_dma.o(i.__ARM_common_switch8), (26 bytes).
 
-699 unused section(s) (total 52110 bytes) removed from the image.
+699 unused section(s) (total 52102 bytes) removed from the image.

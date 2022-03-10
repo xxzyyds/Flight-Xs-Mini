@@ -20,10 +20,10 @@
 #include "MPU6050.h"
 
 //宏定义区
-#define HARDWARE_CHECK_LED    LED_STATUS_ON;LED_POWER_ON;Delay_ms(100);\
-                              LED_STATUS_OFF;LED_POWER_OFF;Delay_ms(100);\
-                              LED_STATUS_ON;LED_POWER_ON;Delay_ms(100);\
-                              LED_STATUS_OFF;LED_POWER_OFF;Delay_ms(100);
+#define HARDWARE_CHECK_LED    LED_STATUS_ON;LED_POWER_ON;HAL_Delay(100);\
+                              LED_STATUS_OFF;LED_POWER_OFF;HAL_Delay(100);\
+                              LED_STATUS_ON;LED_POWER_ON;HAL_Delay(100);\
+                              LED_STATUS_OFF;LED_POWER_OFF;HAL_Delay(100);
 #ifdef STM32
 #define HARDWARE_CHECK        MPU6050.Check && \
                               g_SPL06Manager.Check && \
@@ -52,12 +52,10 @@ Queue_t USB_Send_Queue;
  void Hadrware_Init(void)
 {
 
-    //POWER管理
-    LEDInit();                      //LED闪灯初始化
+    // LEDInit();                      //LED闪灯初始化
     MPU6050Init();                  //MPU6050初始化
     SPL06Init();                    //SPL06初始化
     PID_Init();                     //PID参数初始化
-    Follow_Init();                  //巡线控制器初始化
     Remote_init();                  //遥控器初始化
     sdk_init();                     //SDK初始化
     

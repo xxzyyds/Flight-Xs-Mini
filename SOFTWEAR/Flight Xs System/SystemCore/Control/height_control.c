@@ -1,21 +1,3 @@
-/**
-  ******************************************************************************
-  * Copyright (c) 2018,北京中科浩电科技有限公司
-  * All rights reserved.
-  * 文件名称：height_control.c
-  * 摘    要：
-  *
-  * 当前版本：V1.0
-  * 作    者：北京中科浩电科技有限公司研发部 
-  * 完成日期：    
-  * 修改说明：
-  * 
-  *
-  * 历史版本：
-  *
-  *
-  *******************************************************************************/
-
 /*==============================================================================
                          ##### How to use this driver #####
 ==============================================================================
@@ -25,18 +7,16 @@
 */
 //外部文件引用
 #include "height_control.h"
-#include "control.h"
 #include "SPL06.h"
 #include "imu.h"
-#include "mpu6050.h"
 #include "fmuConfig.h"
+#include "StatusConfig.h"
 #include "myMath.h"
 #include "math.h"
 #include "Remote.h"
 #include "pid.h"
 #include "sdk.h"
-//私有变量区
-HeightInfo_t HeightInfo;
+
 
 //程序移植映射表
 //=====mapping=====
@@ -179,5 +159,3 @@ void ALT_Ctrl(float dT_s)
 		fc_state_take_off = 1;
 	}
 }
-
-/******************* (C) 版权所有 2018 北京中科浩电科技有限公司 *******************/

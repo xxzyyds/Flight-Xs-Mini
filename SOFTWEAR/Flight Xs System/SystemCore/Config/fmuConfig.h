@@ -1,18 +1,7 @@
 #ifndef __FMU_CONFIG_H
 #define __FMU_CONFIG_H
 //外部文件引用
-#include "include.h"
-#include "stdint.h"
-#include "stdbool.h"
-#include "pid.h"
-#include "include.h"
-#include "height_control.h"
-#include "remote.h"
-#include "battery.h"
-#include "control.h"
-#include "StatusConfig.h"
 #include "SPL06.h"
-
 //宏定义区
 /*开启相关硬件*/
 //设备选择区

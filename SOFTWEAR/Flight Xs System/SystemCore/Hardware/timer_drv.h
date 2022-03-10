@@ -14,7 +14,7 @@
 void SysTick_Configuration(void);
 void Delay(uint32_t);
 void Delay_us(uint32_t nTime);
-void Delay_ms(uint32_t nTime);	 //单位ms
+void HAL_Delay(uint32_t nTime);	 //单位ms
 
 uint32_t GetSysTime_us(void);
 

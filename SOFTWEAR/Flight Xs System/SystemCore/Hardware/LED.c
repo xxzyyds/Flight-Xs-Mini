@@ -4,15 +4,13 @@
 
 //外部文件引用
 #include "LED.h"
-#include "control.h"
-#include "Hardware.h"
-#include "battery.h"
-#include "timer_drv.h"
-#include "fmuConfig.h"
 #include "StatusConfig.h"
+#include "FollowLine.h"
+
 
 //宏定义区
 #define LED_FLASH_FREQ      100 
+
 
 
 //私有函数区
@@ -23,8 +21,7 @@ void LEDEventHandle(void);
 LedManager_t g_LedManager;
 
 
-#include "FollowLine.h"
-extern FollowManager_t FollowManager;
+
 
 //LED灯处理函数
 void LEDEventHandle()

@@ -42,9 +42,24 @@ typedef struct{
     float yaw;
 } f_AL;
 
+//数据结构声明
+typedef struct
+{
+    float Z_Speed;
+    float Z_Acc;
+    float Z_Postion;
+
+    float Alt;
+    uint16_t Thr;
+}f_HeightInfo;
+
+
+//Extern引用
+extern f_HeightInfo HeightInfo;
+
 //当前角度姿态值
 extern f_AL FlightAttitude;
 extern f_Status FlightStatus;
-
+extern bool InitComplete;
 
 #endif

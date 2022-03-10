@@ -20,25 +20,11 @@
 //外部文件引用
 #include "main.h"
 
-
 //宏定义区
 
 
 
-//数据结构声明
-typedef struct
-{
-    float Z_Speed;
-    float Z_Acc;
-    float Z_Postion;
 
-    float Alt;
-    uint16_t Thr;
-}HeightInfo_t;
-
-
-//Extern引用
-extern HeightInfo_t HeightInfo;
 extern uint8_t fc_state_take_off;
 
 //函数声明

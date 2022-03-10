@@ -98,8 +98,5 @@ void KernelPolling()
         //Î»ÖÃ¿ØÖÆÆ÷
         POS_Ctrl(0.02f);
     }
-
-    //LEDÂÖÑµº¯Êý
-    PollingLED();
 		
 }

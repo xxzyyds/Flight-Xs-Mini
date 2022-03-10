@@ -79,19 +79,19 @@ bool MPU6050Init(void) //初始化
     }
     else
     {
-        Delay_ms(200);
+        HAL_Delay(200);
         MPU6050_IIC_Write_Byte(MPU6050_ADDRESS, PWR_MGMT_1,    0x80);   //复位
-        Delay_ms(200);
+        HAL_Delay(200);
         MPU6050_IIC_Write_Byte(MPU6050_ADDRESS, SMPLRT_DIV,   0x00);   //陀螺仪采样率，0x00(1000Hz)
-        Delay_ms(10);
+        HAL_Delay(10);
         MPU6050_IIC_Write_Byte(MPU6050_ADDRESS, PWR_MGMT_1,   0x03);   //设置设备时钟源，陀螺仪Z轴
-        Delay_ms(10);
+        HAL_Delay(10);
         MPU6050_IIC_Write_Byte(MPU6050_ADDRESS, CONFIGL,      0x04);   //低通滤波频率，0x03(42Hz)
-        Delay_ms(10);
+        HAL_Delay(10);
         MPU6050_IIC_Write_Byte(MPU6050_ADDRESS, GYRO_CONFIG,  0x18);   //+-2000deg/s
-        Delay_ms(10);
+        HAL_Delay(10);
         MPU6050_IIC_Write_Byte(MPU6050_ADDRESS, ACCEL_CONFIG, 0x18);   //+-16
-        Delay_ms(10);
+        HAL_Delay(10);
         
         GetMPU6050Offset(); //调用校准数据
         MPU6050.Check = true;
@@ -161,7 +161,7 @@ void GetMPU6050Offset(void) //校准
     //丢弃前300个数据
     for(int i = 0;i < 300;i++)
     {   
-        Delay_ms(2);
+        HAL_Delay(2);
         GetMPU6050Data();
     }
     
@@ -171,7 +171,7 @@ void GetMPU6050Offset(void) //校准
         static int cnt = 0;
         cnt++;
         
-        Delay_ms(2);
+        HAL_Delay(2);
         GetMPU6050Data();
         
         if(MPU6050.accX < 400 && MPU6050.accX > -400 && 

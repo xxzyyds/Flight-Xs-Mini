@@ -106,5 +106,5 @@ void SysTickHandle(void);
 #endif
 
 
-//void Delay_ms(uint16_t ms);
+//void HAL_Delay(uint16_t ms);
 void beep_Update(uint16_t M1, uint16_t M2, uint16_t M3, uint16_t M4);

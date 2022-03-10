@@ -155,12 +155,12 @@ void Motor_Calc()
     Timer_A_setCompareValue (TIMER_A2_BASE, TIMER_A_CAPTURECOMPARE_REGISTER_1, 2000);
     Timer_A_setCompareValue (TIMER_A0_BASE, TIMER_A_CAPTURECOMPARE_REGISTER_3, 2000);
     Timer_A_setCompareValue (TIMER_A0_BASE, TIMER_A_CAPTURECOMPARE_REGISTER_4, 2000);
-    Delay_ms(1500);
+    HAL_Delay(1500);
     Timer_A_setCompareValue (TIMER_A0_BASE, TIMER_A_CAPTURECOMPARE_REGISTER_1, 1000);
     Timer_A_setCompareValue (TIMER_A2_BASE, TIMER_A_CAPTURECOMPARE_REGISTER_1, 1000);
     Timer_A_setCompareValue (TIMER_A0_BASE, TIMER_A_CAPTURECOMPARE_REGISTER_3, 1000);
     Timer_A_setCompareValue (TIMER_A0_BASE, TIMER_A_CAPTURECOMPARE_REGISTER_4, 1000);
-    Delay_ms(1500);
+    HAL_Delay(1500);
 }
 */
 /******************* (C) 版权所有 2018 北京中科浩电科技有限公司 *******************/

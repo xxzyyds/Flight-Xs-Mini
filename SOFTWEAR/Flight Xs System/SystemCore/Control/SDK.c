@@ -134,7 +134,6 @@ void sdk_update(float dt)
     //更新位置的时候记得旋转坐标系
     sdk_update_position();
 
-    sdk_update_s_2(HeightInfo.Z_Postion, &s2_height);
     
     switch (sdk_manager.sdk_alt_step)
     {
@@ -559,36 +558,4 @@ void RotateLocation(int16_t *input, int16_t *output, float xita)
     float sindata = sinf(xita / 57.3f);
     output[0] = input[0] * cosdata + input[1] * sindata;
     output[1] = input[0] * -sindata + input[1] * cosdata;
-}
-
-
-void sdk_update_s_2(float raw, s2_t *s2)
-{
-    float sum = 0;
-    float avg = 0;
-    
-//    memmove(s2->data_temp + 1, s2->data_temp, s2->length - 1);
-    
-    for(int i = 1;i < s2->length;i++)
-    {
-        s2->data_temp[i] = s2->data_temp[i - 1];
-    }
-    s2->data_temp[0] = raw;
-    
-    //计算avg
-    for(int i = 0;i < s2->length;i++)
-    {
-        sum += s2->data_temp[i];
-    }
-    
-    avg = sum / s2->length;
-    
-    //计算s2
-    sum = 0;
-    for(int i = 0;i < s2->length;i++)
-    {
-        sum += squa(s2->data_temp[i] - avg);
-    }
-    
-    s2->s2 = sum / (s2->length - 1);
 }

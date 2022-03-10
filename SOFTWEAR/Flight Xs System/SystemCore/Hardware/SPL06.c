@@ -17,7 +17,6 @@ SPL06驱动可按如下方式使用：
 #include "include.h"
 #include <stdio.h>
 #include "timer_drv.h"
-#include "fmuConfig.h"
 #include "StatusConfig.h"
 #include "bsp_stm32g031f8px.h"
 
@@ -91,7 +90,7 @@ void SPL06_Init(void)
     SetRate(PRESSURE_SENSOR, 128, 32);   
     SetRate(TEMPERATURE_SENSOR, 32, 8);
     SelectMode(CONTINUOUS_P_AND_T);
-    Delay_ms(3000);
+    HAL_Delay(3000);
     
     UpdateSPL06Info();
     f_SPL06.fGround_Alt = f_SPL06.fALT;

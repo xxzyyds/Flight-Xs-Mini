@@ -149,7 +149,7 @@ void MotorControl(void)
             {
                 FlightStatus.take_off = 0;    
                 FlightStatus.height_lock = 0; 
-                status = WAITING_2;
+                status = WAITING_1;
             }
         //等待状态2
         case WAITING_1:
@@ -157,7 +157,7 @@ void MotorControl(void)
 								// todo: 如果  不处于一键起飞并且 目标Z速度 小于0， 怠速 
 								if(FlightStatus.Auto || FlightStatus.take_off) //刚解锁时，如果，认为操作者还不想飞行
                 {
-                    status = PROCESS_31;
+                    status = PROCESS;
                 }
 								
                 //怠速电机转速
@@ -179,7 +179,7 @@ void MotorControl(void)
                 || FlightAttitude.roll  > MAX_ISFD_ATTITUDE)
                 {
                     FlightStatus.unlock = 0;
-                    status = EXIT_255;
+                    status = EXIT;
                     ResetAlt();
                     ResetPID();
                     IMU_Reset();

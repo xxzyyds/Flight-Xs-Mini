@@ -51,13 +51,13 @@ void power_update(void)
             {
                 cnt = 0;
                 LED_RGB_R_ON;
-                Delay_ms(100);
+                HAL_Delay(100);
                 LED_RGB_R_OFF;
-                Delay_ms(100);
+                HAL_Delay(100);
                 LED_RGB_R_ON;
-                Delay_ms(100);
+                HAL_Delay(100);
                 LED_RGB_R_OFF;
-                Delay_ms(100);
+                HAL_Delay(100);
                 POWER_MANAGER_OFF;
                 while(1);
             }

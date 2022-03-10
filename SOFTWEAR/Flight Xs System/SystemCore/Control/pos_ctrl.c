@@ -4,6 +4,7 @@
 #include "myMath.h"
 #include "program_ctrl.h"
 #include "sdk.h"
+#include "fmuConfig.h"
 
 //≥Ã–Ú“∆÷≤”≥…‰±Ì
 //=====mapping=====

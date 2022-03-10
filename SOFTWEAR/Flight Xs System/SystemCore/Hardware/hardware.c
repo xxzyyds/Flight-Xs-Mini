@@ -26,7 +26,7 @@ void MCU_Init(void)
     Motor_Init();
     
     //100ms延时，用于等待光流初始化，不要删除此语句！
-    Delay_ms(100);
+    HAL_Delay(100);
     
     //IIC初始化
     I2C_Init();
@@ -161,7 +161,7 @@ void Hardware_LED_MOTOR4_TOGGLE(void)
 
 }
 */
-//void Delay_ms(uint16_t ms)
+//void HAL_Delay(uint16_t ms)
 //{
 //    uint32_t curTicks;
 //    curTicks = msTicks;

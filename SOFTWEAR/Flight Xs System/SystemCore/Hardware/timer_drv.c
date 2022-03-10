@@ -62,7 +62,7 @@ void Delay_us(uint32_t nTime)
 	while(GetSysTime_us()-now<nTime);
 }
 
-void Delay_ms(uint32_t nTime)
+void HAL_Delay(uint32_t nTime)
 { 
   uint16_t i ;
 	for(i=0;i<nTime;i++)

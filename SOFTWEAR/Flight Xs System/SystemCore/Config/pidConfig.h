@@ -52,9 +52,4 @@ typedef enum
     Num_Of_PIDList,
 }PIDList;
 
-//PID PIDGroup[Num_Of_PIDList];
-
-// height pid
-
-
 #endif
