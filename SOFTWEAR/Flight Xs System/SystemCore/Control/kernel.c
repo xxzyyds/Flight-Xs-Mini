@@ -40,12 +40,24 @@ void KernelPolling()
 {
     static uint32_t Cnt = 0;
 
+		if(!InitComplete) 
+		{
+			DEBUG_LED_ON();
+			STATUS_LED_ON();
+			return;
+		}
+		
 		// todo : init and kernel check
-    
+		if(!timetick)
+		{
+			return;
+		}
+		timetick = 0;
+	
     //时间段轮询计数
     Cnt++;
 	
-		if (Cnt % 3 == 0){
+		if ((Cnt+1) % 3 == 0){
 				// 获取MPU6050的原始数据
         GetMPU6050Data();
         

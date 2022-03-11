@@ -62,4 +62,7 @@ extern f_AL FlightAttitude;
 extern f_Status FlightStatus;
 extern bool InitComplete;
 
+//time 1ms
+extern uint8_t timetick;
+
 #endif

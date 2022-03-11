@@ -1,6 +1,6 @@
 #include <bsp_stm32g031f8px.h>
 #include <string.h>
-
+#include "StatusConfig.h"
 
 
 uint8_t UART_Write(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size)
@@ -19,41 +19,52 @@ uint8_t DEBUG_UART_TX(char* msg)
 {
 	return 0;
 }
-void DEBUG_LED_ON()
-{
-	return;
-}
-
-void DEBUG_LED_OFF()
-{
-	return;
-}
-
-void STATUS_LED_ON()
-{
-	return;
-}
-
-void STATUS_LED_OFF()
-{
-	return;
-}
-
 uint8_t GET_BAT_ADC()
 {
 	return 0;
 }
 
+
+
+
+
+void DEBUG_LED_ON()
+{
+	HAL_GPIO_WritePin(DEBUG_LED_GPIO_Port,DEBUG_LED_Pin,GPIO_PIN_RESET);
+	return;
+}
+
+void DEBUG_LED_OFF()
+{
+	HAL_GPIO_WritePin(DEBUG_LED_GPIO_Port,DEBUG_LED_Pin,GPIO_PIN_SET);
+	return;
+}
+
+void STATUS_LED_ON()
+{
+	HAL_GPIO_WritePin(STATUS_LED_GPIO_Port,STATUS_LED_Pin,GPIO_PIN_RESET);
+	return;
+}
+
+void STATUS_LED_OFF()
+{
+	HAL_GPIO_WritePin(STATUS_LED_GPIO_Port,STATUS_LED_Pin,GPIO_PIN_SET);
+	return;
+}
+
 uint8_t GET_KEY_STATUS()
 {
-	return 0;
+	return HAL_GPIO_ReadPin(KEY_GPIO_Port,KEY_Pin);
 }
 
 
 
 
-
-
+uint8_t timetick=0;
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+	timetick=1;
+}
 
 
 void BSP_Init()
@@ -71,12 +82,17 @@ void BSP_Init()
   MX_USART2_UART_Init();
   MX_TIM1_Init();
 	
+	HAL_TIM_Base_Start_IT(&htim1);
+	
 	HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
 	HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_2);
 	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
 	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_2);
 	
 	Update_Motor(0,0,0,0);
+	
+	STATUS_LED_OFF();
+	DEBUG_LED_OFF();
 }
 
 void Update_Motor(uint8_t Duty1,uint8_t Duty2,uint8_t Duty3,uint8_t Duty4)    //设置电机Motorx的占空比为Dutyx‰
