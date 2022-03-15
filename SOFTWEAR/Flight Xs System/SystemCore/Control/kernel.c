@@ -44,7 +44,7 @@ void KernelPolling()
     
     //时间段轮询计数
     Cnt++;
-	
+		FlightStatus.unlock = 1;
 		if (Cnt % 3 == 0){
 				// 获取MPU6050的原始数据
         GetMPU6050Data();
