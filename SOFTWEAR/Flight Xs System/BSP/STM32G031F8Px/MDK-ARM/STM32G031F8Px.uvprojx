@@ -10,7 +10,7 @@
       <TargetName>STM32G031F8Px</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>5060960::V5.06 update 7 (build 960)::ARMCC</pCCUsed>
+      <pCCUsed>5060960::V5.06 update 7 (build 960)::.\ARMCC</pCCUsed>
       <uAC6>0</uAC6>
       <TargetOption>
         <TargetCommonOption>
@@ -138,7 +138,7 @@
           </Flash1>
           <bUseTDR>1</bUseTDR>
           <Flash2>BIN\UL2V8M.DLL</Flash2>
-          <Flash3></Flash3>
+          <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32G031xx</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc; ../Drivers/STM32G0xx_HAL_Driver/Inc; ../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy; ../Drivers/CMSIS/Device/ST/STM32G0xx/Include; ../Drivers/CMSIS/Include; ..\..\..\SystemCore\Config; ..\..\..\SystemCore\Control; ..\..\..\SystemCore\Hardware; ..\..\..\SystemCore\Math; ..\bsp_stm32g031f8px</IncludePath>
+              <IncludePath>../Core/Inc;  ../Drivers/STM32G0xx_HAL_Driver/Inc;  ../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy;  ../Drivers/CMSIS/Device/ST/STM32G0xx/Include;  ../Drivers/CMSIS/Include;  ..\..\..\SystemCore\Config;  ..\..\..\SystemCore\Control;  ..\..\..\SystemCore\Hardware;  ..\..\..\SystemCore\Math;  ..\bsp_stm32g031f8px</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>

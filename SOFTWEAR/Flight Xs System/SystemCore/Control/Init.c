@@ -57,7 +57,7 @@ Queue_t USB_Send_Queue;
     MPU6050Init();                  //MPU6050初始化
     SPL06Init();                    //SPL06初始化
     PID_Init();                     //PID参数初始化
-    Remote_init();                  //遥控器初始化
+//    Remote_init();                  //遥控器初始化
     sdk_init();                     //SDK初始化
     
     //判断MPU6050和SPL06初始化是否成功
